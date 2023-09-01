@@ -4,31 +4,97 @@ using UnityEngine;
 
 public class Aimbot : MonoBehaviour
 {
-    public Transform objetivo;
+    public string etiquetaObjetivo = "Enemy";
+    public string etiquetaObjetivo2 = "BiggerEnemy";
+    private Transform objetivoActual;
+    private float distanciaMinima = Mathf.Infinity;
     public float campoVision = 180f;
+    public float rangoMaximo = 10f;
     public float cadenciaDisparo = 2f;
     public float velocidadBala = 10f;
-    public float tiempoDestruccionBala = 3f;
     public GameObject balaPrefab;
     public Transform puntoDisparo;
     private float tiempoUltimoDisparo;
+    public int resistencia = 5;
+
+    private bool estaDestruido = false;
 
     private void Update()
     {
-        if (objetivo != null)
+        EncontrarObjetivoMasCercano();
+
+        if (objetivoActual != null)
         {
-            Vector3 direccion = objetivo.position - transform.position;
+            Vector3 direccion = objetivoActual.position - transform.position;
+            float distancia = direccion.magnitude;
 
-            float angulo = Vector3.Angle(direccion, transform.forward);
-
-            if (angulo < campoVision / 2)
+            if (distancia <= rangoMaximo)
             {
-                if (Time.time - tiempoUltimoDisparo > cadenciaDisparo)
+                float angulo = Vector3.Angle(direccion, transform.forward);
+
+                if (angulo < campoVision / 2)
                 {
-                    Disparar();
-                    tiempoUltimoDisparo = Time.time;
+                    Vector3 direccionSinY = direccion;
+                    direccionSinY.y = 0;
+                    Quaternion rotacionDeseada = Quaternion.LookRotation(direccionSinY);
+                    transform.rotation = rotacionDeseada;
+
+                    if (Time.time - tiempoUltimoDisparo > cadenciaDisparo)
+                    {
+                        Disparar();
+                        tiempoUltimoDisparo = Time.time;
+                    }
                 }
             }
+        }
+    }
+
+    void EncontrarObjetivoMasCercano()
+    {
+        distanciaMinima = Mathf.Infinity;
+        objetivoActual = null;
+
+        GameObject[] objetivos = GameObject.FindGameObjectsWithTag(etiquetaObjetivo);
+
+        foreach (GameObject objetivo in objetivos)
+        {
+            if (objetivo != null)
+            {
+                Vector3 direccion = objetivo.transform.position - transform.position;
+                float distancia = direccion.magnitude;
+
+                if (distancia < distanciaMinima)
+                {
+                    distanciaMinima = distancia;
+                    objetivoActual = objetivo.transform;
+                }
+            }
+        }
+
+        GameObject[] objetivos2 = GameObject.FindGameObjectsWithTag(etiquetaObjetivo2);
+
+        foreach (GameObject objetivo in objetivos2)
+        {
+            if (objetivo != null)
+            {
+                Vector3 direccion = objetivo.transform.position - transform.position;
+                float distancia = direccion.magnitude;
+
+                if (distancia < distanciaMinima)
+                {
+                    distanciaMinima = distancia;
+                    objetivoActual = objetivo.transform;
+                }
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(etiquetaObjetivo) || collision.gameObject.CompareTag(etiquetaObjetivo2))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
     }
 
@@ -39,6 +105,6 @@ public class Aimbot : MonoBehaviour
         Rigidbody rb = bala.GetComponent<Rigidbody>();
         rb.velocity = puntoDisparo.forward * velocidadBala;
 
-        Destroy(bala, tiempoDestruccionBala);
+        Destroy(bala, 1f);
     }
 }
