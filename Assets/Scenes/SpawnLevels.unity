@@ -153,6 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _LeveltoSpawn: {fileID: 6616349714211670350, guid: cdf601b385160984c8cf7608bd5720bb, type: 3}
+  _LeveltoSpawn1: {fileID: 6923810686910579328, guid: 14bda4c6b49a66e46b190ec4b238c880, type: 3}
+  _LeveltoSpawn2: {fileID: 7293769452860647636, guid: 7856a3fae9cc2894eac7d6dc23bc29bf, type: 3}
+  _LeveltoSpawn3: {fileID: 3117711762265524584, guid: d436c00e3be9d9f4f84a472c67e9bbb2, type: 3}
+  _randAgregator: 5
 --- !u!4 &434824044
 Transform:
   m_ObjectHideFlags: 0
