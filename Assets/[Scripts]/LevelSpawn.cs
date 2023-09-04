@@ -3,43 +3,17 @@ using UnityEngine;
 
 public class LevelSpawn : MonoBehaviour
 {
-    [SerializeField] private GameObject _LeveltoSpawn = default;
-    [SerializeField] private GameObject _LeveltoSpawn1 = default;
-    [SerializeField] private GameObject _LeveltoSpawn2 = default;
-    [SerializeField] private GameObject _LeveltoSpawn3 = default;
-    [SerializeField] private int _randAgregator = 5;
-    //[SerializeField] private bool _levels[5];
-    private string randMsg = " The Value is ";
+    [SerializeField] private GameObject[] _levelPrefabs;
     void Start()
     {
-        //Instantiate(_LeveltoSpawn);
+        int randomLevel = Random.Range(0, _levelPrefabs.Length);
+        Instantiate(_levelPrefabs[randomLevel], transform.position, Quaternion.identity);
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            var rando = Random.Range(0, 3) * _randAgregator;
-            print(randMsg + rando);
-            if (rando == 0)
-            {
-                Instantiate(_LeveltoSpawn);
-            }
-
-            if (rando == 1)
-            {
-                Instantiate(_LeveltoSpawn1);
-            }
-
-            if (rando == 2)
-            {
-                Instantiate(_LeveltoSpawn2);
-            }
-
-            if (rando == 3)
-            {
-                Instantiate(_LeveltoSpawn3);
-            }
-        }
+        
     }
-    //TODO: Make the missing prefabs, and test the Script.
+    //TODO: Test the New Version of the Script else click on the following link and start adapting from there
+    // https://stackoverflow.com/questions/65713832/spawning-random-gameobject-in-map-no-repetitions
+    
 }

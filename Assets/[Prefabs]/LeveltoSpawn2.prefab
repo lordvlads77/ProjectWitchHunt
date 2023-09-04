@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 6982768224412125412}
   m_Layer: 0
   m_Name: LeveltoSpawn2
-  m_TagString: Untagged
+  m_TagString: LevelToSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
