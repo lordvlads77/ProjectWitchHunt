@@ -4,11 +4,19 @@ using UnityEngine.UI;
 
 public class ControladorPersonaje : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
-    public Image joystickBase;
-    public Image joystickDeslizante;
-    public float velocidadMovimiento = 5.0f;
+    [SerializeField]
+    private Image joystickBase;
 
+    [SerializeField]
+    private Image joystickDeslizante;
+
+    [SerializeField]
+    private float velocidadMovimiento = 5.0f;
+
+    [SerializeField]
     private Vector3 direccionMovimiento = Vector3.zero;
+
+    [SerializeField]
     private bool joystickTocado = false;
 
     public void OnPointerDown(PointerEventData eventData)

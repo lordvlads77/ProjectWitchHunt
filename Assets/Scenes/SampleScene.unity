@@ -500,6 +500,8 @@ MonoBehaviour:
   joystickBase: {fileID: 1876509977}
   joystickDeslizante: {fileID: 1812010647}
   velocidadMovimiento: 5
+  direccionMovimiento: {x: 0, y: 0, z: 0}
+  joystickTocado: 1
 --- !u!1 &1092447543
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,7 +714,7 @@ GameObject:
   - component: {fileID: 1812010648}
   - component: {fileID: 1812010647}
   m_Layer: 5
-  m_Name: JoyStick Deslizante
+  m_Name: joystickDeslizante
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -735,7 +737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -177.70001, y: -185.79999}
+  m_AnchoredPosition: {x: -82.40001, y: -185.79999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1812010647
@@ -788,7 +790,7 @@ GameObject:
   - component: {fileID: 1876509978}
   - component: {fileID: 1876509977}
   m_Layer: 5
-  m_Name: Joystick Base
+  m_Name: joystickBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -811,7 +813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -177.3, y: -185.4}
+  m_AnchoredPosition: {x: -82, y: -185.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876509977
