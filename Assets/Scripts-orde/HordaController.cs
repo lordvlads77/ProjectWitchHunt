@@ -7,11 +7,10 @@ public class HordaController : MonoBehaviour
     private Transform target; // El objetivo que la horda persigue (el jugador)
     private float velocidad;
 
-    // Configura la horda para que persiga al jugador
-    public void ConfigurarHorda(float nuevaVelocidad, Transform jugador)
+    public void ConfigurarHorda(Transform nuevoTarget, float nuevaVelocidad)
     {
+        target = nuevoTarget;
         velocidad = nuevaVelocidad;
-        target = jugador; // Establece el jugador como objetivo
     }
 
     void Update()
