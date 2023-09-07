@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HordaSpawner : MonoBehaviour
 {
-    public GameObject[] enemigosPrefabs; // Arreglo de Prefabs de enemigos
-    public float intervaloSpawn = 3.0f; // Intervalo entre spawns
-    private int indiceEnemigoActual = 0;
-    public float velocidadEnemigo = 5f;
+    public GameObject[] enemigosPrefabs;
+    public float intervaloSpawn = 3.0f;
+    public float radioSpawn = 10.0f;
+    public int velocidadEnemigo = 5;
 
     void Start()
     {
@@ -17,33 +17,36 @@ public class HordaSpawner : MonoBehaviour
 
     void SpawnEnemigoAleatorio()
     {
-        // Asegúrate de que tengas al menos un enemigo configurado
         if (enemigosPrefabs.Length == 0)
         {
             Debug.LogError("No se han configurado enemigos en el arreglo de Prefabs.");
             return;
         }
 
-        // Genera un índice aleatorio para seleccionar el enemigo
-        int indiceAleatorio = Random.Range(0, enemigosPrefabs.Length);
-
-        // Instancia el enemigo aleatorio en la posición del spawner
-        GameObject nuevoEnemigo = Instantiate(enemigosPrefabs[indiceAleatorio], transform.position, Quaternion.identity);
-
-        // Configura el HordaController o cualquier otro componente necesario para el enemigo aquí
-        HordaController hordaController = nuevoEnemigo.GetComponent<HordaController>();
-        if (hordaController != null)
+        GameObject jugador = GameObject.FindGameObjectWithTag("Player");
+        if (jugador != null)
         {
-            hordaController.ConfigurarHorda(GameObject.FindGameObjectWithTag("Player").transform, velocidadEnemigo);
+            float anguloAleatorio = Random.Range(0f, Mathf.PI * 2f);
+
+            float xPos = Mathf.Cos(anguloAleatorio) * radioSpawn + jugador.transform.position.x;
+            float zPos = Mathf.Sin(anguloAleatorio) * radioSpawn + jugador.transform.position.z;
+
+            int indiceAleatorio = Random.Range(0, enemigosPrefabs.Length);
+
+            GameObject nuevoEnemigo = Instantiate(enemigosPrefabs[indiceAleatorio], new Vector3(xPos, jugador.transform.position.y, zPos), Quaternion.identity);
+            HordaController hordaController = nuevoEnemigo.GetComponent<HordaController>();
+            if (hordaController != null)
+            {
+                hordaController.ConfigurarHorda(jugador.transform, velocidadEnemigo);
+            }
+            else
+            {
+                Debug.LogError("El prefab de la horda no tiene un componente HordaController adjunto.");
+            }
         }
-
-        // Incrementa el índice para el siguiente enemigo
-        indiceEnemigoActual++;
-
-        // Si llegamos al último enemigo, reiniciamos el ciclo
-        if (indiceEnemigoActual >= enemigosPrefabs.Length)
+        else
         {
-            indiceEnemigoActual = 0;
+            Debug.LogError("No se pudo encontrar al jugador. Asegúrate de que el jugador tenga la etiqueta 'Player'.");
         }
     }
 }
