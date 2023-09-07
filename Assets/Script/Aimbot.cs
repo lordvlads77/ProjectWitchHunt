@@ -4,17 +4,40 @@ using UnityEngine;
 
 public class Aimbot : MonoBehaviour
 {
-    public string etiquetaObjetivo = "Enemy";
-    public string etiquetaObjetivo2 = "BiggerEnemy";
+    [SerializeField]
+    private string etiquetaObjetivo = "Enemy";
+
+    [SerializeField]
+    private string etiquetaObjetivo2 = "BiggerEnemy";
+
+    [SerializeField]
     private Transform objetivoActual;
+
+    [SerializeField]
     private float distanciaMinima = Mathf.Infinity;
+
+    [SerializeField]
     public float campoVision = 180f;
+
+    [SerializeField]
     public float rangoMaximo = 10f;
+
+    [SerializeField]
     public float cadenciaDisparo = 2f;
+
+    [SerializeField]
     public float velocidadBala = 10f;
+
+    [SerializeField]
     public GameObject balaPrefab;
+
+    [SerializeField]
     public Transform puntoDisparo;
+
+    [SerializeField]
     private float tiempoUltimoDisparo;
+
+    [SerializeField]
     public int resistencia = 5;
 
     private bool estaDestruido = false;

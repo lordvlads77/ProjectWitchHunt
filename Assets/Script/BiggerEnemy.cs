@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BiggerEnemy : MonoBehaviour
 {
+    [SerializeField]
     public int resistencia = 5;
 
+    [SerializeField]
     private bool estaDestruido = false;
-
     private void OnCollisionEnter(Collision collision)
     {
         if (!estaDestruido && collision.gameObject.CompareTag("Bullet"))
