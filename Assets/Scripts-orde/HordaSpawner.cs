@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class HordaSpawner : MonoBehaviour
 {
-    public GameObject[] enemigosPrefabs;
-    public float intervaloSpawn = 3.0f;
-    public float radioSpawn = 10.0f;
-    public int velocidadEnemigo = 5;
+    [SerializeField]
+    private GameObject[] enemigosPrefabs;
+
+    [SerializeField]
+    private float intervaloSpawn = 3.0f;
+
+    [SerializeField]
+    private float radioSpawn = 10.0f;
+
+    [SerializeField]
+    private int velocidadEnemigo = 5;
+
 
     void Start()
     {

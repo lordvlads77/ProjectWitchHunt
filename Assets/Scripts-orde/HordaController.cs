@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class HordaController : MonoBehaviour
 {
-    private Transform target; // El objetivo que la horda persigue (el jugador)
+    [SerializeField]
+    private Transform target;
+
+    [SerializeField]
     private float velocidad;
+
+    [SerializeField]
+    private float distanciaMaxima = 30.0f;
 
     public void ConfigurarHorda(Transform nuevoTarget, float nuevaVelocidad)
     {
@@ -17,10 +23,13 @@ public class HordaController : MonoBehaviour
     {
         if (target != null)
         {
-            // Calcula la dirección hacia el jugador
+            float distancia = Vector3.Distance(transform.position, target.position);
+            if (distancia > distanciaMaxima)
+            {
+                Destroy(gameObject);
+                return;
+            }
             Vector3 direccion = (target.position - transform.position).normalized;
-
-            // Mueve la horda hacia el jugador con la velocidad especificada
             transform.Translate(direccion * velocidad * Time.deltaTime);
         }
     }
