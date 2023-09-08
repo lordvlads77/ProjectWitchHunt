@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Movement2 : MonoBehaviour
 {
-    public float velocidadMovimiento = 5.0f;
-
+    [SerializeField]
+    private float velocidadMovimiento = 5.0f;
+    [SerializeField]
     private Vector2 inicioToque;
 
     void Update()
