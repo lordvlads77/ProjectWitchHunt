@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 8033812680807699192}
   - component: {fileID: 8033812680807699199}
   - component: {fileID: 307542815538386578}
+  - component: {fileID: -6859810612677149100}
   m_Layer: 5
   m_Name: PlantillaImagen
   m_TagString: Untagged
@@ -655,6 +656,22 @@ MonoBehaviour:
   textoPrecio: {fileID: 8033812679046297637}
   titulo: {fileID: 8033812678813481673}
   bottonComprar: {fileID: 8033812680834712018}
+--- !u!114 &-6859810612677149100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8033812680807699197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428c3af98437f5145880ae241e146dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informacionItems:
+  - {fileID: 0}
+  plantillaObjetoTienda: {fileID: 8033812680807699197}
+  textoMonedasTotales: {fileID: 8033812679046297637}
 --- !u!1 &8033812680834712016
 GameObject:
   m_ObjectHideFlags: 0
