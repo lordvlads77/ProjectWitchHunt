@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &290198896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 290198897}
+  m_Layer: 0
+  m_Name: transformForTheSpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &290198897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290198896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.02, y: 4.583363, z: -20.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &434824042
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 434824044}
   - component: {fileID: 434824043}
+  - component: {fileID: 434824045}
   m_Layer: 0
   m_Name: SpawnerController
   m_TagString: Untagged
@@ -147,16 +179,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434824042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67079a25d6a9d3041b9037adfc8a891a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _LeveltoSpawn: {fileID: 6616349714211670350, guid: cdf601b385160984c8cf7608bd5720bb, type: 3}
-  _LeveltoSpawn1: {fileID: 6923810686910579328, guid: 14bda4c6b49a66e46b190ec4b238c880, type: 3}
-  _LeveltoSpawn2: {fileID: 7293769452860647636, guid: 7856a3fae9cc2894eac7d6dc23bc29bf, type: 3}
-  _LeveltoSpawn3: {fileID: 3117711762265524584, guid: d436c00e3be9d9f4f84a472c67e9bbb2, type: 3}
-  _randAgregator: 5
+  _vesselPrefab: {fileID: 0}
+  _levelPrefabs:
+  - {fileID: 6616349714211670350, guid: cdf601b385160984c8cf7608bd5720bb, type: 3}
+  - {fileID: 6923810686910579328, guid: 14bda4c6b49a66e46b190ec4b238c880, type: 3}
+  - {fileID: 7293769452860647636, guid: 7856a3fae9cc2894eac7d6dc23bc29bf, type: 3}
+  - {fileID: 3117711762265524584, guid: d436c00e3be9d9f4f84a472c67e9bbb2, type: 3}
+  _selectedRandomLevel: 0
+  _gameObject: {fileID: 1637845582}
 --- !u!4 &434824044
 Transform:
   m_ObjectHideFlags: 0
@@ -171,6 +206,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434824045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434824042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ab50890cd6e9f43806ddc5c671c0c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayIndex: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  _levelList: 
+  _LeveltoSpawn: {fileID: 6616349714211670350, guid: cdf601b385160984c8cf7608bd5720bb, type: 3}
+  _LeveltoSpawn1: {fileID: 6923810686910579328, guid: 14bda4c6b49a66e46b190ec4b238c880, type: 3}
+  _LeveltoSpawn2: {fileID: 7293769452860647636, guid: 7856a3fae9cc2894eac7d6dc23bc29bf, type: 3}
+  _LeveltoSpawn3: {fileID: 3117711762265524584, guid: d436c00e3be9d9f4f84a472c67e9bbb2, type: 3}
+  _leveltoSpawn4: {fileID: 5087106940569464481, guid: 950a05a57f88d9849bf8986ba7cb60c0, type: 3}
+  _levelSpawnTransform: {fileID: 1637845583}
+  _levelSpawnTransform1: {fileID: 290198897}
+  _levelSpawnTransform2: {fileID: 1489767525}
+  _levelSpawnTransform3: {fileID: 734400030}
+--- !u!1 &734400029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734400030}
+  m_Layer: 0
+  m_Name: transformForTheSpawner (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &734400030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734400029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.86, y: 4.583363, z: -20.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124168044
 GameObject:
@@ -255,6 +344,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1489767524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1489767525}
+  m_Layer: 0
+  m_Name: transformForTheSpawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1489767525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489767524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.63, y: 4.583363, z: -28.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1637845582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1637845583}
+  m_Layer: 0
+  m_Name: transformForTheSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1637845583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637845582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.18, y: 4.583363, z: -13.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1901796612
 GameObject:

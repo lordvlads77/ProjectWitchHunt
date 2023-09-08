@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8434878987287836438}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: LevelToSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 3711855500655359972}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: LevelToSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 972356528371852229}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: LevelToSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 6651813479174303971}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: LevelToSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
