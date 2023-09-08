@@ -494,14 +494,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1024444089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 171042118c5ade1449abf5b1950d7746, type: 3}
+  m_Script: {fileID: 11500000, guid: 2164f8287b93e5d46a6c8836570b6d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystickBase: {fileID: 1876509977}
-  joystickDeslizante: {fileID: 1812010647}
   velocidadMovimiento: 5
-  direccionMovimiento: {x: 0, y: 0, z: 0}
-  joystickTocado: 1
 --- !u!1 &1092447543
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1114019270
 MonoBehaviour:
   m_ObjectHideFlags: 0
