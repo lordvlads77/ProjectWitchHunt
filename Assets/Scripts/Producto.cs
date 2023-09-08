@@ -6,7 +6,8 @@ public class Producto : MonoBehaviour
 {
     [SerializeField]
     private string nombre;
-    private int precio;
+    [SerializeField]
+    public int precio;
     [SerializeField]
     private GameObject objeto;
 
