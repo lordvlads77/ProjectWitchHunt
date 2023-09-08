@@ -6,4 +6,9 @@ using UnityEngine;
 public class PlantillaInformacionItem : ScriptableObject
 {
     [SerializeField]
+    public string titulo;
+    [SerializeField]
+    public Sprite image;
+    [SerializeField]
+    public int precio;
 }
