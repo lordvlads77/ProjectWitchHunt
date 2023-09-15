@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawnLevels : MonoBehaviour
+/*public class spawnLevels : MonoBehaviour
 {
     private Queue<GameObject> _levels;
     void Start()
@@ -22,3 +22,4 @@ public class spawnLevels : MonoBehaviour
         }
     } 
 }
+*/

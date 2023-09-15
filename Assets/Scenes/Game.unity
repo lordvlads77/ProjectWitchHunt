@@ -632,8 +632,6 @@ MonoBehaviour:
   - {fileID: 5331821080880784321, guid: 31c90296b9b852146aca0934fa8bd4c2, type: 3}
   - {fileID: 257653530353774463, guid: 0c359f08cb388d64eb297f617c5da1b0, type: 3}
   intervaloSpawn: 3
-  radioSpawn: 10
-  velocidadEnemigo: 5
 --- !u!4 &1661490414
 Transform:
   m_ObjectHideFlags: 0
@@ -813,8 +811,6 @@ MonoBehaviour:
   - {fileID: 5331821080880784321, guid: 31c90296b9b852146aca0934fa8bd4c2, type: 3}
   - {fileID: 257653530353774463, guid: 0c359f08cb388d64eb297f617c5da1b0, type: 3}
   intervaloSpawn: 3
-  radioSpawn: 10
-  velocidadEnemigo: 5
 --- !u!222 &7394085091169717226
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1060,7 +1056,7 @@ GameObject:
   - component: {fileID: 7394085091982913153}
   - component: {fileID: 7394085091982913213}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Player Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

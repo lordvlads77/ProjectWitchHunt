@@ -23,13 +23,10 @@ public class HordaController : MonoBehaviour
     {
         if (target != null)
         {
-            float distancia = Vector3.Distance(transform.position, target.position);
-            if (distancia > distanciaMaxima)
-            {
-                Destroy(gameObject);
-                return;
-            }
+            // Calcula la dirección hacia el jugador
             Vector3 direccion = (target.position - transform.position).normalized;
+
+            // Mueve la horda hacia el jugador con la velocidad especificada
             transform.Translate(direccion * velocidad * Time.deltaTime);
         }
     }
