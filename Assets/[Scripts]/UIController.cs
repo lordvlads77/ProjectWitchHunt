@@ -1,17 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    public static UIController Instance { get; private set; }
     private float time,second = default;
     [SerializeField] public Image _imgFiller = default;
+    [FormerlySerializedAs("_panel")] [SerializeField] private GameObject _SplashPanel = default;
+    [SerializeField] private GameObject _startMenuPanel = default;
+    
+    private void Awake()
+    {
+        Instance = this;
+        if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         second = 5f;
-        Invoke("LoadGame", 5f);
+        Invoke("InitGame", 5f);
     }
 
     // Update is called once per frame
@@ -24,8 +35,14 @@ public class UIController : MonoBehaviour
         }
     }
     
-    public void LoadGame()
+    public void InitGame()
     {
-        SceneManager.LoadScene(4);
+        _SplashPanel.SetActive(false);
+        _startMenuPanel.SetActive(true);
+    }
+    
+    public void playButton()
+    {
+        _startMenuPanel.SetActive(false);
     }
 }
