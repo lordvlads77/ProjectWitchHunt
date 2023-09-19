@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     [FormerlySerializedAs("_panel")] [SerializeField] private GameObject _SplashPanel = default;
     [SerializeField] private GameObject _startMenuPanel = default;
     private string _pauseDebugMsg = "Paused";
+    [SerializeField] private GameObject _uiInGamePanel = default;
 
 
     private void Awake()
@@ -25,7 +26,6 @@ public class UIController : MonoBehaviour
     {
         second = 5f;
         Invoke("InitGame", 5f);
-        // Add a listener to the button's click event
     }
 
     // Update is called once per frame
@@ -47,6 +47,7 @@ public class UIController : MonoBehaviour
     public void PlayButton()
     {
         _startMenuPanel.SetActive(false);
+        _uiInGamePanel.SetActive(true);
     }
 
     public void Pause()
@@ -55,9 +56,8 @@ public class UIController : MonoBehaviour
     }
 
     public void SwitchAtk()
-    { 
-        // Add a listener to the button's click event
-        PowerToggle.Instance.GetComponent<Button>().onClick.AddListener(PowerToggle.Instance.ToggleButtonImage);
+    {
+        PowerToggle.Instance.ToggleButtonImage();
         //TODO: Descubrir porque tengo que hacer click 2 veces para mandarlo a llamar.
     }
 }
