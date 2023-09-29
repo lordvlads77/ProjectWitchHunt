@@ -309,9 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f307c4a607fb65b4b81cb4c5cf6089a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tr: {fileID: 0}
+  tr: {fileID: 654580768}
   rb: {fileID: 654580763}
-  walkSpeed: 100
+  walkSpeed: 1000
 --- !u!1001 &789703133
 PrefabInstance:
   m_ObjectHideFlags: 0
