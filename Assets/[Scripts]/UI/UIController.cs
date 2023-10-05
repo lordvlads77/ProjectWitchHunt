@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -10,10 +11,13 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image _imgFiller = default;
     [FormerlySerializedAs("_panel")] [SerializeField] private GameObject _SplashPanel = default;
     [SerializeField] private GameObject _startMenuPanel = default;
-    private string _pauseDebugMsg = "Paused";
+    private readonly string _pauseDebugMsg = "Paused";
     [SerializeField] private GameObject _uiInGamePanel = default;
     [SerializeField] private GameObject _uiPausePanel = default;
     [SerializeField] private GameObject _uiGameOverPanel = default;
+    [FormerlySerializedAs("_uiStorePanel")] [SerializeField] private GameObject _uiStore = default;
+    [SerializeField] private GameObject _uiItemStorePanel = default;
+    private readonly String _itemBoughtDebugMsg = "Item Bought";
 
 
     private void Awake()
@@ -28,7 +32,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         second = 5f;
-        Invoke("InitGame", 5f);
+        Invoke(nameof(InitGame), 5f);
     }
     
     void Update()
@@ -62,27 +66,37 @@ public class UIController : MonoBehaviour
     public void SwitchAtk()
     {
         PowerToggle.Instance.ToggleButtonImage();
-        //TODO: Descubrir porque tengo que hacer click 2 veces para mandarlo a llamar.
     }
     
-    public void unPause()
+    public void UnPause()
     {
         _uiPausePanel.SetActive(false);
         _uiInGamePanel.SetActive(true);
     }
     
-    public void mainMenu()
+    public void MainMenu()
     {
         _uiPausePanel.SetActive(false);
         _startMenuPanel.SetActive(true);
     }
 
-    public void respawn()
+    public void Respawn()
     {
         SceneManager.LoadScene(6);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); For use in the future in another context
         _uiGameOverPanel.SetActive(false);
         _SplashPanel.SetActive(false);
         _startMenuPanel.SetActive(false);
+    }
+    
+    public void BackToStoreUI()
+    {
+        _uiItemStorePanel.SetActive(false);
+        _uiStore.SetActive(true);
+    }
+
+    public void ItemBought()
+    {
+        Debug.Log(_itemBoughtDebugMsg);
     }
 }
