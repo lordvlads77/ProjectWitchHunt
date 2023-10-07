@@ -64,7 +64,7 @@ public class Aimbot : MonoBehaviour
 
                     if (Time.time - tiempoUltimoDisparo > cadenciaDisparo)
                     {
-                        Disparar();
+                        Disparar(direccion); // Pasa la dirección al método Disparar
                         tiempoUltimoDisparo = Time.time;
                     }
                 }
@@ -121,13 +121,19 @@ public class Aimbot : MonoBehaviour
         }
     }
 
-    void Disparar()
+    void Disparar(Vector3 direccion)
     {
         GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
 
-        Rigidbody rb = bala.GetComponent<Rigidbody>();
-        rb.velocity = puntoDisparo.forward * velocidadBala;
+        // Configura el objetivo de la bala
+        bala.GetComponent<Bullet>().SetTarget(objetivoActual);
 
-        Destroy(bala, 1f);
+        Rigidbody rb = bala.GetComponent<Rigidbody>();
+        rb.velocity = direccion.normalized * velocidadBala;
+
+        // Agrega la etiqueta del objetivo a la bala para que pueda detectar el tipo de objetivo
+        bala.tag = objetivoActual.tag;
+
+        Destroy(bala, 5f); // Cambia el tiempo de destrucción según tus necesidades
     }
 }
