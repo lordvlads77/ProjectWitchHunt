@@ -13954,7 +13954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tr: {fileID: 2743095777403488380}
   rb: {fileID: 4974377833388867697}
-  walkSpeed: 1000
+  walkSpeed: 10
 --- !u!224 &4860538090296657446
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14914,7 +14914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &6602182345527039659
 CanvasRenderer:
   m_ObjectHideFlags: 0
