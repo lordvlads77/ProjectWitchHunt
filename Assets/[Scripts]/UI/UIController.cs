@@ -32,7 +32,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         second = 5f;
-        //Invoke(nameof(InitGame), 5f);
+        Invoke(nameof(InitGame), 5f);
     }
     
     void Update()

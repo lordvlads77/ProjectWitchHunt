@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -28,10 +26,10 @@ public class PlayerController : MonoBehaviour
         float deltaX = SimpleInput.GetAxis("Horizontal");
         float deltaZ = SimpleInput.GetAxis("Vertical");
         float deltaT = Time.deltaTime;
-        Vector3 side = walkSpeed * deltaX * deltaT * tr.right;
-        Vector3 forward = walkSpeed * deltaZ * deltaT * tr.forward;
-        Vector3 direction = side + forward;
-        direction.y = rb.velocity.y;
-        rb.velocity = direction;
+
+        Vector3 movement = new Vector3(deltaX, 0f, deltaZ).normalized;
+        Vector3 moveDirection = tr.TransformDirection(movement);
+
+        rb.velocity = moveDirection * walkSpeed;
     }
 }

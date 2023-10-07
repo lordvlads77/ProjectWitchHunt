@@ -57,20 +57,31 @@ public class Aimbot : MonoBehaviour
 
                 if (angulo < campoVision / 2)
                 {
-                    Vector3 direccionSinY = direccion;
-                    direccionSinY.y = 0;
-                    Quaternion rotacionDeseada = Quaternion.LookRotation(direccionSinY);
-                    transform.rotation = rotacionDeseada;
-
-                    if (Time.time - tiempoUltimoDisparo > cadenciaDisparo)
+                    // Verifica si el personaje está mirando hacia el objetivo
+                    if (EsPersonajeMirandoAlObjetivo(objetivoActual))
                     {
-                        Disparar(direccion); // Pasa la dirección al método Disparar
-                        tiempoUltimoDisparo = Time.time;
+                        if (Time.time - tiempoUltimoDisparo > cadenciaDisparo)
+                        {
+                            Disparar(direccion); // Pasa la dirección al método Disparar
+                            tiempoUltimoDisparo = Time.time;
+                        }
                     }
                 }
             }
         }
     }
+    bool EsPersonajeMirandoAlObjetivo(Transform objetivo)
+    {
+        Vector3 direccionAlObjetivo = objetivo.position - transform.position;
+        float angulo = Vector3.Angle(direccionAlObjetivo, transform.forward);
+
+        // Puedes ajustar el valor de umbral según lo desees
+        float umbral = 15f; // Este valor indica cuánto margen de error es aceptable
+
+        // Si el ángulo es menor que el umbral, el personaje está mirando hacia el objetivo
+        return angulo < umbral;
+    }
+
 
     void EncontrarObjetivoMasCercano()
     {
@@ -125,8 +136,8 @@ public class Aimbot : MonoBehaviour
     {
         GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
 
-        // Configura el objetivo de la bala
-        bala.GetComponent<Bullet>().SetTarget(objetivoActual);
+        // Configura la velocidad de la bala directamente en el script Bullet
+        bala.GetComponent<Bullet>().velocidadBala = velocidadBala;
 
         Rigidbody rb = bala.GetComponent<Rigidbody>();
         rb.velocity = direccion.normalized * velocidadBala;
