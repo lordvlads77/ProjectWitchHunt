@@ -32,7 +32,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         second = 5f;
-        Invoke(nameof(InitGame), 5f);
+        //Invoke(nameof(InitGame), 5f);
     }
     
     void Update()
@@ -54,6 +54,7 @@ public class UIController : MonoBehaviour
     {
         _startMenuPanel.SetActive(false);
         _uiInGamePanel.SetActive(true);
+        //PlayerController.Instance.MoveControl();
     }
 
     public void Pause()
