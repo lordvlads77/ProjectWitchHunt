@@ -1426,6 +1426,7 @@ MonoBehaviour:
   - {fileID: 3171125371508785017, guid: 64d663b84fe033846be6e91b425a22ea, type: 3}
   - {fileID: 7940713458124411523, guid: 765850b98a5285040987cf48cc708c4d, type: 3}
   - {fileID: 129504280221936783, guid: 1bb0e488e92e9c0418bc5d5be7ce665d, type: 3}
+  - {fileID: 4326414594857664783, guid: 147c0aa1197c699478195a8e2a6cf876, type: 3}
   spawnPoint: {fileID: 543091812}
   ogPlayerPosition: {x: 0, y: 0, z: 0}
   playerPosition: {fileID: 9152139984735596783}
