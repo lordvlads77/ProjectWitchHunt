@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,8 +13,13 @@ public class LevelManager : MonoBehaviour
     public Transform spawnPoint; // The position where levels will be instantiated
 
     private GameObject currentLevel; // The level that the player is currently on
-    
-    public MeshCollider playerCollider;
+    [FormerlySerializedAs("ogPosition")] public Vector3 ogPlayerPosition;
+    public Transform playerPosition;
+
+    private void Awake()
+    {
+        ogPlayerPosition = playerPosition.position;
+    }
 
     private void Start()
     {
@@ -58,9 +66,8 @@ public class LevelManager : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            InstantiateRandomLevel();
-        }
+        Debug.Log("Player entered the trigger");
+        InstantiateRandomLevel();
+        playerPosition.transform.position = ogPlayerPosition;
     }
 }

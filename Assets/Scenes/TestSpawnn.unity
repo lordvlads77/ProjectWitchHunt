@@ -572,7 +572,8 @@ MonoBehaviour:
   - {fileID: 7940713458124411523, guid: 765850b98a5285040987cf48cc708c4d, type: 3}
   - {fileID: 129504280221936783, guid: 1bb0e488e92e9c0418bc5d5be7ce665d, type: 3}
   spawnPoint: {fileID: 543091812}
-  playerCollider: {fileID: 9152139984735596786}
+  ogPlayerPosition: {x: 0, y: 0, z: 0}
+  playerPosition: {fileID: 0}
 --- !u!4 &322112546680527403
 Transform:
   m_ObjectHideFlags: 0
@@ -1386,7 +1387,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8379297300880566869}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -1426,4 +1427,5 @@ MonoBehaviour:
   - {fileID: 7940713458124411523, guid: 765850b98a5285040987cf48cc708c4d, type: 3}
   - {fileID: 129504280221936783, guid: 1bb0e488e92e9c0418bc5d5be7ce665d, type: 3}
   spawnPoint: {fileID: 543091812}
-  playerCollider: {fileID: 9152139984735596786}
+  ogPlayerPosition: {x: 0, y: 0, z: 0}
+  playerPosition: {fileID: 9152139984735596783}
