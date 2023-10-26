@@ -9,6 +9,9 @@ public class PlayerMovv : MonoBehaviour
     public float playerSpeed;
     [SerializeField] private Rigidbody _rigidbody;
     
+    [SerializeField] private Animator _animator;
+    private int _pSpeed = Animator.StringToHash("speed");
+    
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -17,5 +20,14 @@ public class PlayerMovv : MonoBehaviour
     private void FixedUpdate()
     {
         _rigidbody.velocity = new Vector3(_joystick.Horizontal * playerSpeed, _rigidbody.velocity.y, _joystick.Vertical * playerSpeed);
+        if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
+        {
+            transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
+            _animator.SetFloat(_pSpeed, 15);
+        }
+        else
+        {
+            _animator.SetFloat(_pSpeed, 0);
+        }
     }
 }
