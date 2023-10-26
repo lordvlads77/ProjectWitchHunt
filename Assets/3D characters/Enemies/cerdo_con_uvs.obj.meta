@@ -1,9 +1,34 @@
 fileFormatVersion: 2
-guid: 671b9b41caf63994992bacb3927ea335
+guid: 598bf97ddc8b39142857c211edf5e102
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sacerdote_cerdo_CapeMat
+    second: {fileID: 2100000, guid: 27fb1833e4f41554b85a65283eb30166, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sacerdote_cerdo_Cuerpo_cerdoMat
+    second: {fileID: 2100000, guid: 27fb1833e4f41554b85a65283eb30166, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sacerdote_cerdo_RobeMat
+    second: {fileID: 2100000, guid: 27fb1833e4f41554b85a65283eb30166, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sacerdote_cerdo_cruzMat
+    second: {fileID: 2100000, guid: 27fb1833e4f41554b85a65283eb30166, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gorro_Sacerdote_cerdoMat
+    second: {fileID: 2100000, guid: 27fb1833e4f41554b85a65283eb30166, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -35,7 +60,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.6
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -88,7 +113,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.6
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
