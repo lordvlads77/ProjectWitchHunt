@@ -1326,7 +1326,7 @@ GameObject:
   - component: {fileID: 9152139984735596784}
   - component: {fileID: 9152139984735596787}
   - component: {fileID: 9152139984735596786}
-  - component: {fileID: 9152139984735596789}
+  - component: {fileID: 9152139984735596788}
   m_Layer: 0
   m_Name: PlayerWitch
   m_TagString: Player
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   _joystick: {fileID: 8170153792007345755}
   playerSpeed: 15
   _rigidbody: {fileID: 9152139984735596784}
---- !u!114 &9152139984735596789
+--- !u!114 &9152139984735596788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1417,19 +1417,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8379297300880566869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be69e366b89ecd4281e61a235c06b1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 312dac806231f97479b217d25aa52c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms:
-  - {fileID: 5002159138280625063, guid: 4661cc8accad077448575af1a06850f9, type: 3}
-  - {fileID: 5920984475713938524, guid: f1fe69e79714374489f9ca423e99ff6f, type: 3}
-  - {fileID: 3171125371508785017, guid: 64d663b84fe033846be6e91b425a22ea, type: 3}
-  - {fileID: 7940713458124411523, guid: 765850b98a5285040987cf48cc708c4d, type: 3}
-  - {fileID: 129504280221936783, guid: 1bb0e488e92e9c0418bc5d5be7ce665d, type: 3}
-  roomsCreated: []
-  firstBatchCompleted: 0
-  requestingRoom: 0
-  currentLevel: {fileID: 0}
-  _spawnPoint: {fileID: 543091812}
-  _origiPlayerPosition: {x: 0, y: 0, z: 0}
-  _playerPosition: {fileID: 9152139984735596783}
+  availableLevels:
+  - {fileID: 7536469228924999019, guid: 71476b29be531f24386d384f7b0afb0e, type: 3}
+  - {fileID: 8733410486719350301, guid: e80c5cf56e63bcd499a9258562ca91c5, type: 3}
+  - {fileID: 8337913893765483466, guid: ffabe66b0d3d3084cb771317904a6063, type: 3}
+  - {fileID: 1831160162964162450, guid: 02e93fb3c7f282c4f9c3ac4d83dd96be, type: 3}
+  spawnPoint: {fileID: 543091812}
+  _originalPos: {x: 0, y: 0, z: 0}
+  playerPosition: {fileID: 9152139984735596783}
