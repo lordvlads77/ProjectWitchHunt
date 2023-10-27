@@ -10181,8 +10181,8 @@ MonoBehaviour:
   - {fileID: 4744093365440324054, guid: f862c624ed115c64f9eac26aa1e1810f, type: 3}
   - {fileID: 5331821080880784321, guid: 31c90296b9b852146aca0934fa8bd4c2, type: 3}
   - {fileID: 257653530353774463, guid: 0c359f08cb388d64eb297f617c5da1b0, type: 3}
-  intervaloSpawn: 3
-  radioSpawn: 10
+  puntoSpawn: {fileID: 0}
+  cantidadMaximaEnemigos: 5
   velocidadEnemigo: 5
 --- !u!4 &1661490414
 Transform:
@@ -12829,8 +12829,8 @@ MonoBehaviour:
   - {fileID: 4744093365440324054, guid: f862c624ed115c64f9eac26aa1e1810f, type: 3}
   - {fileID: 5331821080880784321, guid: 31c90296b9b852146aca0934fa8bd4c2, type: 3}
   - {fileID: 257653530353774463, guid: 0c359f08cb388d64eb297f617c5da1b0, type: 3}
-  intervaloSpawn: 3
-  radioSpawn: 10
+  puntoSpawn: {fileID: 0}
+  cantidadMaximaEnemigos: 5
   velocidadEnemigo: 5
 --- !u!1001 &2079152411
 PrefabInstance:
@@ -13298,8 +13298,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8512038807457154095, guid: 37ba285cd2c0b3a41b7ea73279016d75, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37ba285cd2c0b3a41b7ea73279016d75, type: 3}
+--- !u!1 &4192819694504269147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8512038807457154095, guid: 37ba285cd2c0b3a41b7ea73279016d75, type: 3}
+  m_PrefabInstance: {fileID: 4192819694504269146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &4192819694504269148
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4192819694504269147}
+  m_Enabled: 1
 --- !u!1001 &6380759769814615415
 PrefabInstance:
   m_ObjectHideFlags: 0
