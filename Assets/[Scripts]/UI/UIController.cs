@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
     [FormerlySerializedAs("_uiStorePanel")] [SerializeField] private GameObject _uiStore = default;
     [SerializeField] private GameObject _uiItemStorePanel = default;
     private readonly String _itemBoughtDebugMsg = "Item Bought";
+    [Header("Health Bar ui")]
+    [SerializeField] private ProgressLifeBars HealthBar = default;
 
 
     private void Awake()
