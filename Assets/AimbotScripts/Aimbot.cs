@@ -57,12 +57,11 @@ public class Aimbot : MonoBehaviour
 
                 if (angulo < campoVision / 2)
                 {
-                    // Verifica si el personaje está mirando hacia el objetivo
                     if (EsPersonajeMirandoAlObjetivo(objetivoActual))
                     {
                         if (Time.time - tiempoUltimoDisparo > cadenciaDisparo)
                         {
-                            Disparar(direccion); // Pasa la dirección al método Disparar
+                            Disparar(direccion);
                             tiempoUltimoDisparo = Time.time;
                         }
                     }
@@ -75,10 +74,8 @@ public class Aimbot : MonoBehaviour
         Vector3 direccionAlObjetivo = objetivo.position - transform.position;
         float angulo = Vector3.Angle(direccionAlObjetivo, transform.forward);
 
-        // Puedes ajustar el valor de umbral según lo desees
-        float umbral = 15f; // Este valor indica cuánto margen de error es aceptable
+        float umbral = 15f;
 
-        // Si el ángulo es menor que el umbral, el personaje está mirando hacia el objetivo
         return angulo < umbral;
     }
 

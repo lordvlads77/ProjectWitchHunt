@@ -636,6 +636,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8339371047479698028, guid: 37ba285cd2c0b3a41b7ea73279016d75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.193
+      objectReference: {fileID: 0}
     - target: {fileID: 8512038807457154095, guid: 37ba285cd2c0b3a41b7ea73279016d75, type: 3}
       propertyPath: m_Name
       value: Player 1
@@ -3693,6 +3697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigosPrefabs:
+  - {fileID: 2393138363224558362, guid: b3ca06fc6bde1cb4481241c9ef15ee43, type: 3}
   - {fileID: 2393138363224558362, guid: b3ca06fc6bde1cb4481241c9ef15ee43, type: 3}
   puntoSpawn: {fileID: 8124712415678209371}
   cantidadMaximaEnemigos: 1
