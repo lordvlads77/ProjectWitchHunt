@@ -13795,7 +13795,7 @@ MonoBehaviour:
   velocidadBala: 10
   balaPrefab: {fileID: 8547185988222554579, guid: 04b604e89f40a914da035ad79c3d5935, type: 3}
   puntoDisparo: {fileID: 5302010565315802934}
-  tiempoUltimoDisparo: 0
+  tiempoUltimoDisparo: 2
   resistencia: 5
 --- !u!1 &3114558749281051093
 GameObject:

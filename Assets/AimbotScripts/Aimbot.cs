@@ -62,13 +62,14 @@ public class Aimbot : MonoBehaviour
                         if (Time.time - tiempoUltimoDisparo > cadenciaDisparo)
                         {
                             Disparar(direccion);
-                            tiempoUltimoDisparo = Time.time;
+                            tiempoUltimoDisparo += Time.deltaTime;
                         }
                     }
                 }
             }
         }
     }
+
     bool EsPersonajeMirandoAlObjetivo(Transform objetivo)
     {
         Vector3 direccionAlObjetivo = objetivo.position - transform.position;
@@ -133,15 +134,13 @@ public class Aimbot : MonoBehaviour
     {
         GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
 
-        // Configura la velocidad de la bala directamente en el script Bullet
         bala.GetComponent<Bullet>().velocidadBala = velocidadBala;
 
         Rigidbody rb = bala.GetComponent<Rigidbody>();
         rb.velocity = direccion.normalized * velocidadBala;
 
-        // Agrega la etiqueta del objetivo a la bala para que pueda detectar el tipo de objetivo
         bala.tag = objetivoActual.tag;
 
-        Destroy(bala, 5f); // Cambia el tiempo de destrucción según tus necesidades
+        Destroy(bala, 5f);
     }
 }
