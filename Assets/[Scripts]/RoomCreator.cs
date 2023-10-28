@@ -150,7 +150,7 @@ public class RoomCreator : MonoBehaviour
 
         requestingRoom = true;
         StartCoroutine(RequestRoom());
-        _playerPosition.position = _origiPlayerPosition;
+        _playerPosition.transform.position = _origiPlayerPosition;
         Debug.Log("Spawning");
     }
 }
