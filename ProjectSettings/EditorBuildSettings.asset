@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/Joysitck.unity
     guid: 3e4e8c7b51fab6f4dace2b6c8b9b006c
   - enabled: 1
     path: Assets/Scenes/Level2.unity
