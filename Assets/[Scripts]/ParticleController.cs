@@ -15,13 +15,22 @@ public class ParticleController : MonoBehaviour
     [Header("AOE Damage VFX")]
     [SerializeField] private Transform _dmgAoeTransform = default;
     [SerializeField] private GameObject _dmgAoeParticle = default;
-    [Header("Proyectiles VFX")]
-    [SerializeField] private Transform _proyectilesTransform = default;
-    [FormerlySerializedAs("_proyectilesParticle")] [SerializeField] private GameObject _proyectileBlueParticle = default;
-    [SerializeField] private GameObject _proyectilePinkParticle = default;
-    [Header("Lightning VFX")]
+    [Header("Lightning VFX Player Damage Receive")]
     [SerializeField] private Transform _lightningTransform = default;
     [SerializeField] private GameObject _lightningParticle = default;
+    [SerializeField] private GameObject _lightningParticle2 = default;
+    [SerializeField] private Transform _lightningTransform2 = default;
+    [Header("Death Event Particle")]
+    [SerializeField] private GameObject _deathParticle = default;
+    [SerializeField] private Transform _deathTransform = default;
+    [Header("Healing Particle")]
+    [SerializeField] private GameObject _healingParticle = default;
+    [SerializeField] private Transform _healingTransform = default;
+    [SerializeField] private GameObject _healingParticle2 = default;
+    [SerializeField] private Transform _healingTransform2 = default;
+    [Header("Time until VFX Destruction")]
+    [SerializeField] private float _destructionDelay = 1f;
+    [FormerlySerializedAs("_destructionDelay2")] [SerializeField] private float _destructionDelayenemDmg = 3f;
     
     private void Awake()
     {
@@ -34,31 +43,53 @@ public class ParticleController : MonoBehaviour
     
     public void SpwnAttckParticle()
     {
-        Instantiate(_attackParticle, _attackTransform.position, Quaternion.identity);
+        GameObject _atkMoveVFX = Instantiate(_attackParticle, _attackTransform.position, Quaternion.identity);
+        Destroy(_atkMoveVFX, _destructionDelay);
+        
     }
     
     public void SpwnDmgParticle()
     {
-        Instantiate(_damageParticle, _damageTransform.position, Quaternion.identity);
+       GameObject _dmgEnemy = Instantiate(_damageParticle, _damageTransform.position, Quaternion.identity);
+       Destroy(_dmgEnemy, _destructionDelayenemDmg);
+        
     }
     
     public void SpwnDmgAoeParticle()
     {
-        Instantiate(_dmgAoeParticle, _dmgAoeTransform.position, Quaternion.identity);
+        GameObject _AoeVFx = Instantiate(_dmgAoeParticle, _dmgAoeTransform.position, Quaternion.identity);
+        Destroy(_AoeVFx, _destructionDelay);
     }
     
     public void SpwnProyectileBlueParticle()
     {
-        Instantiate(_proyectileBlueParticle, _proyectilesTransform.position, Quaternion.identity);
+        BulletsVFXPool.Instance.ShootBullet(BulletType.VFXBulletType.BlueBulletSlow);
     }
     
     public void SpwnProyectilePinkParticle()
     {
-        Instantiate(_proyectilePinkParticle, _proyectilesTransform.position, Quaternion.identity);
+        BulletsVFXPool.Instance.ShootBullet(BulletType.VFXBulletType.PinkBulletQuick);
     }
     
-    public void SpwnLightningParticle()
+    public void SpwnLightningParticlePDmgR()
     {
-        Instantiate(_lightningParticle, _lightningTransform.position, Quaternion.identity);
+        GameObject _PlayerRecieveDmg1 = Instantiate(_lightningParticle, _lightningTransform.position, Quaternion.identity);
+        GameObject _PlayerRecieveDmg2 = Instantiate(_lightningParticle2, _lightningTransform2.position, Quaternion.identity);
+        Destroy(_PlayerRecieveDmg1, _destructionDelay);
+        Destroy(_PlayerRecieveDmg2, _destructionDelay);
+    }
+    
+    public void SpwnDeathParticle()
+    {
+        GameObject _vfxPetacion = Instantiate(_deathParticle, _deathTransform.position, Quaternion.identity);
+        Destroy(_vfxPetacion, _destructionDelay);
+    }
+    
+    public void SpwnHealingParticle()
+    {
+        GameObject _healVFX1 = Instantiate(_healingParticle, _healingTransform.position, _healingParticle.transform.rotation);
+        GameObject _healVFX2 = Instantiate(_healingParticle2, _healingTransform2.position, _healingParticle2.transform.rotation);
+        Destroy(_healVFX1, _destructionDelay);
+        Destroy(_healVFX2, _destructionDelay);
     }
 }

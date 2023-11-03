@@ -29,7 +29,15 @@ public class vfxShower : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            ParticleController.Instance.SpwnLightningParticle();
+            ParticleController.Instance.SpwnLightningParticlePDmgR();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            ParticleController.Instance.SpwnDeathParticle();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            ParticleController.Instance.SpwnHealingParticle();
         }
     }
 }
