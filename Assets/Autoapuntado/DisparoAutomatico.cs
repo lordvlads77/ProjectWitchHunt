@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DisparoAutomatico : MonoBehaviour
 {
@@ -10,10 +12,24 @@ public class DisparoAutomatico : MonoBehaviour
     public float distanciaCercana = 5f;
     public float distanciaLejana = 15f;
     public string tagEnemigo = "Enemigo";
-    public GameObject impactoParticulas; // Agrega tu efecto de partículas desde el Inspector
-
+    public GameObject impactoParticulas;
+    public GameObject textoEnemigosGameObject;
+    private TextMeshProUGUI textoEnemigosDerrotados;
+    private int enemigosDerrotados = 0;
     private GameObject bala;
 
+
+    void Start()
+    {
+        if (textoEnemigosGameObject != null)
+        {
+            textoEnemigosDerrotados = textoEnemigosGameObject.GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.LogError("No se ha asignado un objeto TextMeshPro al campo 'textoEnemigosGameObject'.");
+        }
+    }
     private void Update()
     {
         float distanciaEnemigo = EncontrarEnemigoMasCercano();
@@ -45,6 +61,30 @@ public class DisparoAutomatico : MonoBehaviour
             }
         }
         return distancia;
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Colisión detectada con " + other.gameObject.name);
+
+        if (other.CompareTag(tagEnemigo) && bala != null)
+        {
+            Debug.Log("Incrementando contador"); // Verifica si se intenta incrementar el contador
+            enemigosDerrotados++; // Incremento del contador
+
+            if (textoEnemigosDerrotados != null)
+            {
+                textoEnemigosDerrotados.text = "Enemigos derrotados: " + enemigosDerrotados.ToString();
+            }
+        }
+    }
+
+    void ActualizarTextoEnemigosDerrotados()
+    {
+        // Actualiza el texto en la interfaz con el contador de enemigos derrotados
+        if (textoEnemigosDerrotados != null)
+        {
+            textoEnemigosDerrotados.text = "Enemigos derrotados: " + enemigosDerrotados.ToString();
+        }
     }
 
     void Disparar(float frecuenciaDisparo)
@@ -84,15 +124,6 @@ public class DisparoAutomatico : MonoBehaviour
             }
         }
         return enemigoCercano;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(tagEnemigo) && bala != null)
-        {
-            Destroy(bala); // Destruye la bala al colisionar con el enemigo
-            MostrarParticulasImpacto(other.transform.position); // Muestra partículas al impactar con el enemigo
-        }
     }
 
     void MostrarParticulasImpacto(Vector3 position)
