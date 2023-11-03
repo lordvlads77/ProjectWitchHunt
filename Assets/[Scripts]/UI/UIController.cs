@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image _imgFiller = default;
     [FormerlySerializedAs("_panel")] [SerializeField] private GameObject _SplashPanel = default;
     [SerializeField] private GameObject _startMenuPanel = default;
+    [SerializeField] private GameObject _startMenu = default;
     private readonly string _pauseDebugMsg = "Paused";
     [SerializeField] private GameObject _uiInGamePanel = default;
     [SerializeField] private GameObject _uiPausePanel = default;
@@ -63,6 +64,7 @@ public class UIController : MonoBehaviour
         Debug.Log(_pauseDebugMsg);
         _uiPausePanel.SetActive(true);
         _uiInGamePanel.SetActive(false);
+        Time.timeScale = 0;
     }
 
     public void SwitchAtk()
@@ -74,12 +76,24 @@ public class UIController : MonoBehaviour
     {
         _uiPausePanel.SetActive(false);
         _uiInGamePanel.SetActive(true);
+        Time.timeScale = 1;
     }
     
     public void MainMenu()
     {
         _uiPausePanel.SetActive(false);
+        _startMenu.SetActive(true);
+    }
+    public void MainMenu2()
+    {
+        _uiPausePanel.SetActive(false);
         _startMenuPanel.SetActive(true);
+    }
+
+    public void CheMenu()
+    {
+        _uiPausePanel.SetActive(false);
+        _startMenu.SetActive(true);
     }
 
     public void Respawn()
