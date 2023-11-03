@@ -13474,7 +13474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffectClip: {fileID: 0}
   backgroundMusicClip: {fileID: 8300000, guid: aea55de2e008f54438a4b755ba6d5aa5, type: 3}
-  soundManager: {fileID: 0}
+  soundManager: {fileID: 1643688259}
 --- !u!1001 &6380759769814615415
 PrefabInstance:
   m_ObjectHideFlags: 0
