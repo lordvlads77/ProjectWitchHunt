@@ -6,7 +6,6 @@ public class DisparoAutomatico : MonoBehaviour
     {
         get; private set;
     }
-
     public Transform puntoDisparo;
     public GameObject proyectil;
     public float velocidadDisparo = 15f;
@@ -15,13 +14,11 @@ public class DisparoAutomatico : MonoBehaviour
     public float distanciaCercana = 5f;
     public float distanciaLejana = 15f;
     public string tagEnemigo = "Enemigo";
-    public GameObject impactoParticulas; // Agrega tu efecto de partículas desde el Inspector
-
-    private GameObject bala;
+    public GameObject impactoParticulas; // Asigna el efecto de partículas desde el Inspector
     private void Awake()
     {
         Instance = this;
-            if(Instance != this)
+        if(Instance != this)
         {
             Destroy(gameObject);
         }
@@ -31,18 +28,16 @@ public class DisparoAutomatico : MonoBehaviour
     {
         float distanciaEnemigo = EncontrarEnemigoMasCercano();
 
-        if (distanciaEnemigo <= distanciaCercana)
+        if (distanciaEnemigo <= distanciaCercana || distanciaEnemigo <= distanciaLejana)
         {
-            Disparar(frecuenciaDisparoCercano);
+            Disparar(distanciaEnemigo <= distanciaCercana ? frecuenciaDisparoCercano : frecuenciaDisparoLejano);
         }
-        else if (distanciaEnemigo > distanciaLejana)
+        else
         {
             CancelInvoke("HacerDisparo");
         }
-        else if (distanciaEnemigo > distanciaCercana && distanciaEnemigo <= distanciaLejana)
-        {
-            Disparar(frecuenciaDisparoLejano);
-        }
+
+        ApuntarAlEnemigo(distanciaEnemigo);
     }
 
     float EncontrarEnemigoMasCercano()
@@ -73,8 +68,7 @@ public class DisparoAutomatico : MonoBehaviour
         GameObject enemigoCercano = EncontrarEnemigoMasCercanoObject(); // Encuentra el GameObject del enemigo más cercano
         if (enemigoCercano != null)
         {
-            if (bala != null) Destroy(bala); // Destruye la bala anterior si existe una
-            bala = Instantiate(proyectil, puntoDisparo.position, Quaternion.identity);
+            GameObject bala = Instantiate(proyectil, puntoDisparo.position, Quaternion.identity);
             Rigidbody rb = bala.GetComponent<Rigidbody>();
             Vector3 direccion = (enemigoCercano.transform.position - puntoDisparo.position).normalized;
             rb.velocity = direccion * velocidadDisparo;
@@ -101,10 +95,11 @@ public class DisparoAutomatico : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(tagEnemigo) && bala != null)
+        if (other.CompareTag(tagEnemigo))
         {
-            Destroy(bala); // Destruye la bala al colisionar con el enemigo
+            Destroy(gameObject); // Destruye la bala al colisionar con el enemigo
             MostrarParticulasImpacto(other.transform.position); // Muestra partículas al impactar con el enemigo
+            ShowHealthBar.Instance.Dmg(10f);
         }
     }
 
@@ -112,5 +107,18 @@ public class DisparoAutomatico : MonoBehaviour
     {
         GameObject impacto = Instantiate(impactoParticulas, position, Quaternion.identity);
         Destroy(impacto, 2.0f);
+    }
+
+    void ApuntarAlEnemigo(float distanciaEnemigo)
+    {
+        if (distanciaEnemigo <= distanciaLejana)
+        {
+            GameObject enemigoCercano = EncontrarEnemigoMasCercanoObject();
+            if (enemigoCercano != null)
+            {
+                Vector3 direccion = (enemigoCercano.transform.position - transform.position).normalized;
+                puntoDisparo.rotation = Quaternion.LookRotation(direccion);
+            }
+        }
     }
 }

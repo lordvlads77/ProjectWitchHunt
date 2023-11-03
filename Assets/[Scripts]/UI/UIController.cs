@@ -118,6 +118,12 @@ public class UIController : MonoBehaviour
 
     public void Ataque()
     {
-        DisparoAutomatico.Instance.Disparar(20f);
+        DisparoAutomatico.Instance.Disparar(3f);
+    }
+
+    public void Moricion()
+    {
+        _uiInGamePanel.SetActive(false);
+        _uiGameOverPanel.SetActive(true);
     }
 }

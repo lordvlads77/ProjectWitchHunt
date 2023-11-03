@@ -17,7 +17,7 @@ public class VidaGato : MonoBehaviour
 
         if (vida <= 0)
         {
-            SceneManager.LoadScene("Gameover");
+            UIController.Instance.Moricion();
         }
 
     }
