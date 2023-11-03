@@ -100,6 +100,7 @@ public class DisparoAutomatico : MonoBehaviour
             Destroy(gameObject); // Destruye la bala al colisionar con el enemigo
             MostrarParticulasImpacto(other.transform.position); // Muestra partículas al impactar con el enemigo
             ShowHealthBar.Instance.Dmg(10f);
+            EnemyBehaviour.Instance.QuitarVida();
         }
     }
 

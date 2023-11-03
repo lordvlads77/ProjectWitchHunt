@@ -322,6 +322,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   moveSpeed: 3
+  live: 100
+  vidarestante: 10
+  vidatotal: 0
 --- !u!65 &72762113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -646,6 +649,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   moveSpeed: 3
+  live: 100
+  vidarestante: 10
+  vidatotal: 0
 --- !u!114 &1099782062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,6 +835,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   moveSpeed: 3
+  live: 100
+  vidarestante: 10
+  vidatotal: 0
 --- !u!1 &1794893469
 GameObject:
   m_ObjectHideFlags: 0
@@ -15799,7 +15808,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7526663225486216391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.41, y: 1.48, z: 44.58}
+  m_LocalPosition: {x: -13.41, y: 1.48, z: 20.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
