@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class DisparoAutomatico : MonoBehaviour
 {
+    public static DisparoAutomatico Instance
+    {
+        get; private set;
+    }
+
     public Transform puntoDisparo;
     public GameObject proyectil;
     public float velocidadDisparo = 15f;
@@ -13,6 +18,14 @@ public class DisparoAutomatico : MonoBehaviour
     public GameObject impactoParticulas; // Agrega tu efecto de partículas desde el Inspector
 
     private GameObject bala;
+    private void Awake()
+    {
+        Instance = this;
+            if(Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Update()
     {
@@ -47,7 +60,7 @@ public class DisparoAutomatico : MonoBehaviour
         return distancia;
     }
 
-    void Disparar(float frecuenciaDisparo)
+    public void Disparar(float frecuenciaDisparo)
     {
         if (!IsInvoking("HacerDisparo"))
         {

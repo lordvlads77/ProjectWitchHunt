@@ -115,4 +115,9 @@ public class UIController : MonoBehaviour
     {
         Debug.Log(_itemBoughtDebugMsg);
     }
+
+    public void Ataque()
+    {
+        DisparoAutomatico.Instance.Disparar(20f);
+    }
 }
