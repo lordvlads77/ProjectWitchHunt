@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 0d97c4567327ff14d88726e84758d615
+guid: e5e29a867ac97214ebc88bb10ca21f5a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: acbol_caidoMat
+    second: {fileID: 2100000, guid: 201532ffe0f19154fb079c7d766a4e19, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

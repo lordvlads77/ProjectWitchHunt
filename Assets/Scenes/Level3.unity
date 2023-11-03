@@ -1605,6 +1605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8512038807457154095, guid: 37ba285cd2c0b3a41b7ea73279016d75, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37ba285cd2c0b3a41b7ea73279016d75, type: 3}
 --- !u!1001 &215507303
@@ -2438,6 +2442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 365129293}
   - component: {fileID: 365129292}
+  - component: {fileID: 365129294}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2522,6 +2527,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &365129294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365129291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1001 &372456235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2920,8 +2945,8 @@ MonoBehaviour:
   - {fileID: 4744093365440324054, guid: f862c624ed115c64f9eac26aa1e1810f, type: 3}
   - {fileID: 5331821080880784321, guid: 31c90296b9b852146aca0934fa8bd4c2, type: 3}
   - {fileID: 257653530353774463, guid: 0c359f08cb388d64eb297f617c5da1b0, type: 3}
-  intervaloSpawn: 3
-  radioSpawn: 10
+  puntoSpawn: {fileID: 0}
+  cantidadMaximaEnemigos: 5
   velocidadEnemigo: 5
 --- !u!4 &426750457
 Transform:
@@ -5514,8 +5539,8 @@ MonoBehaviour:
   - {fileID: 4744093365440324054, guid: f862c624ed115c64f9eac26aa1e1810f, type: 3}
   - {fileID: 5331821080880784321, guid: 31c90296b9b852146aca0934fa8bd4c2, type: 3}
   - {fileID: 257653530353774463, guid: 0c359f08cb388d64eb297f617c5da1b0, type: 3}
-  intervaloSpawn: 3
-  radioSpawn: 10
+  puntoSpawn: {fileID: 0}
+  cantidadMaximaEnemigos: 5
   velocidadEnemigo: 5
 --- !u!4 &741481800
 Transform:
@@ -9014,8 +9039,8 @@ MonoBehaviour:
   - {fileID: 4744093365440324054, guid: f862c624ed115c64f9eac26aa1e1810f, type: 3}
   - {fileID: 5331821080880784321, guid: 31c90296b9b852146aca0934fa8bd4c2, type: 3}
   - {fileID: 257653530353774463, guid: 0c359f08cb388d64eb297f617c5da1b0, type: 3}
-  intervaloSpawn: 3
-  radioSpawn: 10
+  puntoSpawn: {fileID: 0}
+  cantidadMaximaEnemigos: 5
   velocidadEnemigo: 5
 --- !u!4 &1478274230
 Transform:
@@ -12769,8 +12794,8 @@ MonoBehaviour:
   - {fileID: 4744093365440324054, guid: f862c624ed115c64f9eac26aa1e1810f, type: 3}
   - {fileID: 5331821080880784321, guid: 31c90296b9b852146aca0934fa8bd4c2, type: 3}
   - {fileID: 257653530353774463, guid: 0c359f08cb388d64eb297f617c5da1b0, type: 3}
-  intervaloSpawn: 3
-  radioSpawn: 10
+  puntoSpawn: {fileID: 0}
+  cantidadMaximaEnemigos: 5
   velocidadEnemigo: 5
 --- !u!1 &3193559834285149692
 GameObject:
@@ -13497,8 +13522,8 @@ MonoBehaviour:
   - {fileID: 4744093365440324054, guid: f862c624ed115c64f9eac26aa1e1810f, type: 3}
   - {fileID: 5331821080880784321, guid: 31c90296b9b852146aca0934fa8bd4c2, type: 3}
   - {fileID: 257653530353774463, guid: 0c359f08cb388d64eb297f617c5da1b0, type: 3}
-  intervaloSpawn: 3
-  radioSpawn: 10
+  puntoSpawn: {fileID: 0}
+  cantidadMaximaEnemigos: 5
   velocidadEnemigo: 5
 --- !u!4 &7652347978113218602
 Transform:
