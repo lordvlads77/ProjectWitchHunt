@@ -1780,6 +1780,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9083721231652935446}
   - component: {fileID: 2949840720579857772}
+  - component: {fileID: 2717175939600561837}
+  - component: {fileID: 4294896452563098943}
   m_Layer: 0
   m_Name: CerdoRigLifeBar
   m_TagString: Untagged
@@ -1828,6 +1830,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2717175939600561837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449893067559308716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e349f17d1d4f07408b549c69453d614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  moveSpeed: 3
+--- !u!114 &4294896452563098943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449893067559308716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e45d7edbf261d4294d384a72b3f571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cantidad: -10
+  damageTime: 0.5
 --- !u!1 &8538936721113968375
 GameObject:
   m_ObjectHideFlags: 0
