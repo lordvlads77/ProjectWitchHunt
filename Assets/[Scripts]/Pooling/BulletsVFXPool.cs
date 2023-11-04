@@ -33,6 +33,7 @@ public class BulletsVFXPool : MonoBehaviour
                 if (_projectilePool[i].GetComponent<BulletType>()._vfxBulletType == _vfxBulletType)
                 {
                     _projectilePool[i].transform.position = transform.position;
+                    _projectilePool[i].transform.rotation = transform.rotation;
                     _projectilePool[i].SetActive(true);
                     return;
                 }
@@ -42,7 +43,7 @@ public class BulletsVFXPool : MonoBehaviour
         {
             if (_bulletVFXPrefab[i]._vfxBulletType == _vfxBulletType)
             {
-                GameObject _bullet = Instantiate(_bulletVFXPrefab[i].gameObject, transform.position, Quaternion.identity);
+                GameObject _bullet = Instantiate(_bulletVFXPrefab[i].gameObject, transform.position, transform.rotation);
                 _projectilePool.Add(_bullet);
                 return;
             }
