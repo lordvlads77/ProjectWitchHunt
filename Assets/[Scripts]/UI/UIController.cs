@@ -51,17 +51,19 @@ public class UIController : MonoBehaviour
         }
     }
     
-    public void InitGame()
-    {
-        _SplashPanel.SetActive(false);
-        _startMenuPanel.SetActive(true);
-    }
+    // public void InitGame()
+    // {
+    //     _SplashPanel.SetActive(false);
+    //     _startMenuPanel.SetActive(true);
+    // }
     
     public void PlayButton()
     {
+        Time.timeScale = 1;
         _startMenuPanel.SetActive(false);
         _uiInGamePanel.SetActive(true);
         isUIActive = false;
+        
     }
 
     public void Pause()
