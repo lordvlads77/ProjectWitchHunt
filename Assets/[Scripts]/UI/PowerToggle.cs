@@ -40,10 +40,12 @@ public class PowerToggle : MonoBehaviour
         if (isToggled)
         {
             buttonImage.sprite = clickedSprite;
+            ParticleController.Instance.SpwnProyectileBlueParticle();
         }
         else
         {
             buttonImage.sprite = originalSprite;
+            ParticleController.Instance.SpwnProyectilePinkParticle();
         }
     }
 }

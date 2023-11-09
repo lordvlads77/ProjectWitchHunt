@@ -21,6 +21,8 @@ public class UIController : MonoBehaviour
     private readonly String _itemBoughtDebugMsg = "Item Bought";
     [Header("Health Bar ui")]
     [SerializeField] private ProgressLifeBars HealthBar = default;
+    [SerializeField] GameObject _joystick = default;
+    [FormerlySerializedAs("isSplashScreenActive")] [SerializeField] private bool isUIActive = default;
 
 
     private void Awake()
@@ -34,29 +36,34 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        second = 5f;
-        Invoke(nameof(InitGame), 5f);
+        isUIActive = true;
     }
     
     void Update()
     {
-        if (time < 5)
+        if (isUIActive == true)
         {
-            time += Time.deltaTime;
-            _imgFiller.fillAmount = time / second;
+            _joystick.SetActive(false);
+        }
+        else
+        {
+            _joystick.SetActive(true);
         }
     }
     
-    public void InitGame()
-    {
-        _SplashPanel.SetActive(false);
-        _startMenuPanel.SetActive(true);
-    }
+    // public void InitGame()
+    // {
+    //     _SplashPanel.SetActive(false);
+    //     _startMenuPanel.SetActive(true);
+    // }
     
     public void PlayButton()
     {
+        Time.timeScale = 1;
         _startMenuPanel.SetActive(false);
         _uiInGamePanel.SetActive(true);
+        isUIActive = false;
+        
     }
 
     public void Pause()
@@ -64,6 +71,7 @@ public class UIController : MonoBehaviour
         Debug.Log(_pauseDebugMsg);
         _uiPausePanel.SetActive(true);
         _uiInGamePanel.SetActive(false);
+        isUIActive = true;
         Time.timeScale = 0;
     }
 
@@ -77,25 +85,16 @@ public class UIController : MonoBehaviour
         _uiPausePanel.SetActive(false);
         _uiInGamePanel.SetActive(true);
         Time.timeScale = 1;
+        isUIActive = false;
     }
     
     public void MainMenu()
     {
         _uiPausePanel.SetActive(false);
         _startMenu.SetActive(true);
+        isUIActive = true;
     }
-    public void MainMenu2()
-    {
-        _uiPausePanel.SetActive(false);
-        _startMenuPanel.SetActive(true);
-    }
-
-    public void CheMenu()
-    {
-        _uiPausePanel.SetActive(false);
-        _startMenu.SetActive(true);
-    }
-
+    
     public void Respawn()
     {
         SceneManager.LoadScene(6);
