@@ -221,7 +221,7 @@ RectTransform:
   - {fileID: 8420741852731844828}
   - {fileID: 7453589387206098355}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -628,7 +628,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7151651336356579227, guid: afb0a1bdcc69f1246b20ab0a95a35ed3, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7151651336356579227, guid: afb0a1bdcc69f1246b20ab0a95a35ed3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1878,7 +1878,7 @@ Transform:
   m_Children:
   - {fileID: 644069607}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1700998714
 GameObject:
@@ -2255,10 +2255,9 @@ Transform:
   m_LocalPosition: {x: -9.17, y: 1.72, z: 25.66}
   m_LocalScale: {x: 3.3687997, y: 3.3687997, z: 3.3687997}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3456542660103354425}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1939060854
 MonoBehaviour:
@@ -3279,6 +3278,7 @@ GameObject:
   - component: {fileID: 8725785751277298240}
   - component: {fileID: 8725785751277298243}
   - component: {fileID: 8725785751277298245}
+  - component: {fileID: 8725785751277298246}
   m_Layer: 0
   m_Name: WitchPlayer
   m_TagString: Player
@@ -3449,15 +3449,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2644681228833383043}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1695559, y: -0.20185232, z: -4.9246025}
-  m_LocalScale: {x: 29.684162, y: 29.684162, z: 29.684162}
+  m_LocalPosition: {x: -13.11, y: 1.04, z: 9.07}
+  m_LocalScale: {x: 99.99999, y: 99.99999, z: 99.99999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7181070904837789869}
   - {fileID: 71323600440117804}
   - {fileID: 343213059}
-  m_Father: {fileID: 1939060853}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3533168176471111071
 MeshFilter:
@@ -3635,7 +3635,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3842117191113684587
 MonoBehaviour:
@@ -4098,7 +4098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 20
-  healthBarImage: {fileID: 4123824160576564054}
+  lifeBar: {fileID: 0}
 --- !u!1 &4123824160921087584
 GameObject:
   m_ObjectHideFlags: 0
@@ -4497,6 +4497,7 @@ GameObject:
   - component: {fileID: 4123824161357219763}
   - component: {fileID: 4123824161357219725}
   - component: {fileID: 4123824161357219762}
+  - component: {fileID: 4123824161357219764}
   m_Layer: 5
   m_Name: lifeBar
   m_TagString: Untagged
@@ -4529,7 +4530,7 @@ MonoBehaviour:
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.8
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -4554,6 +4555,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0.71326256, y: 0}
   m_SizeDelta: {x: 1462.514, y: 155.04}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4123824161357219764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4123824161357219760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd4d17a2d61ccb54b901bc53af6a0a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  lifeBar: {fileID: 0}
 --- !u!224 &4123824161363117008
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8110,6 +8126,21 @@ MonoBehaviour:
   _spawnPoint: {fileID: 543091812}
   _origiPlayerPosition: {x: 0, y: 0, z: 0}
   _playerPosition: {fileID: 3456542660103354425}
+--- !u!114 &8725785751277298246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644681228833383043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd4d17a2d61ccb54b901bc53af6a0a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  lifeBar: {fileID: 4123824161357219762}
 --- !u!4 &8760778681413315258
 Transform:
   m_ObjectHideFlags: 0

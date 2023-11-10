@@ -9,6 +9,7 @@ public class HealingPowerUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Objeto colisionado: " + other.gameObject.name);
         if (other.CompareTag("Player"))
         {
             Debug.Log("Colisión con el jugador detectada");

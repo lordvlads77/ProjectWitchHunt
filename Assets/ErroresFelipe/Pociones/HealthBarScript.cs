@@ -10,21 +10,21 @@ public class HealthBarScript : MonoBehaviour
     [SerializeField]
     public float currentHealth; // Salud actual del jugador
     [SerializeField]
-    private Image healthBarImage; // Referencia a la imagen de la barra de vida
+    private Image lifeBar; // Referencia a la imagen de la barra de vida
     private void Start()
     {
-        healthBarImage = GetComponent<Image>();
+        lifeBar = GetComponent<Image>();
         currentHealth = maxHealth;
         UpdateHealthBar();
     }
     public void UpdateHealth(float newHealth)
     {
         currentHealth = Mathf.Clamp(newHealth, 0f, maxHealth);
-        UpdateHealthBar();
+        UpdateHealthBar(); // <-- Llamada a UpdateHealthBar
     }
     private void UpdateHealthBar()
     {
         float fillAmount = currentHealth / maxHealth;
-        healthBarImage.fillAmount = fillAmount;
+        lifeBar.fillAmount = fillAmount; // <-- Esta línea arroja la excepción
     }
 }
