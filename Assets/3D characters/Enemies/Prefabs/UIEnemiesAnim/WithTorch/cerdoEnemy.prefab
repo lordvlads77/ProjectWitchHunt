@@ -11224,6 +11224,7 @@ GameObject:
   - component: {fileID: 7151651336356579227}
   - component: {fileID: 3882076676565671393}
   - component: {fileID: 5009706953534991555}
+  - component: {fileID: 5665003947133908838}
   m_Layer: 0
   m_Name: cerdoEnemy
   m_TagString: Untagged
@@ -11287,6 +11288,20 @@ MonoBehaviour:
   _maxHealth: 100
   _healthBar: {fileID: 4317704081120218858}
   _currentHealth: 0
+--- !u!114 &5665003947133908838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526663225271328033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e349f17d1d4f07408b549c69453d614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  moveSpeed: 3
 --- !u!1 &7699769406925965573
 GameObject:
   m_ObjectHideFlags: 0

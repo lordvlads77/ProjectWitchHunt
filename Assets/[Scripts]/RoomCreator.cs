@@ -17,6 +17,9 @@ public class RoomCreator : MonoBehaviour
     [Header("Player Position Reset")]
     [FormerlySerializedAs("_ogPlayerPosition")] [SerializeField] private Vector3 _origiPlayerPosition;
     [SerializeField] private Transform _playerPosition;
+    
+    [Header("Transition")]
+    [SerializeField] private Light _light;
 
     private void Awake()
     {
@@ -152,6 +155,14 @@ public class RoomCreator : MonoBehaviour
         StartCoroutine(RequestRoom());
         _playerPosition.transform.position = _origiPlayerPosition;
         Debug.Log("Spawning");
+        StartCoroutine(turnOffLights());
+    }
+
+    IEnumerator turnOffLights()
+    {
+        _light.enabled = false;
+        yield return new WaitForSeconds(2f);
+        _light.enabled = true;
     }
 }
 

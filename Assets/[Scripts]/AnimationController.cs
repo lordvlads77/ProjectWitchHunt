@@ -63,4 +63,9 @@ public class AnimationController : MonoBehaviour
     {
         animator.SetTrigger(_EnemyTurkeyDeath);
     }
+    
+    public void StopPlayerAttacking(Animator animator)
+    {
+        animator.SetBool(_playerAttacking, false);
+    }
 }

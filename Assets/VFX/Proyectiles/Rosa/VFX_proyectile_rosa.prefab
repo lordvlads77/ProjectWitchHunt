@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5687641421928101589}
   - component: {fileID: 7286680894124257279}
   - component: {fileID: 3403163950190686625}
+  - component: {fileID: 2228897304931006405}
   m_Layer: 0
   m_Name: VFX_proyectile_rosa
   m_TagString: Untagged
@@ -141,5 +142,18 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!65 &2228897304931006405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207283007221955672}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6402481, y: 0.27582616, z: 2.1623688}
+  m_Center: {x: 0.060486913, y: 0.02167496, z: 0.023064196}
