@@ -3167,6 +3167,7 @@ GameObject:
   - component: {fileID: 8725785751277298240}
   - component: {fileID: 8725785751277298243}
   - component: {fileID: 8725785751277298245}
+  - component: {fileID: 8725785751277298246}
   m_Layer: 0
   m_Name: WitchPlayer
   m_TagString: Player
@@ -7982,6 +7983,27 @@ MonoBehaviour:
   _spawnPoint: {fileID: 543091812}
   _origiPlayerPosition: {x: 0, y: 0, z: 0}
   _playerPosition: {fileID: 3456542660103354425}
+--- !u!114 &8725785751277298246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644681228833383043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acddab4239d7264f8161b57fb9f78f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntoDisparo: {fileID: 0}
+  proyectil: {fileID: 0}
+  velocidadDisparo: 2
+  frecuenciaDisparoCercano: 0.5
+  frecuenciaDisparoLejano: 0.5
+  distanciaCercana: 10
+  distanciaLejana: 20
+  tagEnemigo: Enemigo
+  impactoParticulas: {fileID: 3440142471478950696, guid: bd066d196825c2d49b521c258672d97e, type: 3}
 --- !u!4 &8760778681413315258
 Transform:
   m_ObjectHideFlags: 0
