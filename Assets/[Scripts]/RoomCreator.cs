@@ -19,7 +19,7 @@ public class RoomCreator : MonoBehaviour
     [SerializeField] private Transform _playerPosition;
     
     [Header("Transition")]
-    [SerializeField] private Light _light;
+    [SerializeField] private Animator _animator;
 
     private void Awake()
     {
@@ -154,16 +154,17 @@ public class RoomCreator : MonoBehaviour
 
         requestingRoom = true;
         StartCoroutine(RequestRoom());
+        StartCoroutine(fading());
         _playerPosition.transform.position = _origiPlayerPosition;
         Debug.Log("Spawning");
-        StartCoroutine(turnOffLights());
+        //StartCoroutine(turnOffLights());
     }
 
-    IEnumerator turnOffLights()
+    IEnumerator fading()
     {
-        _light.enabled = false;
-        yield return new WaitForSeconds(2f);
-        _light.enabled = true;
+        AnimationController.Instance.FadeInAnim(_animator);
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
+        AnimationController.Instance.FadeOutAnim(_animator);
     }
 }
 

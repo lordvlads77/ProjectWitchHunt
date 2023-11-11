@@ -7998,7 +7998,7 @@ MonoBehaviour:
   _spawnPoint: {fileID: 543091812}
   _origiPlayerPosition: {x: 0, y: 0, z: 0}
   _playerPosition: {fileID: 3456542660103354425}
-  _light: {fileID: 1415302016}
+  _animator: {fileID: 8725785751277298243}
 --- !u!114 &8725785751277298246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8218,7 +8218,7 @@ MonoBehaviour:
   _spawnPoint: {fileID: 543091812}
   _origiPlayerPosition: {x: 0, y: 0, z: 0}
   _playerPosition: {fileID: 9152139984735596783}
-  _light: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!95 &9152139984735596790
 Animator:
   serializedVersion: 5
