@@ -72,7 +72,9 @@ public class UIController : MonoBehaviour
         _uiPausePanel.SetActive(true);
         _uiInGamePanel.SetActive(false);
         isUIActive = true;
-        Time.timeScale = 0;
+        GameState currentGameState = GameStateManager.Instance.CurrentGameState; 
+        GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
+        GameStateManager.Instance.SetState(newGameState);
     }
 
     public void SwitchAtk()
