@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class DisparoAutomatico : MonoBehaviour
 {
+    public static DisparoAutomatico Instance
+    {
+        get; private set;
+    }
     public Transform puntoDisparo;
     public GameObject proyectil;
     public float velocidadDisparo = 15f;
@@ -10,26 +14,22 @@ public class DisparoAutomatico : MonoBehaviour
     public float distanciaCercana = 5f;
     public float distanciaLejana = 15f;
     public string tagEnemigo = "Enemigo";
-    public GameObject impactoParticulas; // Agrega tu efecto de partículas desde el Inspector
-
-    private GameObject bala;
+    public LayerMask capaEnemigos; // Asigna la capa de enemigos desde el Inspector
+    public GameObject impactoParticulas;
+    public Animator _animator = default;
+    private void Awake()
+    {
+        Instance = this;
+        if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        _animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
-        float distanciaEnemigo = EncontrarEnemigoMasCercano();
-
-        if (distanciaEnemigo <= distanciaCercana)
-        {
-            Disparar(frecuenciaDisparoCercano);
-        }
-        else if (distanciaEnemigo > distanciaLejana)
-        {
-            CancelInvoke("HacerDisparo");
-        }
-        else if (distanciaEnemigo > distanciaCercana && distanciaEnemigo <= distanciaLejana)
-        {
-            Disparar(frecuenciaDisparoLejano);
-        }
+        CuandoDisparar();
     }
 
     float EncontrarEnemigoMasCercano()
@@ -47,25 +47,30 @@ public class DisparoAutomatico : MonoBehaviour
         return distancia;
     }
 
-    void Disparar(float frecuenciaDisparo)
+    public void Disparar(float frecuenciaDisparo)
     {
         if (!IsInvoking("HacerDisparo"))
         {
             InvokeRepeating("HacerDisparo", 0f, frecuenciaDisparo);
         }
+        AnimationController.Instance.PlayerAttacking(_animator);
     }
 
     void HacerDisparo()
     {
-        GameObject enemigoCercano = EncontrarEnemigoMasCercanoObject(); // Encuentra el GameObject del enemigo más cercano
+        GameObject enemigoCercano = EncontrarEnemigoMasCercanoObject();
         if (enemigoCercano != null)
         {
-            if (bala != null) Destroy(bala); // Destruye la bala anterior si existe una
-            bala = Instantiate(proyectil, puntoDisparo.position, Quaternion.identity);
+            GameObject bala = Instantiate(proyectil, puntoDisparo.position, transform.rotation); // Las balas girarï¿½n con el personaje
             Rigidbody rb = bala.GetComponent<Rigidbody>();
             Vector3 direccion = (enemigoCercano.transform.position - puntoDisparo.position).normalized;
             rb.velocity = direccion * velocidadDisparo;
+
+            Physics.IgnoreCollision(bala.GetComponent<Collider>(), GetComponent<Collider>()); // Ignora la colisiï¿½n con el jugador
+            bala.layer = capaEnemigos; // Aplica la capa de enemigos a las balas
             Destroy(bala, 3.0f);
+            
+            
         }
     }
 
@@ -86,18 +91,33 @@ public class DisparoAutomatico : MonoBehaviour
         return enemigoCercano;
     }
 
-    void OnTriggerEnter(Collider other)
+    void ApuntarAlEnemigo(float distanciaEnemigo)
     {
-        if (other.CompareTag(tagEnemigo) && bala != null)
+        if (distanciaEnemigo <= distanciaLejana)
         {
-            Destroy(bala); // Destruye la bala al colisionar con el enemigo
-            MostrarParticulasImpacto(other.transform.position); // Muestra partículas al impactar con el enemigo
+            GameObject enemigoCercano = EncontrarEnemigoMasCercanoObject();
+            if (enemigoCercano != null)
+            {
+                Vector3 direccion = (enemigoCercano.transform.position - transform.position).normalized;
+                puntoDisparo.rotation = Quaternion.LookRotation(direccion); // Apunta hacia el enemigo
+            }
         }
     }
 
-    void MostrarParticulasImpacto(Vector3 position)
+    void CuandoDisparar()
     {
-        GameObject impacto = Instantiate(impactoParticulas, position, Quaternion.identity);
-        Destroy(impacto, 2.0f);
+        float distanciaEnemigo = EncontrarEnemigoMasCercano();
+
+        if (distanciaEnemigo <= distanciaCercana || distanciaEnemigo <= distanciaLejana)
+        {
+            Disparar(distanciaEnemigo <= distanciaCercana ? frecuenciaDisparoCercano : frecuenciaDisparoLejano);
+        }
+        else
+        {
+            CancelInvoke("HacerDisparo");
+            AnimationController.Instance.StopPlayerAttacking(_animator);
+        }
+
+        ApuntarAlEnemigo(distanciaEnemigo);
     }
 }
