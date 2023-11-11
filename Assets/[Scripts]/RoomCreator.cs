@@ -146,10 +146,11 @@ public class RoomCreator : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if (requestingRoom)
+        if (other.tag != "LevelChanger")
         {
             return;
         }
+        
 
         requestingRoom = true;
         StartCoroutine(RequestRoom());
