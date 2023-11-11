@@ -6,25 +6,41 @@ using UnityEngine.UI;
 public class HealthBarScript : MonoBehaviour
 {
     [SerializeField]
-    public float maxHealth = 100f; // Salud máxima del jugador
+    private Image healthBarImage;
     [SerializeField]
-    public float currentHealth; // Salud actual del jugador
+    public float maxHealth = 100f;
     [SerializeField]
-    private Image lifeBar; // Referencia a la imagen de la barra de vida
+    public float currentHealth;
+
     private void Start()
     {
-        lifeBar = GetComponent<Image>();
+        //healthBarImage = GetComponent<Image>();
+
+        if (healthBarImage == null)
+        {
+            Debug.LogError("Image component not found on the same GameObject as HealthBarScript.");
+        }
+
         currentHealth = maxHealth;
         UpdateHealthBar();
     }
+
     public void UpdateHealth(float newHealth)
     {
         currentHealth = Mathf.Clamp(newHealth, 0f, maxHealth);
-        UpdateHealthBar(); // <-- Llamada a UpdateHealthBar
+        UpdateHealthBar();
     }
+
     private void UpdateHealthBar()
     {
-        float fillAmount = currentHealth / maxHealth;
-        lifeBar.fillAmount = fillAmount; // <-- Esta línea arroja la excepción
+        if (healthBarImage != null)
+        {
+            float fillAmount = currentHealth / maxHealth;
+            healthBarImage.fillAmount = fillAmount;
+        }
+        else
+        {
+            Debug.LogError("Image component is null in HealthBarScript.");
+        }
     }
 }
