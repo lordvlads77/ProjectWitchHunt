@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/NotGame.unity
     guid: 3e4e8c7b51fab6f4dace2b6c8b9b006c
-  - enabled: 1
-    path: Assets/Scenes/RoomCreatorSpawn.unity
-    guid: e98043dec311ac84191491cf35474a1d
   - enabled: 0
     path: Assets/Scenes/Level2.unity
     guid: a6a9adbbfb7af2c43b8ec0c2ecb21a55
@@ -29,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/GUIRespawn.unity
     guid: 89ea7c85b7e855e4bb9446b49de65131
+  - enabled: 1
+    path: Assets/Scenes/RoomCreatorSpawn.unity
+    guid: e98043dec311ac84191491cf35474a1d
   m_configObjects: {}

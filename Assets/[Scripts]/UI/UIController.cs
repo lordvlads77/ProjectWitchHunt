@@ -116,4 +116,15 @@ public class UIController : MonoBehaviour
     {
         Debug.Log(_itemBoughtDebugMsg);
     }
+
+    public void Ataque()
+    {
+        DisparoAutomatico.Instance.Disparar(3f);
+    }
+
+    public void Moricion()
+    {
+        _uiInGamePanel.SetActive(false);
+        _uiGameOverPanel.SetActive(true);
+    }
 }
