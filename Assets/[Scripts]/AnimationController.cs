@@ -14,6 +14,8 @@ public class AnimationController : MonoBehaviour
     private readonly int _EnemyFoxDeath = Animator.StringToHash("moricion");
     private readonly int _EnemyTurkeyAttack = Animator.StringToHash("isAttackMister");
     private readonly int _EnemyTurkeyDeath = Animator.StringToHash("peto");
+    private readonly int _fadeIn = Animator.StringToHash("FadeIn");
+    private readonly int _fadeOut = Animator.StringToHash("FadeOut");
 
     private void Awake()
     {
@@ -67,5 +69,15 @@ public class AnimationController : MonoBehaviour
     public void StopPlayerAttacking(Animator animator)
     {
         animator.SetBool(_playerAttacking, false);
+    }
+
+    public void FadeInAnim(Animator animator)
+    {
+        animator.Play(_fadeIn);
+    }
+
+    public void FadeOutAnim(Animator animator)
+    {
+        animator.Play(_fadeOut);
     }
 }
