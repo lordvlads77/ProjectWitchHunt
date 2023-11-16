@@ -13,6 +13,8 @@ public class PlayerLifeBarUI : MonoBehaviour
     [SerializeField] private float _target = default;
     private Color _newHealthBarColor;
     private Coroutine drainHealthBarCoroutine;
+    [SerializeField] public float currentHealth;
+    [SerializeField] public float maxHealth = 100f;
 
     private void Awake()
     {
@@ -28,6 +30,13 @@ public class PlayerLifeBarUI : MonoBehaviour
         _image = GetComponent<Image>();
         _image.color = _healthBarGradient.Evaluate(_target);
         HealthGradientUpdate();
+        currentHealth = maxHealth;
+    }
+
+    public void UpdateHealth(float newHealth)
+    {
+        currentHealth = Mathf.Clamp(newHealth, 0f, maxHealth);
+        UpdateHealthBar(maxHealth, currentHealth);
     }
 
     public void UpdateHealthBar(float maxHealth, float currentHealth)

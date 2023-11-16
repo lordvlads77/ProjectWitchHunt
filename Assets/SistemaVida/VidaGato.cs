@@ -14,6 +14,8 @@ public class VidaGato : MonoBehaviour
     [SerializeField] private GameObject _enemy2;
     [SerializeField] private GameObject _enemy3;
     [SerializeField] private GameObject _floatingJoystick;
+    [SerializeField] public float currentHealth;
+    [SerializeField] public float maxHealth = 100f;
     void Update()
     {
         vida = Mathf.Clamp(vida, 0, 100);

@@ -36240,6 +36240,7 @@ MonoBehaviour:
   _joystick: {fileID: 2528319865960543427}
   playerSpeed: 5
   _rigidbody: {fileID: 8725785751277298244}
+  speedMultiplier: 1
   _animator: {fileID: 8725785751277298243}
 --- !u!95 &8725785751277298243
 Animator:
@@ -36349,6 +36350,8 @@ MonoBehaviour:
   _enemy2: {fileID: 6186332761334096704}
   _enemy3: {fileID: 7526663225486216391}
   _floatingJoystick: {fileID: 2528319865960543431}
+  currentHealth: 0
+  maxHealth: 100
 --- !u!114 &8725785751277298248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36392,6 +36395,8 @@ MonoBehaviour:
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
   _target: 0
+  currentHealth: 0
+  maxHealth: 100
 --- !u!1 &8737092874175488518
 GameObject:
   m_ObjectHideFlags: 0
@@ -37791,6 +37796,8 @@ MonoBehaviour:
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
   _target: 1
+  currentHealth: 0
+  maxHealth: 100
 --- !u!1 &9033334314796695932
 GameObject:
   m_ObjectHideFlags: 0
