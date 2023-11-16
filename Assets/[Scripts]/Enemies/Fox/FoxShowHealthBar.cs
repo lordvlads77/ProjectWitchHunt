@@ -1,28 +1,16 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowHealthBar : MonoBehaviour
+public class FoxShowHealthBar : MonoBehaviour
 {
-    public static ShowHealthBar Instance { get; private set; }
-
     [SerializeField] private float _maxHealth = default;
     [SerializeField] private UIHealthBar _healthBar;
     [SerializeField] private float _currentHealth;
     private bool _isDead = false;
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyBehaviour _enemyBehaviour;
-
-    private void Awake()
-    {
-        Instance = this;
-        if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
-
+    
     private void Start()
     {
         _currentHealth = _maxHealth;
@@ -48,7 +36,7 @@ public class ShowHealthBar : MonoBehaviour
         // Ejecutar la animación de muerte si es necesario
         if (animator != null)
         {
-            StartCoroutine(PigDeathAnim());
+            StartCoroutine(FoxDeathAnim());
         }
 
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
@@ -61,11 +49,11 @@ public class ShowHealthBar : MonoBehaviour
         Dmg(10f);
     }
     
-    private IEnumerator PigDeathAnim()
+    private IEnumerator FoxDeathAnim()
     {
         _enemyBehaviour.enabled = false;
-        AnimationController.Instance.EnemyPigDeath(animator);
-        yield return new WaitForSeconds(5f);
+        AnimationController.Instance.EnemyFoxDeath(animator);
+        yield return new WaitForSeconds(4f);
         Destroy(gameObject);
     }
 }

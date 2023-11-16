@@ -14,6 +14,12 @@ public class EnemyBehaviour : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChange;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChange;
     }
 
     void Start()
@@ -28,5 +34,10 @@ public class EnemyBehaviour : MonoBehaviour
             transform.LookAt(player);
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
+    }
+    
+    private void OnGameStateChange(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
     }
 }

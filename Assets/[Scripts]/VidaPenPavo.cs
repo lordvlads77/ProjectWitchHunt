@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManipuladorVida : MonoBehaviour
+public class VidaPenPavo : MonoBehaviour
 {
     VidaGato playervida;
     public int cantidad;
@@ -25,7 +24,7 @@ public class ManipuladorVida : MonoBehaviour
             {
                 playervida.vida += cantidad;
                 currentDamageTime = 0.0f;
-                AnimationController.Instance.EnemyPigAttack(_animator);
+                AnimationController.Instance.EnemyTurkeyAttack(_animator);
             }
         }
     }

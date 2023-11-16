@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DisparoAutomatico : MonoBehaviour
@@ -16,6 +17,7 @@ public class DisparoAutomatico : MonoBehaviour
     public string tagEnemigo = "Enemigo";
     public LayerMask capaEnemigos; // Asigna la capa de enemigos desde el Inspector
     public GameObject impactoParticulas;
+    [SerializeField] private Animator _animator;
     private void Awake()
     {
         Instance = this;
@@ -23,6 +25,12 @@ public class DisparoAutomatico : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
     }
 
     private void Update()
@@ -69,15 +77,16 @@ public class DisparoAutomatico : MonoBehaviour
         GameObject enemigoCercano = EncontrarEnemigoMasCercanoObject();
         if (enemigoCercano != null)
         {
-            GameObject bala = Instantiate(proyectil, puntoDisparo.position, transform.rotation); // Las balas girarán con el personaje
+            GameObject bala = Instantiate(proyectil, puntoDisparo.position, transform.rotation); // Las balas girarï¿½n con el personaje
             Rigidbody rb = bala.GetComponent<Rigidbody>();
             Vector3 direccion = (enemigoCercano.transform.position - puntoDisparo.position).normalized;
             rb.velocity = direccion * velocidadDisparo;
 
-            Physics.IgnoreCollision(bala.GetComponent<Collider>(), GetComponent<Collider>()); // Ignora la colisión con el jugador
+            Physics.IgnoreCollision(bala.GetComponent<Collider>(), GetComponent<Collider>()); // Ignora la colisiï¿½n con el jugador
             bala.layer = capaEnemigos; // Aplica la capa de enemigos a las balas
 
             Destroy(bala, 3.0f);
+            AnimationController.Instance.PlayerAttacking(_animator);
         }
     }
 
@@ -109,5 +118,10 @@ public class DisparoAutomatico : MonoBehaviour
                 puntoDisparo.rotation = Quaternion.LookRotation(direccion); // Apunta hacia el enemigo
             }
         }
+    }
+    
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
     }
 }
