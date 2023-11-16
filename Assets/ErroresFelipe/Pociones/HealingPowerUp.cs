@@ -14,11 +14,13 @@ public class HealingPowerUp : MonoBehaviour
         {
             Debug.Log("Colision con el jugador detectada");
 
-            HealthBarScript healthBar = other.GetComponentInChildren<HealthBarScript>();
-            if (healthBar != null)
+            VidaGato vidaGato = other.GetComponentInChildren<VidaGato>();
+            if (vidaGato != null)
             {
-                healthBar.UpdateHealth(healthBar.currentHealth + healingAmount);
-                Debug.Log("Vida actual del jugador: " + healthBar.currentHealth);
+                //healthBar.UpdateHealth(healthBar.vidaGato.vida + healingAmount);
+                //healthBar.UpdateHealth(healthBar.currentHealth + healingAmount);
+                vidaGato.UpdateHealth(vidaGato.vida + healingAmount);
+                Debug.Log("Vida actual del jugador: " + vidaGato.vida);
             }
 
             Destroy(gameObject);
