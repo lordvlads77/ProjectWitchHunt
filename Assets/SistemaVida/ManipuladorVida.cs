@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class ManipuladorVida : MonoBehaviour
     public int cantidad;
     public float damageTime;
     float currentDamageTime;
+    [SerializeField] private Animator _animator;
 
     void Start()
     {
@@ -23,6 +25,7 @@ public class ManipuladorVida : MonoBehaviour
             {
                 playervida.vida += cantidad;
                 currentDamageTime = 0.0f;
+                AnimationController.Instance.EnemyPigAttack(_animator);
             }
         }
     }

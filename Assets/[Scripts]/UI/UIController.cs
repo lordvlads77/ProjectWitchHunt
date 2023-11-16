@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -23,6 +24,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private ProgressLifeBars HealthBar = default;
     [SerializeField] GameObject _joystick = default;
     [FormerlySerializedAs("isSplashScreenActive")] [SerializeField] private bool isUIActive = default;
+    [SerializeField] private GameObject _enemy;
+    [SerializeField] private GameObject _enemy2;
+    [SerializeField] private GameObject _enemy3;
 
 
     private void Awake()
@@ -59,10 +63,13 @@ public class UIController : MonoBehaviour
     
     public void PlayButton()
     {
-        Time.timeScale = 1;
+        // Time.timeScale = 1;
         _startMenuPanel.SetActive(false);
-        _uiInGamePanel.SetActive(true);
+        _uiInGamePanel.SetActive(true); 
         isUIActive = false;
+        _enemy.SetActive(true);
+        _enemy2.SetActive(true);
+        _enemy3.SetActive(true);
         
     }
 
@@ -72,7 +79,9 @@ public class UIController : MonoBehaviour
         _uiPausePanel.SetActive(true);
         _uiInGamePanel.SetActive(false);
         isUIActive = true;
-        Time.timeScale = 0;
+        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
+        GameStateManager.Instance.SetState(newGameState);
     }
 
     public void SwitchAtk()
@@ -84,24 +93,21 @@ public class UIController : MonoBehaviour
     {
         _uiPausePanel.SetActive(false);
         _uiInGamePanel.SetActive(true);
-        Time.timeScale = 1;
+        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        GameState newGameState = currentGameState == GameState.Paused ? GameState.Gameplay : GameState.Paused;
+        GameStateManager.Instance.SetState(newGameState);
         isUIActive = false;
     }
     
     public void MainMenu()
     {
-        _uiPausePanel.SetActive(false);
-        _startMenu.SetActive(true);
-        isUIActive = true;
+        StartCoroutine(MainMenuStuff());
+        // isUIActive = true;
     }
     
     public void Respawn()
     {
-        SceneManager.LoadScene(6);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); For use in the future in another context
-        _uiGameOverPanel.SetActive(false);
-        _SplashPanel.SetActive(false);
-        _startMenuPanel.SetActive(false);
+        SceneManager.LoadScene(0);
     }
     
     public void BackToStoreUI()
@@ -113,5 +119,24 @@ public class UIController : MonoBehaviour
     public void ItemBought()
     {
         Debug.Log(_itemBoughtDebugMsg);
+    }
+
+    public void Ataque()
+    {
+        DisparoAutomatico.Instance.Disparar(3f);
+    }
+
+    public void Moricion()
+    {
+        _uiInGamePanel.SetActive(false);
+        _uiGameOverPanel.SetActive(true);
+        isUIActive = true;
+    }
+
+    private IEnumerator MainMenuStuff()
+    {
+        _uiPausePanel.SetActive(false);
+        yield return new WaitForSeconds(0.3f);
+        SceneManager.LoadScene(0);
     }
 }
