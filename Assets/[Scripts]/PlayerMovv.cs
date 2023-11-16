@@ -21,6 +21,11 @@ public class PlayerMovv : MonoBehaviour
     {
         GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
     }
+    
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
+    }
 
     void Start()
     {
@@ -39,10 +44,5 @@ public class PlayerMovv : MonoBehaviour
         {
             _animator.SetFloat(_pSpeed, 0);
         }
-    }
-
-    private void OnGameStateChanged(GameState newGameState)
-    {
-        enabled = newGameState == GameState.Gameplay;
     }
 }
