@@ -28,6 +28,7 @@ public class HealthBarScript : MonoBehaviour
     public void UpdateHealth(float newHealth)
     {
         currentHealth = Mathf.Clamp(newHealth, 0f, maxHealth);
+        PlayerLifeBarUI.Instance.UpdateHealthBar(100, currentHealth);
         UpdateHealthBar();
     }
 
@@ -35,8 +36,9 @@ public class HealthBarScript : MonoBehaviour
     {
         if (healthBarImage != null)
         {
-            float fillAmount = currentHealth / maxHealth;
-            healthBarImage.fillAmount = fillAmount;
+            // float fillAmount = currentHealth / maxHealth;
+            // healthBarImage.fillAmount = fillAmount;
+            PlayerLifeBarUI.Instance.UpdateHealthBar(maxHealth, currentHealth);
         }
         else
         {

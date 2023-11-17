@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,13 @@ public class VidaGato : MonoBehaviour
     [SerializeField] private GameObject _enemy2;
     [SerializeField] private GameObject _enemy3;
     [SerializeField] private GameObject _floatingJoystick;
+    [SerializeField] public float maxHealth = 100f;
+
+    private void Start()
+    {
+        
+    }
+
     void Update()
     {
         vida = Mathf.Clamp(vida, 0, 100);
@@ -37,6 +45,17 @@ public class VidaGato : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Destroy(_destroyPlayer);
         UIController.Instance.Moricion();
+    }
+    
+    public void UpdateHealth(float newHealth)
+    {
+        vida = Mathf.Clamp(newHealth, 0f, maxHealth);
+        UpdateHealthBar();
+    }
+
+    public void UpdateHealthBar()
+    {
+        PlayerLifeBarUI.Instance.UpdateHealthBar(maxHealth, vida);
     }
 
 }

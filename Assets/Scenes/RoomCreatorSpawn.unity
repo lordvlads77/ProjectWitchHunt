@@ -19318,6 +19318,7 @@ GameObject:
   - component: {fileID: 8725785751277298246}
   - component: {fileID: 8725785751277298247}
   - component: {fileID: 8725785751277298248}
+  - component: {fileID: 8725785751277298249}
   m_Layer: 0
   m_Name: WitchPlayer
   m_TagString: Player
@@ -36240,6 +36241,7 @@ MonoBehaviour:
   _joystick: {fileID: 2528319865960543427}
   playerSpeed: 5
   _rigidbody: {fileID: 8725785751277298244}
+  speedMultiplier: 1
   _animator: {fileID: 8725785751277298243}
 --- !u!95 &8725785751277298243
 Animator:
@@ -36349,6 +36351,7 @@ MonoBehaviour:
   _enemy2: {fileID: 6186332761334096704}
   _enemy3: {fileID: 7526663225486216391}
   _floatingJoystick: {fileID: 2528319865960543431}
+  maxHealth: 100
 --- !u!114 &8725785751277298248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36392,6 +36395,23 @@ MonoBehaviour:
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
   _target: 0
+  currentHealth: 0
+  maxHealth: 100
+--- !u!114 &8725785751277298249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644681228833383043}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd4d17a2d61ccb54b901bc53af6a0a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarImage: {fileID: 9033334314623345187}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &8737092874175488518
 GameObject:
   m_ObjectHideFlags: 0
@@ -37791,6 +37811,8 @@ MonoBehaviour:
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
   _target: 1
+  currentHealth: 0
+  maxHealth: 100
 --- !u!1 &9033334314796695932
 GameObject:
   m_ObjectHideFlags: 0
