@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7286680894124257279}
   - component: {fileID: 3403163950190686625}
   - component: {fileID: 2228897304931006405}
+  - component: {fileID: 6465833434628408479}
   m_Layer: 0
   m_Name: VFX_proyectile_rosa
   m_TagString: Untagged
@@ -157,3 +158,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6402481, y: 0.27582616, z: 2.1623688}
   m_Center: {x: 0.060486913, y: 0.02167496, z: 0.023064196}
+--- !u!114 &6465833434628408479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207283007221955672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393b141a7fc222b499b2059d3a6c32ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
