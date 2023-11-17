@@ -21,6 +21,7 @@ public class HealingPowerUp : MonoBehaviour
                 //healthBar.UpdateHealth(healthBar.currentHealth + healingAmount);
                 vidaGato.UpdateHealth(vidaGato.vida + healingAmount);
                 Debug.Log("Vida actual del jugador: " + vidaGato.vida);
+                ParticleController.Instance.SpwnHealingParticle();
             }
 
             Destroy(gameObject);
