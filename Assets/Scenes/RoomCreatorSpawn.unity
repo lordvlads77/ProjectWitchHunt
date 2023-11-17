@@ -6203,6 +6203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMaxima: 100
   barraVida: {fileID: 0}
+  contadorMonedasText: {fileID: 0}
 --- !u!1 &4848326772646175648
 GameObject:
   m_ObjectHideFlags: 0
@@ -6483,6 +6484,63 @@ Transform:
   m_Father: {fileID: 621563295062845359}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5383235774949555090
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3561697450391055604, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_Name
+      value: Proyectil
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.613
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805664009054817245, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
 --- !u!4 &5425712493568489743
 Transform:
   m_ObjectHideFlags: 0
@@ -10227,12 +10285,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f472a6174d526de4eb5c6b2e5b3f0705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePorDisparo: 10
-  rango: 100
+  damagePorDisparo: 20
   tagEnemigo: Enemigo
-  proyectilPrefab: {fileID: 8997872183664466987, guid: 767234e8e24d10444be3bf9a6f5ea06e, type: 3}
+  proyectilPrefab: {fileID: 3561697450391055604, guid: ca2ff64d0e2e9e243a61b64ba73c9263, type: 3}
   puntoDisparo: {fileID: 2033065414}
-  velocidadProyectil: 10
+  velocidadProyectil: 15
 --- !u!4 &8760778681413315258
 Transform:
   m_ObjectHideFlags: 0
@@ -10434,6 +10491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMaxima: 100
   barraVida: {fileID: 95155368954620595}
+  contadorMonedasText: {fileID: 4123824160418007051}
 --- !u!65 &9083721231362475748
 BoxCollider:
   m_ObjectHideFlags: 0

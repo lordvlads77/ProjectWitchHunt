@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class Disparo : MonoBehaviour
 {
+    [SerializeField]
     public float damagePorDisparo = 10f;
-    public float rango = 100f;
+    [SerializeField]
     public string tagEnemigo = "Enemigo";
+    [SerializeField]
     public GameObject proyectilPrefab; // Prefab del proyectil
+    [SerializeField]
     public Transform puntoDisparo; // Punto de origen del proyectil
+    [SerializeField]
     public float velocidadProyectil = 10f;
 
     private bool puedeDisparar = true;
@@ -24,38 +28,30 @@ public class Disparo : MonoBehaviour
 
     void DetectarEnemigoYDisparar()
     {
-        RaycastHit hit;
-
-        if (Physics.Raycast(puntoDisparo.position, puntoDisparo.forward, out hit, rango))
+        if (Input.GetButton("Fire1"))
         {
-            if (hit.collider.CompareTag(tagEnemigo))
-            {
-                Debug.Log("Enemigo detectado en rango. Disparando...");
-                Disparar(hit.collider.gameObject);
-            }
+            Debug.Log("Disparando...");
+            Disparar();
         }
     }
 
-    void Disparar(GameObject enemigo)
+    void Disparar()
     {
-        Debug.Log("Disparando...");
-
-        // Desactiva la capacidad de disparar para evitar múltiples disparos en el mismo ciclo
-        puedeDisparar = false;
-
         // Instancia un proyectil y configura su dirección y velocidad
         GameObject proyectil = Instantiate(proyectilPrefab, puntoDisparo.position, puntoDisparo.rotation);
         Rigidbody proyectilRigidbody = proyectil.GetComponent<Rigidbody>();
         proyectilRigidbody.velocity = transform.forward * velocidadProyectil;
 
-        // Aplica daño al enemigo
-        Enemigo scriptEnemigo = enemigo.GetComponent<Enemigo>();
-        if (scriptEnemigo != null)
+        // Configura el script del proyectil para saber a qué enemigo pertenece
+        Proyectil scriptProyectil = proyectil.GetComponent<Proyectil>();
+        if (scriptProyectil != null)
         {
-            scriptEnemigo.RecibirDanio(damagePorDisparo);
+            scriptProyectil.SetTagEnemigo(tagEnemigo);
+            scriptProyectil.SetDamagePorDisparo(damagePorDisparo);
         }
 
-        // Puedes configurar otras propiedades del proyectil aquí, por ejemplo, su daño, efectos, etc.
+        // Desactiva la capacidad de disparar para evitar múltiples disparos en el mismo ciclo
+        puedeDisparar = false;
 
         // Espera un tiempo antes de poder disparar nuevamente
         StartCoroutine(ReactivarDisparo());

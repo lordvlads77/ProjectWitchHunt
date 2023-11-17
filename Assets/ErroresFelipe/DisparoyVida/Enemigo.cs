@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Enemigo : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class Enemigo : MonoBehaviour
 
     // Agrega un objeto de barra de vida en el Inspector para mostrar la vida del enemigo.
     public Image barraVida;
+
+    // Referencia al objeto de la interfaz de usuario que muestra el contador de monedas (TextMeshProUGUI)
+    public TextMeshProUGUI contadorMonedasText;
+
+    // Contador de monedas
+    private int contadorMonedas = 0;
 
     void Start()
     {
@@ -42,6 +49,18 @@ public class Enemigo : MonoBehaviour
 
     void Morir()
     {
+        // Incrementar el contador de monedas
+        contadorMonedas++;
+
+        // Imprime el valor actual del contador de monedas para depuración
+        Debug.Log("Contador de Monedas: " + contadorMonedas);
+
+        // Actualizar el texto en la interfaz de usuario
+        if (contadorMonedasText != null)
+        {
+            contadorMonedasText.text = contadorMonedas.ToString();
+        }
+
         // Implementa cualquier lógica adicional para cuando el enemigo muera
         Destroy(gameObject);
     }
