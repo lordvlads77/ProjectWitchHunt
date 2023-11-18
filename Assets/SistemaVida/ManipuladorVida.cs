@@ -23,7 +23,7 @@ public class ManipuladorVida : MonoBehaviour
             currentDamageTime += Time.deltaTime;
             if (currentDamageTime > damageTime)
             {
-                playervida.vida += cantidad;
+                playervida.DañoPlayer(cantidad);
                 currentDamageTime = 0.0f;
                 AnimationController.Instance.EnemyPigAttack(_animator);
                 ParticleController.Instance.SpwnLightningParticlePDmgR();

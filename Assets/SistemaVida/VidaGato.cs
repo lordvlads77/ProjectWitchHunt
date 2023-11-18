@@ -25,10 +25,7 @@ public class VidaGato : MonoBehaviour
 
     void Update()
     {
-        vida = Mathf.Clamp(vida, 0, 100);
-
-        //barraDevida.fillAmount = vida / 100;
-        PlayerLifeBarUI.Instance.UpdateHealthBar(100, vida);
+        
 
         if (isPetado == false)
         {
@@ -67,4 +64,17 @@ public class VidaGato : MonoBehaviour
         PlayerLifeBarUI.Instance.UpdateHealthBar(maxHealth, vida);
     }
 
+    public void DañoPlayer(int dmgAmount)
+    {
+        vida += dmgAmount;
+        if (vida <= 0)
+        {
+            vida = 0;
+        }
+        vida = Mathf.Clamp(vida, 0, 100);
+
+        //barraDevida.fillAmount = vida / 100;
+        PlayerLifeBarUI.Instance.UpdateHealthBar(100, vida);
+    }
+    
 }

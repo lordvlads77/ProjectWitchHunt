@@ -21,7 +21,7 @@ public class ManipuladorEnemigo : MonoBehaviour
             currentDamageTime += Time.deltaTime;
             if (currentDamageTime > damageTime)
             {
-                playervida.vida += cantidad;
+                playervida.DañoPlayer(cantidad);
                 currentDamageTime = 0.0f;
             }
         }
