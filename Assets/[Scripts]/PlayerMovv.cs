@@ -15,7 +15,22 @@ public class PlayerMovv : MonoBehaviour
 
     [SerializeField] private Animator _animator;
     private int _pSpeed = Animator.StringToHash("speed");
+
+    private void Awake()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
     
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
+    }
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();

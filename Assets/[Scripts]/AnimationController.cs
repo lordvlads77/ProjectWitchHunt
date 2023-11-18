@@ -7,13 +7,15 @@ public class AnimationController : MonoBehaviour
 {
     public static AnimationController Instance { get; private set; }
     private readonly int _playerDeath = Animator.StringToHash("isDead");
-    private readonly int _playerAttacking = Animator.StringToHash("isAttacking");
+    private readonly int _playerAttacking = Animator.StringToHash("isPattack");
     private readonly int _EnemyPigAttack = Animator.StringToHash("attackk");
     private readonly int _EnemyPigDeath = Animator.StringToHash("dead");
     private readonly int _EnemyFoxAttack = Animator.StringToHash("attack");
     private readonly int _EnemyFoxDeath = Animator.StringToHash("moricion");
-    private readonly int _EnemyTurkeyAttack = Animator.StringToHash("isAttackMister");
+    private readonly int _EnemyTurkeyAttack = Animator.StringToHash("turkeyisAtk");
     private readonly int _EnemyTurkeyDeath = Animator.StringToHash("peto");
+    private readonly int _fadeIn = Animator.StringToHash("FadeIn");
+    private readonly int _fadeOut = Animator.StringToHash("FadeOut");
 
     private void Awake()
     {
@@ -31,7 +33,7 @@ public class AnimationController : MonoBehaviour
     
     public void PlayerAttacking(Animator animator)
     {
-        animator.SetBool(_playerAttacking, true);
+        animator.SetTrigger(_playerAttacking);
     }
     
     public void EnemyPigAttack(Animator animator)
@@ -56,7 +58,7 @@ public class AnimationController : MonoBehaviour
     
     public void EnemyTurkeyAttack(Animator animator)
     {
-        animator.SetBool(_EnemyTurkeyAttack, true);
+        animator.SetTrigger(_EnemyTurkeyAttack);
     }
     
     public void EnemyTurkeyDeath(Animator animator)
@@ -67,5 +69,15 @@ public class AnimationController : MonoBehaviour
     public void StopPlayerAttacking(Animator animator)
     {
         animator.SetBool(_playerAttacking, false);
+    }
+
+    public void FadeInAnim(Animator animator)
+    {
+        animator.Play(_fadeIn);
+    }
+
+    public void FadeOutAnim(Animator animator)
+    {
+        animator.Play(_fadeOut);
     }
 }

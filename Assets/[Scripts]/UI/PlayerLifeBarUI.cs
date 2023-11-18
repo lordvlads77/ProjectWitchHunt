@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,18 +6,38 @@ using UnityEngine.UI;
 
 public class PlayerLifeBarUI : MonoBehaviour
 {
+    public static PlayerLifeBarUI Instance { get; private set; }
     [SerializeField] private float _drainTime = 0.25f;
     [SerializeField] private Gradient _healthBarGradient = default;
-    private Image _image;
+    public Image _image;
     [SerializeField] private float _target = default;
     private Color _newHealthBarColor;
     private Coroutine drainHealthBarCoroutine;
+    [SerializeField] public float currentHealth;
+    [SerializeField] public float maxHealth = 100f;
+
+    private void Awake()
+    {
+        Instance = this;
+        if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
-        _image = GetComponent<Image>();
+        if (_image == null)
+            _image = GetComponent<Image>();
         _image.color = _healthBarGradient.Evaluate(_target);
         HealthGradientUpdate();
+        currentHealth = maxHealth;
+    }
+
+    public void UpdateHealth(float newHealth)
+    {
+        currentHealth = Mathf.Clamp(newHealth, 0f, maxHealth);
+        UpdateHealthBar(maxHealth, currentHealth);
     }
 
     public void UpdateHealthBar(float maxHealth, float currentHealth)

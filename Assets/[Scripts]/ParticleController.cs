@@ -23,6 +23,9 @@ public class ParticleController : MonoBehaviour
     [Header("Death Event Particle")]
     [SerializeField] private GameObject _deathParticle = default;
     [SerializeField] private Transform _deathTransform = default;
+    [SerializeField] private Transform _deathEnemyTransform = default;
+    [SerializeField] private Transform _deathEnemyTransform1 = default;
+    [SerializeField] private Transform _deathEnemyTransform2 = default;
     [Header("Healing Particle")]
     [SerializeField] private GameObject _healingParticle = default;
     [SerializeField] private Transform _healingTransform = default;
@@ -83,6 +86,24 @@ public class ParticleController : MonoBehaviour
     {
         GameObject _vfxPetacion = Instantiate(_deathParticle, _deathTransform.position, Quaternion.identity);
         Destroy(_vfxPetacion, _destructionDelay);
+    }
+
+    public void SpawnDeathVFXFox()
+    {
+        GameObject _DeathVfx = Instantiate(_deathParticle, _deathEnemyTransform.position, Quaternion.identity);
+        Destroy(_DeathVfx, _destructionDelay);
+    }
+
+    public void SpawnDeathVFXTurkey()
+    {
+        GameObject _DeathVFX2 = Instantiate(_deathParticle, _deathEnemyTransform1.position, Quaternion.identity);
+        Destroy(_DeathVFX2, _destructionDelay);
+    }
+
+    public void SpawnDeathVFXPig()
+    {
+        GameObject _DeathVFX3 = Instantiate(_deathParticle, _deathEnemyTransform2.position, Quaternion.identity);
+        Destroy(_DeathVFX3, _destructionDelay);
     }
     
     public void SpwnHealingParticle()
