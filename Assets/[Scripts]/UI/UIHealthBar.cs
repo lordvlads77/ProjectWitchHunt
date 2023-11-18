@@ -33,7 +33,7 @@ public class UIHealthBar : MonoBehaviour
         HealthGradientUpdate();
     }
 
-    private IEnumerator DrainHealthBar()
+    public IEnumerator DrainHealthBar()
     {
         float fillAmount = _image.fillAmount;
         Color currentColor = _image.color;
