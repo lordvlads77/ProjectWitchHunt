@@ -29,11 +29,11 @@ public class UIHealthBar : MonoBehaviour
     public void UpdateHealthBar(float maxHealth, float currentHealth)
     {
         _target = currentHealth / maxHealth;
-        drainHealthBarCoroutine = StartCoroutine(DrainHealthBar());
+        StartCoroutine(DrainHealthBar());
         HealthGradientUpdate();
     }
 
-    private IEnumerator DrainHealthBar()
+    public IEnumerator DrainHealthBar()
     {
         float fillAmount = _image.fillAmount;
         Color currentColor = _image.color;

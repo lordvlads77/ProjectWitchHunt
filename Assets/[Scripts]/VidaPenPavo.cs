@@ -25,6 +25,7 @@ public class VidaPenPavo : MonoBehaviour
                 playervida.vida += cantidad;
                 currentDamageTime = 0.0f;
                 AnimationController.Instance.EnemyTurkeyAttack(_animator);
+                ParticleController.Instance.SpwnLightningParticlePDmgR();
             }
         }
     }

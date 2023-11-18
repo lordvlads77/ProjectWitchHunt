@@ -27,6 +27,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _enemy;
     [SerializeField] private GameObject _enemy2;
     [SerializeField] private GameObject _enemy3;
+    [SerializeField] private EnemyBehaviour[] _enemyBehaviour;
+    [SerializeField] private DisparoAutomatico _disparoAutomatico;
+    
 
 
     private void Awake()
@@ -82,6 +85,11 @@ public class UIController : MonoBehaviour
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
         GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
         GameStateManager.Instance.SetState(newGameState);
+        _enemyBehaviour[0].enabled = false;
+        _enemyBehaviour[1].enabled = false;
+        _enemyBehaviour[2].enabled = false;
+        _disparoAutomatico.enabled = false;
+        Time.timeScale = 0;
     }
 
     public void SwitchAtk()
@@ -97,6 +105,7 @@ public class UIController : MonoBehaviour
         GameState newGameState = currentGameState == GameState.Paused ? GameState.Gameplay : GameState.Paused;
         GameStateManager.Instance.SetState(newGameState);
         isUIActive = false;
+        Time.timeScale = 1;
     }
     
     public void MainMenu()

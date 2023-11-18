@@ -9,7 +9,7 @@ public class PlayerLifeBarUI : MonoBehaviour
     public static PlayerLifeBarUI Instance { get; private set; }
     [SerializeField] private float _drainTime = 0.25f;
     [SerializeField] private Gradient _healthBarGradient = default;
-    private Image _image;
+    public Image _image;
     [SerializeField] private float _target = default;
     private Color _newHealthBarColor;
     private Coroutine drainHealthBarCoroutine;
@@ -27,7 +27,8 @@ public class PlayerLifeBarUI : MonoBehaviour
 
     private void Start()
     {
-        _image = GetComponent<Image>();
+        if (_image == null)
+            _image = GetComponent<Image>();
         _image.color = _healthBarGradient.Evaluate(_target);
         HealthGradientUpdate();
         currentHealth = maxHealth;

@@ -84,9 +84,22 @@ public class DisparoAutomatico : MonoBehaviour
 
             Physics.IgnoreCollision(bala.GetComponent<Collider>(), GetComponent<Collider>()); // Ignora la colisi�n con el jugador
             bala.layer = capaEnemigos; // Aplica la capa de enemigos a las balas
+            
+            //Subscribe to the OnCollisonEnter event for precise collision detection
+            bala.GetComponent<ProjectileCollisionHandler>().OnProjectileCollision += HandleProjectileCollision;
 
             Destroy(bala, 3.0f);
             AnimationController.Instance.PlayerAttacking(_animator);
+            ParticleController.Instance.SpwnAttckParticle();
+        }
+    }
+
+    void HandleProjectileCollision(Collider other)
+    {
+        if (other.CompareTag(tagEnemigo) && impactoParticulas != null)
+        {
+            GameObject particles = Instantiate(impactoParticulas, other.transform.position, Quaternion.identity);
+            Destroy(particles, 1.0f); // Adjust the lifetime as needed
         }
     }
 

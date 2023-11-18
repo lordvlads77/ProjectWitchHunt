@@ -25,6 +25,7 @@ public class VidaPEnFox : MonoBehaviour
                 playervida.vida += cantidad;
                 currentDamageTime = 0.0f;
                 AnimationController.Instance.EnemyFoxAttack(_animator);
+                ParticleController.Instance.SpwnLightningParticlePDmgR();
             }
         }
     }

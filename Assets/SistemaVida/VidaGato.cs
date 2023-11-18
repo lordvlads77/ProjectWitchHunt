@@ -16,6 +16,7 @@ public class VidaGato : MonoBehaviour
     [SerializeField] private GameObject _enemy3;
     [SerializeField] private GameObject _floatingJoystick;
     [SerializeField] public float maxHealth = 100f;
+    [SerializeField] private bool isPetado = true;
 
     private void Start()
     {
@@ -29,9 +30,15 @@ public class VidaGato : MonoBehaviour
         //barraDevida.fillAmount = vida / 100;
         PlayerLifeBarUI.Instance.UpdateHealthBar(100, vida);
 
-        if (vida <= 0)
+        if (isPetado == false)
+        {
+            StopCoroutine(DeathAnim());
+        }
+
+        if (vida <= 0 && isPetado == true)
         {
             StartCoroutine(DeathAnim());
+            isPetado = false;
         }
     }
 
@@ -42,6 +49,8 @@ public class VidaGato : MonoBehaviour
         Destroy(_enemy3);
         AnimationController.Instance.PlayerDeath(_animator);
         _floatingJoystick.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        ParticleController.Instance.SpwnDeathParticle();
         yield return new WaitForSeconds(2f);
         Destroy(_destroyPlayer);
         UIController.Instance.Moricion();
