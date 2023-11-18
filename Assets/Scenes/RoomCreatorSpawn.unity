@@ -164,6 +164,9 @@ MonoBehaviour:
   _lightningTransform2: {fileID: 3456542660103354425}
   _deathParticle: {fileID: 5150739595684053782, guid: 1c99f43be4a733d4ca92e2ca3c18b8ed, type: 3}
   _deathTransform: {fileID: 3456542660103354425}
+  _deathEnemyTransform: {fileID: 6814390929460197882}
+  _deathEnemyTransform1: {fileID: 7507076376719103537}
+  _deathEnemyTransform2: {fileID: 7151651336032507517}
   _healingParticle: {fileID: 2055269108340080630, guid: 8e8cbfddc44c0304c94765521a4f6d24, type: 3}
   _healingTransform: {fileID: 3456542660103354425}
   _healingParticle2: {fileID: 773458514103020251, guid: 79d36df0057eeb04ca072e4ffb90f157, type: 3}
@@ -14191,6 +14194,11 @@ MonoBehaviour:
   _enemy: {fileID: 6186332761334096704}
   _enemy2: {fileID: 7162322768961326219}
   _enemy3: {fileID: 7526663225486216391}
+  _enemyBehaviour:
+  - {fileID: 72762109}
+  - {fileID: 1099782061}
+  - {fileID: 1601421456}
+  _disparoAutomatico: {fileID: 8725785751277298246}
 --- !u!4 &2373636719745167075
 Transform:
   m_ObjectHideFlags: 0
@@ -33218,6 +33226,7 @@ MonoBehaviour:
   _currentHealth: 0
   animator: {fileID: 7507076376719103536}
   _enemyBehaviour: {fileID: 72762109}
+  _isDeaad: 1
 --- !u!1 &7681710808878499585
 GameObject:
   m_ObjectHideFlags: 0

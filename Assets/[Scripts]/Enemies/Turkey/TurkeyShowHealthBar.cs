@@ -10,6 +10,7 @@ public class TurkeyShowHealthBar : MonoBehaviour
     private bool _isDead = false;
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyBehaviour _enemyBehaviour;
+    [SerializeField] private bool _isDeaad = true;
     
     private void Start()
     {
@@ -25,7 +26,7 @@ public class TurkeyShowHealthBar : MonoBehaviour
             _healthBar.UpdateHealthBar(_maxHealth, _currentHealth);
            
         }
-        if (_currentHealth <= 0)
+        if (_currentHealth <= 0 /*&& _isDeaad == true*/)
         {
             Die();
         }
@@ -37,7 +38,10 @@ public class TurkeyShowHealthBar : MonoBehaviour
         if (animator != null)
         {
             StartCoroutine(TurkeyDeathAnim());
+            // _isDeaad = false;
         }
+        
+        ParticleController.Instance.SpawnDeathVFXTurkey();
 
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
         _isDead = true;
@@ -53,6 +57,8 @@ public class TurkeyShowHealthBar : MonoBehaviour
     {
         _enemyBehaviour.enabled = false;
         AnimationController.Instance.EnemyTurkeyDeath(animator);
+        yield return new WaitForSeconds(1f);
+        // ParticleController.Instance.SpawnDeathVFXTurkey();
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
