@@ -29,7 +29,7 @@ public class UIHealthBar : MonoBehaviour
     public void UpdateHealthBar(float maxHealth, float currentHealth)
     {
         _target = currentHealth / maxHealth;
-        drainHealthBarCoroutine = StartCoroutine(DrainHealthBar());
+        StartCoroutine(DrainHealthBar());
         HealthGradientUpdate();
     }
 

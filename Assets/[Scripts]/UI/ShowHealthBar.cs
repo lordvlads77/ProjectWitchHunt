@@ -8,7 +8,7 @@ public class ShowHealthBar : MonoBehaviour
     public static ShowHealthBar Instance { get; private set; }
 
     [SerializeField] private float _maxHealth = default;
-    [SerializeField] private UIHealthBar _healthBar;
+    [SerializeField] public UIHealthBar _healthBar;
     [SerializeField] private float _currentHealth;
     private bool _isDead = false;
     [SerializeField] private Animator animator;
@@ -26,7 +26,7 @@ public class ShowHealthBar : MonoBehaviour
     private void Start()
     {
         _currentHealth = _maxHealth;
-        _healthBar = GetComponentInChildren<UIHealthBar>();
+       // _healthBar = GetComponentInChildren<UIHealthBar>();
     }
 
     public void Dmg(float dmgAmount)
