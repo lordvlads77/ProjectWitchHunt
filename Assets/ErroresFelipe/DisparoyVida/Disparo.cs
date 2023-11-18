@@ -43,12 +43,12 @@ public class Disparo : MonoBehaviour
         proyectilRigidbody.velocity = transform.forward * velocidadProyectil;
 
         // Configura el script del proyectil para saber a qué enemigo pertenece
-        Proyectil scriptProyectil = proyectil.GetComponent<Proyectil>();
+        /*Proyectil scriptProyectil = proyectil.GetComponent<Proyectil>();
         if (scriptProyectil != null)
         {
             scriptProyectil.SetTagEnemigo(tagEnemigo);
             scriptProyectil.SetDamagePorDisparo(damagePorDisparo);
-        }
+        }*/
 
         // Desactiva la capacidad de disparar para evitar múltiples disparos en el mismo ciclo
         puedeDisparar = false;

@@ -60,6 +60,7 @@ public class TurkeyShowHealthBar : MonoBehaviour
         yield return new WaitForSeconds(1f);
         // ParticleController.Instance.SpawnDeathVFXTurkey();
         yield return new WaitForSeconds(1f);
+        CoinManager.GetCoinManager().AddCoin();
         Destroy(gameObject);
     }
 }

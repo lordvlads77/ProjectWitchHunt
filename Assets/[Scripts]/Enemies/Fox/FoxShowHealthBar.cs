@@ -54,6 +54,7 @@ public class FoxShowHealthBar : MonoBehaviour
         _enemyBehaviour.enabled = false;
         AnimationController.Instance.EnemyFoxDeath(animator);
         yield return new WaitForSeconds(4f);
+        CoinManager.GetCoinManager().AddCoin();
         Destroy(gameObject);
     }
 }

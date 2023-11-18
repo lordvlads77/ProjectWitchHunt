@@ -60,12 +60,13 @@ public class ShowHealthBar : MonoBehaviour
     {
         Dmg(10f);
     }
-    
+
     private IEnumerator PigDeathAnim()
     {
         _enemyBehaviour.enabled = false;
         AnimationController.Instance.EnemyPigDeath(animator);
         yield return new WaitForSeconds(5f);
+        CoinManager.GetCoinManager().AddCoin();
         Destroy(gameObject);
     }
 }
