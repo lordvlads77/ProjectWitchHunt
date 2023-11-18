@@ -22,7 +22,7 @@ public class VidaPEnFox : MonoBehaviour
             currentDamageTime += Time.deltaTime;
             if (currentDamageTime > damageTime)
             {
-                playervida.vida += cantidad;
+                playervida.DañoPlayer(cantidad);
                 currentDamageTime = 0.0f;
                 AnimationController.Instance.EnemyFoxAttack(_animator);
                 ParticleController.Instance.SpwnLightningParticlePDmgR();

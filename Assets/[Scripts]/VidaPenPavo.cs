@@ -22,7 +22,7 @@ public class VidaPenPavo : MonoBehaviour
             currentDamageTime += Time.deltaTime;
             if (currentDamageTime > damageTime)
             {
-                playervida.vida += cantidad;
+                playervida.DañoPlayer(cantidad);
                 currentDamageTime = 0.0f;
                 AnimationController.Instance.EnemyTurkeyAttack(_animator);
                 ParticleController.Instance.SpwnLightningParticlePDmgR();
