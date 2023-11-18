@@ -8,13 +8,10 @@ public class Enemigo : MonoBehaviour
 {
     public float vidaMaxima = 100f;
     float vidaActual;
-
     // Agrega un objeto de barra de vida en el Inspector para mostrar la vida del enemigo.
     public Image barraVida;
-
     // Referencia al objeto de la interfaz de usuario que muestra el contador de monedas (TextMeshProUGUI)
     public TextMeshProUGUI contadorMonedasText;
-
     // Contador de monedas
     private int contadorMonedas = 0;
 
