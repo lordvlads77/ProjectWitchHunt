@@ -10,7 +10,7 @@ public class FoxShowHealthBar : MonoBehaviour
     private bool _isDead = false;
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyBehaviour _enemyBehaviour;
-    
+
     private void Start()
     {
         _currentHealth = _maxHealth;
@@ -23,7 +23,6 @@ public class FoxShowHealthBar : MonoBehaviour
         {
             _currentHealth -= dmgAmount;
             _healthBar.UpdateHealthBar(_maxHealth, _currentHealth);
-           
         }
         if (_currentHealth <= 0)
         {
@@ -39,16 +38,19 @@ public class FoxShowHealthBar : MonoBehaviour
             StartCoroutine(FoxDeathAnim());
         }
 
+        // Llama al método EnemigoEliminado del GameManager
+        GameManager.Instance.EnemigoEliminado();
+
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
         _isDead = true;
         /*gameObject.SetActive(false);*/ // Desactivar el objeto, por ejemplo
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         Dmg(10f);
     }
-    
+
     private IEnumerator FoxDeathAnim()
     {
         _enemyBehaviour.enabled = false;

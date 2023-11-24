@@ -26,7 +26,7 @@ public class ShowHealthBar : MonoBehaviour
     private void Start()
     {
         _currentHealth = _maxHealth;
-       // _healthBar = GetComponentInChildren<UIHealthBar>();
+        // _healthBar = GetComponentInChildren<UIHealthBar>();
     }
 
     public void Dmg(float dmgAmount)
@@ -35,7 +35,7 @@ public class ShowHealthBar : MonoBehaviour
         {
             _currentHealth -= dmgAmount;
             _healthBar.UpdateHealthBar(_maxHealth, _currentHealth);
-           
+
         }
         if (_currentHealth <= 0)
         {
@@ -53,9 +53,13 @@ public class ShowHealthBar : MonoBehaviour
 
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
         _isDead = true;
+
+        // Llama al método EnemigoEliminado del GameManager
+        GameManager.Instance.EnemigoEliminado();
+
         /*gameObject.SetActive(false);*/ // Desactivar el objeto, por ejemplo
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         Dmg(10f);
