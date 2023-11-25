@@ -15,6 +15,9 @@ public class ShowHealthBar : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyBehaviour _enemyBehaviour;
     [SerializeField] private GameObject itemToDrop; // Objeto que el enemigo soltará al morir
+    [SerializeField] private GameObject itemToDrop1; // Objeto que el enemigo soltará al morir
+    [SerializeField] private GameObject itemToDrop2; // Objeto que el enemigo soltará al morir
+    [SerializeField, Range(0f, 1f)] private float dropProbability = 0.5f;
 
     private void Awake()
     {
@@ -80,7 +83,23 @@ public class ShowHealthBar : MonoBehaviour
             float alturaSuelo = 0.7f; // por ejemplo, 0.1 unidades por encima del suelo
 
             Vector3 spawnPosition = new Vector3(transform.position.x, alturaSuelo, transform.position.z);
-            Instantiate(itemToDrop, spawnPosition, Quaternion.identity);
+            Instantiate(itemToDrop, transform.position, Quaternion.identity);
+        }
+        if (itemToDrop1 != null)
+        {
+            // Ajusta el valor de "alturaSuelo" según sea necesario
+            float alturaSuelo = 0.7f; // por ejemplo, 0.1 unidades por encima del suelo
+
+            Vector3 spawnPosition = new Vector3(transform.position.x, alturaSuelo, transform.position.z);
+            Instantiate(itemToDrop, transform.position, Quaternion.identity);
+        }
+        if (itemToDrop2 != null)
+        {
+            // Ajusta el valor de "alturaSuelo" según sea necesario
+            float alturaSuelo = 0.7f; // por ejemplo, 0.1 unidades por encima del suelo
+
+            Vector3 spawnPosition = new Vector3(transform.position.x, alturaSuelo, transform.position.z);
+            Instantiate(itemToDrop, transform.position, Quaternion.identity);
         }
     }
 

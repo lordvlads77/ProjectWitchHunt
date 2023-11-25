@@ -29706,6 +29706,9 @@ MonoBehaviour:
   animator: {fileID: 3882076676352871431}
   _enemyBehaviour: {fileID: 1601421456}
   itemToDrop: {fileID: 5915313764524946619}
+  itemToDrop1: {fileID: 0}
+  itemToDrop2: {fileID: 0}
+  dropProbability: 0.5
 --- !u!4 &5020270454624779878
 Transform:
   m_ObjectHideFlags: 0
