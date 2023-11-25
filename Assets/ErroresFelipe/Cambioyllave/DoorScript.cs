@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
+    [SerializeField]
     public Transform door;
+    [SerializeField]
     public float doorSpeed = 1f;
+    [SerializeField]
     public bool isUnlocked = false;
+    [SerializeField]
     public Transform openTransform;
+    [SerializeField]
     public Transform closeTransform;
+    [SerializeField]
     private Vector3 targetPosition;
+    [SerializeField]
     private float time;
 
     // Nueva variable para rastrear la cantidad de enemigos vivos
