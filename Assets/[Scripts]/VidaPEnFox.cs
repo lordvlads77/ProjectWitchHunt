@@ -26,6 +26,7 @@ public class VidaPEnFox : MonoBehaviour
                 currentDamageTime = 0.0f;
                 AnimationController.Instance.EnemyFoxAttack(_animator);
                 ParticleController.Instance.SpwnLightningParticlePDmgR();
+                AudioController.Instance.PlayEnemyAttackSFX();
             }
         }
     }

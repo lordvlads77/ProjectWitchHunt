@@ -48,6 +48,7 @@ public class VidaGato : MonoBehaviour
         _floatingJoystick.SetActive(false);
         yield return new WaitForSeconds(1f);
         ParticleController.Instance.SpwnDeathParticle();
+        AudioController.Instance.PlayDeathSFX();
         yield return new WaitForSeconds(2f);
         Destroy(_destroyPlayer);
         UIController.Instance.Moricion();
