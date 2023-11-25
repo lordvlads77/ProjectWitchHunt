@@ -80,7 +80,7 @@ public class ShowHealthBar : MonoBehaviour
         if (itemToDrop != null)
         {
             // Ajusta el valor de "alturaSuelo" según sea necesario
-            float alturaSuelo = 0.7f; // por ejemplo, 0.1 unidades por encima del suelo
+            float alturaSuelo = 2f; // por ejemplo, 0.1 unidades por encima del suelo
 
             Vector3 spawnPosition = new Vector3(transform.position.x, alturaSuelo, transform.position.z);
             Instantiate(itemToDrop, transform.position, Quaternion.identity);
