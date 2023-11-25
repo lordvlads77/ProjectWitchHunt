@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,8 +12,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject puerta;
     [SerializeField] private bool puertaActiva = false;
 
-    public int EnemigosEliminados { get; private set; } // Agrega esta línea
-    public static int CantidadEnemigosParaAbrir { get; private set; } = 3; // Agrega esta línea
+    // Listas para rastrear diferentes tipos de enemigos
+    private List<ShowHealthBar> activeEnemies = new List<ShowHealthBar>();
+    private List<TurkeyShowHealthBar> activeTurkeyEnemies = new List<TurkeyShowHealthBar>();
+    private List<FoxShowHealthBar> activeFoxEnemies = new List<FoxShowHealthBar>();
+
+    public int EnemigosEliminados { get; private set; }
+    public static int CantidadEnemigosParaAbrir { get; private set; } = 3;
 
     private void Awake()
     {
@@ -21,6 +27,53 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    // Métodos para agregar y remover enemigos de las listas correspondientes
+    public void AddActiveEnemy(ShowHealthBar enemy)
+    {
+        activeEnemies.Add(enemy);
+    }
+
+    public void RemoveActiveEnemy(ShowHealthBar enemy)
+    {
+        activeEnemies.Remove(enemy);
+    }
+
+    public void AddActiveTurkeyEnemy(TurkeyShowHealthBar turkeyEnemy)
+    {
+        activeTurkeyEnemies.Add(turkeyEnemy);
+    }
+
+    public void RemoveActiveTurkeyEnemy(TurkeyShowHealthBar turkeyEnemy)
+    {
+        activeTurkeyEnemies.Remove(turkeyEnemy);
+    }
+
+    public void AddActiveFoxEnemy(FoxShowHealthBar foxEnemy)
+    {
+        activeFoxEnemies.Add(foxEnemy);
+    }
+
+    public void RemoveActiveFoxEnemy(FoxShowHealthBar foxEnemy)
+    {
+        activeFoxEnemies.Remove(foxEnemy);
+    }
+
+    // Métodos generales para obtener la cantidad de enemigos
+    public int GetNumberOfEnemies()
+    {
+        return activeEnemies.Count;
+    }
+
+    public int GetNumberOfTurkeyEnemies()
+    {
+        return activeTurkeyEnemies.Count;
+    }
+
+    public int GetNumberOfFoxEnemies()
+    {
+        return activeFoxEnemies.Count;
     }
 
     private void Start()
@@ -50,7 +103,6 @@ public class GameManager : MonoBehaviour
     public void AbrirPuerta()
     {
         Debug.Log("AbrirPuerta llamado");
-        puerta.SetActive(false);
         puertaActiva = true;
     }
 }

@@ -11,8 +11,10 @@ public class ShowHealthBar : MonoBehaviour
     [SerializeField] public UIHealthBar _healthBar;
     [SerializeField] private float _currentHealth;
     private bool _isDead = false;
+    private bool _itemDropped = false; // Nueva bandera para verificar si el objeto ya se soltó
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyBehaviour _enemyBehaviour;
+    [SerializeField] private GameObject itemToDrop; // Objeto que el enemigo soltará al morir
 
     private void Awake()
     {
@@ -45,19 +47,41 @@ public class ShowHealthBar : MonoBehaviour
 
     private void Die()
     {
-        // Ejecutar la animación de muerte si es necesario
-        if (animator != null)
+        if (!_isDead)
         {
-            StartCoroutine(PigDeathAnim());
+            // Ejecutar la animación de muerte si es necesario
+            if (animator != null)
+            {
+                StartCoroutine(PigDeathAnim());
+            }
+
+            // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
+            _isDead = true;
+
+            // Llama al método EnemigoEliminado del GameManager
+            GameManager.Instance.EnemigoEliminado();
+
+            // Suelta el objeto al morir si no se ha soltado antes
+            if (!_itemDropped)
+            {
+                DropItem();
+                _itemDropped = true; // Marcar que el objeto ya se soltó
+            }
+
+            /*gameObject.SetActive(false);*/ // Desactivar el objeto, por ejemplo
         }
+    }
 
-        // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
-        _isDead = true;
+    private void DropItem()
+    {
+        if (itemToDrop != null)
+        {
+            // Ajusta el valor de "alturaSuelo" según sea necesario
+            float alturaSuelo = 0.7f; // por ejemplo, 0.1 unidades por encima del suelo
 
-        // Llama al método EnemigoEliminado del GameManager
-        GameManager.Instance.EnemigoEliminado();
-
-        /*gameObject.SetActive(false);*/ // Desactivar el objeto, por ejemplo
+            Vector3 spawnPosition = new Vector3(transform.position.x, alturaSuelo, transform.position.z);
+            Instantiate(itemToDrop, spawnPosition, Quaternion.identity);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

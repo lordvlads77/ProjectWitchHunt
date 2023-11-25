@@ -6,15 +6,23 @@ public class DoorScript : MonoBehaviour
 {
     public Transform door;
     public float doorSpeed = 1f;
-    public bool isUnlocked = true;
+    public bool isUnlocked = false;
     public Transform openTransform;
-    public Transform closeTransfom;
-    Vector3 targetPosition;
-    float time;
+    public Transform closeTransform;
+    private Vector3 targetPosition;
+    private float time;
+
+    // Nueva variable para rastrear la cantidad de enemigos vivos
+    private int remainingEnemies;
+
+    // Referencia al GameManager
+    private GameManager gameManager;
 
     void Start()
     {
-        targetPosition = closeTransfom.position;
+        targetPosition = closeTransform.position;
+        gameManager = GameManager.Instance;
+        remainingEnemies = gameManager.GetNumberOfEnemies();
     }
 
     void Update()
@@ -28,7 +36,7 @@ public class DoorScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && isUnlocked)
         {
             targetPosition = openTransform.position;
             time = 0;
@@ -37,10 +45,28 @@ public class DoorScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && isUnlocked)
         {
-            targetPosition = closeTransfom.position;
+            targetPosition = closeTransform.position;
             time = 0;
         }
+    }
+
+    // Método para reducir la cantidad de enemigos vivos
+    public void ReduceRemainingEnemies()
+    {
+        remainingEnemies--;
+
+        if (remainingEnemies <= 0)
+        {
+            UnlockDoor();
+        }
+    }
+
+    // Método para desbloquear la puerta
+    private void UnlockDoor()
+    {
+        isUnlocked = true;
+        // Otros efectos o acciones que desees realizar cuando la puerta se desbloquee
     }
 }

@@ -10,10 +10,8 @@ public class KeyScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            doorToOpen.isUnlocked = true;
+            doorToOpen.ReduceRemainingEnemies(); // Reduce la cantidad de enemigos vivos en el DoorScript
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
     }
-
 }
