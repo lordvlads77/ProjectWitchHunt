@@ -9,9 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _enemy2;
     [SerializeField] private GameObject _enemy3;
     [SerializeField] private GameObject puerta;
+    [SerializeField] private bool puertaActiva = false;
 
-    private int enemigosEliminados = 0;
-    private int cantidadEnemigosParaAbrir = 3;
+    public int EnemigosEliminados { get; private set; } // Agrega esta línea
+    public static int CantidadEnemigosParaAbrir { get; private set; } = 3; // Agrega esta línea
 
     private void Awake()
     {
@@ -24,30 +25,32 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Time.timeScale = 0;
         _enemy.SetActive(false);
         _enemy2.SetActive(false);
         _enemy3.SetActive(false);
-        puerta.SetActive(true); // Asegúrate de que la puerta esté activada al inicio
+        puerta.SetActive(true);
     }
 
-    // Método para llamar cuando un enemigo es eliminado
     public void EnemigoEliminado()
     {
-        enemigosEliminados++;
-
-        Debug.Log("Enemigo eliminado. Total: " + enemigosEliminados);
-
-        if (enemigosEliminados >= cantidadEnemigosParaAbrir)
+        if (!puertaActiva && EnemigosEliminados < CantidadEnemigosParaAbrir)
         {
-            Debug.Log("AbrirPuerta llamado");
-            AbrirPuerta();
+            EnemigosEliminados++;
+
+            Debug.Log("Enemigo eliminado. Total: " + EnemigosEliminados);
+
+            if (EnemigosEliminados >= CantidadEnemigosParaAbrir)
+            {
+                Debug.Log("AbrirPuerta llamado");
+                AbrirPuerta();
+            }
         }
     }
 
-    private void AbrirPuerta()
+    public void AbrirPuerta()
     {
         Debug.Log("AbrirPuerta llamado");
         puerta.SetActive(false);
+        puertaActiva = true;
     }
 }
