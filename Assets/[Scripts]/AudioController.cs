@@ -17,6 +17,7 @@ public class AudioController : MonoBehaviour
     [Header("Enemy")]
     [SerializeField] private AudioClip _enemyAttackSFX = default;
     [FormerlySerializedAs("_enemyDeathSFX")] [SerializeField] private AudioClip _DeathSFX = default;
+    [SerializeField] private AudioClip _enemyImpactDmgSFX = default;
     [Header("Player")]
     [SerializeField] private AudioClip _playerAttackSFX = default;
     [SerializeField] private AudioClip _playerDamageSFX = default;
@@ -122,7 +123,8 @@ public class AudioController : MonoBehaviour
         _UIAudioSource.Play();
     }
     
-    
-    
-    
+    public void HittingEnemySFX()
+    {
+        _sfxAudioSource.PlayOneShot(_enemyImpactDmgSFX, 0.6f);
+    }
 }

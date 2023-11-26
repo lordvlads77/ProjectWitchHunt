@@ -91,6 +91,7 @@ public class DisparoAutomatico : MonoBehaviour
             Destroy(bala, 3.0f);
             AnimationController.Instance.PlayerAttacking(_animator);
             ParticleController.Instance.SpwnAttckParticle();
+            AudioController.Instance.PlayPlayerAttackSFX();
         }
     }
 
@@ -99,6 +100,7 @@ public class DisparoAutomatico : MonoBehaviour
         if (other.CompareTag(tagEnemigo) && impactoParticulas != null)
         {
             GameObject particles = Instantiate(impactoParticulas, other.transform.position, Quaternion.identity);
+            AudioController.Instance.HittingEnemySFX();
             Destroy(particles, 1.0f); // Adjust the lifetime as needed
         }
     }
