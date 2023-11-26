@@ -43,7 +43,7 @@ public class PlayerMovv : MonoBehaviour
         if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
         {
             transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
-            _animator.SetFloat(_pSpeed, 15 * speedMultiplier); // Ajusta según sea necesario
+            _animator.SetFloat(_pSpeed, 15 * speedMultiplier); // Ajusta segÃºn sea necesario
         }
         else
         {
@@ -52,7 +52,7 @@ public class PlayerMovv : MonoBehaviour
     }
     public void ApplySpeedMultiplier(float multiplier)
     {
-        // Detén la rutina anterior si está en ejecución
+        // DetÃ©n la rutina anterior si estÃ¡ en ejecuciÃ³n
         if (speedMultiplierCoroutine != null)
         {
             StopCoroutine(speedMultiplierCoroutine);
@@ -66,7 +66,7 @@ public class PlayerMovv : MonoBehaviour
     {
         speedMultiplier *= multiplier;
 
-        // Espera hasta que se alcance la duración deseada (2 segundos)
+        // Espera hasta que se alcance la duraciÃ³n deseada (2 segundos)
         yield return new WaitForSeconds(4f);
 
         // Restaura el multiplicador de velocidad original
@@ -76,5 +76,6 @@ public class PlayerMovv : MonoBehaviour
     public void ResetSpeedMultiplier()
     {
         speedMultiplier = 1f;
+        AudioController.Instance.PlayPotionEndedSFX();
     }
 }

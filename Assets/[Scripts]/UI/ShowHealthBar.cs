@@ -68,7 +68,7 @@ public class ShowHealthBar : MonoBehaviour
     {
         _enemyBehaviour.enabled = false;
         AnimationController.Instance.EnemyPigDeath(animator);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         CoinManager.GetCoinManager().AddCoin();
         Destroy(gameObject);
     }

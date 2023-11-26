@@ -58,7 +58,7 @@ public class TurkeyShowHealthBar : MonoBehaviour
     {
         _enemyBehaviour.enabled = false;
         AnimationController.Instance.EnemyTurkeyDeath(animator);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         // ParticleController.Instance.SpawnDeathVFXTurkey();
         yield return new WaitForSeconds(1f);
         CoinManager.GetCoinManager().AddCoin();
