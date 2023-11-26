@@ -935,9 +935,9 @@ MonoBehaviour:
   _healingSFX: {fileID: 8300000, guid: 0ea8d5a97002acf40a771c973ea273f1, type: 3}
   _enemyAttackSFX: {fileID: 8300000, guid: d5da5a74071a48c4f891a3baf417d12c, type: 3}
   _DeathSFX: {fileID: 8300000, guid: b4ac08e486aea514a949d72d8c5a1dd1, type: 3}
-  _enemyImpactDmgSFX: {fileID: 8300000, guid: 91e8b764e2c9a8741a407b646400ab6b, type: 3}
-  _playerAttackSFX: {fileID: 8300000, guid: 1dad87265e0effc488fe9bdb1e4c5d10, type: 3}
-  _playerDamageSFX: {fileID: 8300000, guid: 758b52829d12217499984a1d194c6c16, type: 3}
+  _enemyImpactDmgSFX: {fileID: 8300000, guid: 9edc153d18c639d458f8d5bf387be781, type: 3}
+  _playerAttackSFX: {fileID: 0}
+  _playerDamageSFX: {fileID: 8300000, guid: 4c30969eefdd2e04095bc6cfcefcee26, type: 3}
   _UIAudioSource: {fileID: 333017509}
 --- !u!4 &333017517
 Transform:
