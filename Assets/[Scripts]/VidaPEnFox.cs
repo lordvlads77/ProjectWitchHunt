@@ -9,6 +9,8 @@ public class VidaPEnFox : MonoBehaviour
     public float damageTime;
     float currentDamageTime;
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioSource _audioSource = default;
+    [SerializeField] private AudioClip _playerDamageSFX = default;
 
     void Start()
     {
@@ -26,7 +28,8 @@ public class VidaPEnFox : MonoBehaviour
                 currentDamageTime = 0.0f;
                 AnimationController.Instance.EnemyFoxAttack(_animator);
                 ParticleController.Instance.SpwnLightningParticlePDmgR();
-                AudioController.Instance.PlayEnemyAttackSFX();
+                AudioController.Instance.PlayPlayerDamageSFX();
+                _audioSource.PlayOneShot(_playerDamageSFX, 1f);
             }
         }
     }

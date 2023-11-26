@@ -76,6 +76,7 @@ public class VidaGato : MonoBehaviour
 
         //barraDevida.fillAmount = vida / 100;
         PlayerLifeBarUI.Instance.UpdateHealthBar(100, vida);
+        AudioController.Instance.PlayEnemyAttackSFX();
     }
     
 }

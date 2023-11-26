@@ -1234,6 +1234,8 @@ MonoBehaviour:
   cantidad: -1
   damageTime: 0.1
   _animator: {fileID: 6814390929460197881}
+  _audioSource: {fileID: 333017510}
+  _playerDamageSFX: {fileID: 8300000, guid: 758b52829d12217499984a1d194c6c16, type: 3}
 --- !u!1 &1202022254
 GameObject:
   m_ObjectHideFlags: 0

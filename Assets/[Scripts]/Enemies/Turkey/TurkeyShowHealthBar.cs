@@ -42,6 +42,7 @@ public class TurkeyShowHealthBar : MonoBehaviour
         }
         
         ParticleController.Instance.SpawnDeathVFXTurkey();
+        AudioController.Instance.PlayDeathSFX();
 
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
         _isDead = true;

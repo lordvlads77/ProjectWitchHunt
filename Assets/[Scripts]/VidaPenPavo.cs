@@ -26,6 +26,7 @@ public class VidaPenPavo : MonoBehaviour
                 currentDamageTime = 0.0f;
                 AnimationController.Instance.EnemyTurkeyAttack(_animator);
                 ParticleController.Instance.SpwnLightningParticlePDmgR();
+                AudioController.Instance.PlayPlayerDamageSFX();
             }
         }
     }

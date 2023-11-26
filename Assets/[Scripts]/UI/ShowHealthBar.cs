@@ -50,6 +50,9 @@ public class ShowHealthBar : MonoBehaviour
         {
             StartCoroutine(PigDeathAnim());
         }
+        
+        ParticleController.Instance.SpawnDeathVFXPig();
+        AudioController.Instance.PlayDeathSFX();
 
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
         _isDead = true;
