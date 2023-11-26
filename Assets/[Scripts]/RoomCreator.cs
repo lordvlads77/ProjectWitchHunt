@@ -20,6 +20,7 @@ public class RoomCreator : MonoBehaviour
     
     [Header("Transition")]
     [SerializeField] private Animator _animator;
+    [SerializeField] private GameObject _transitionObj = default;
 
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class RoomCreator : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
-
+        
         requestingRoom = false;
         Debug.Log("Room created!");
     }
@@ -154,17 +155,19 @@ public class RoomCreator : MonoBehaviour
 
         requestingRoom = true;
         StartCoroutine(RequestRoom());
-        StartCoroutine(fading());
+        StartCoroutine(toBlack());
         _playerPosition.transform.position = _origiPlayerPosition;
         Debug.Log("Spawning");
         //StartCoroutine(turnOffLights());
     }
-
-    IEnumerator fading()
+    
+    IEnumerator toBlack()
     {
-        AnimationController.Instance.FadeInAnim(_animator);
-        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
-        AnimationController.Instance.FadeOutAnim(_animator);
+        _transitionObj.SetActive(true);
+        yield return new WaitForEndOfFrame();
+        Fading.Instance.TransFade();
+        yield return new WaitForSeconds(1f);
+        _transitionObj.SetActive(false);
     }
 }
 
