@@ -42,6 +42,7 @@ public class TurkeyShowHealthBar : MonoBehaviour
         }
         
         ParticleController.Instance.SpawnDeathVFXTurkey();
+        AudioController.Instance.PlayDeathSFX();
 
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
         _isDead = true;
@@ -57,7 +58,7 @@ public class TurkeyShowHealthBar : MonoBehaviour
     {
         _enemyBehaviour.enabled = false;
         AnimationController.Instance.EnemyTurkeyDeath(animator);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         // ParticleController.Instance.SpawnDeathVFXTurkey();
         yield return new WaitForSeconds(1f);
         CoinManager.GetCoinManager().AddCoin();

@@ -12,6 +12,7 @@ public class SpeedPowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player triggered the potion.");
+            AudioController.Instance.PlayPotionUseSFX();
             SpeedUpPlayer(other.gameObject);
             Destroy(gameObject);
         }

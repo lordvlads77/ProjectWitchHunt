@@ -50,6 +50,9 @@ public class ShowHealthBar : MonoBehaviour
         {
             StartCoroutine(PigDeathAnim());
         }
+        
+        ParticleController.Instance.SpawnDeathVFXPig();
+        AudioController.Instance.PlayDeathSFX();
 
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
         _isDead = true;
@@ -65,7 +68,7 @@ public class ShowHealthBar : MonoBehaviour
     {
         _enemyBehaviour.enabled = false;
         AnimationController.Instance.EnemyPigDeath(animator);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         CoinManager.GetCoinManager().AddCoin();
         Destroy(gameObject);
     }
