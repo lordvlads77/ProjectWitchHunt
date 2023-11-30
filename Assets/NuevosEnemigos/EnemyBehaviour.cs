@@ -7,6 +7,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public string playerTag = "Player";
     public float moveSpeed = 3f;
+    public float minimumDistance = default;
 
     private Transform player;
     private Animator _animator;
@@ -31,8 +32,14 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (player != null)
         {
-            transform.LookAt(player);
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            // Calculate the distance between the enemy and the player
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (distanceToPlayer > minimumDistance)
+            {
+                // Move towards the player, but stay at least minimumDistance away
+                transform.LookAt(player);
+                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            }
         }
     }
     
