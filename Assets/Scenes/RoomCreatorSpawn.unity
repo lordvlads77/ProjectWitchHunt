@@ -155,7 +155,7 @@ MonoBehaviour:
   _attackTransform: {fileID: 536957403}
   _attackParticle: {fileID: 5499863608241244173, guid: e1e75bf4bc7530f49958b93fd4ff1042, type: 3}
   _damageTransform: {fileID: 0}
-  _damageParticle: {fileID: 3440142471478950696, guid: bd066d196825c2d49b521c258672d97e, type: 3}
+  _damageParticle: {fileID: 6005755631984080257, guid: 51317df03c20bf244a6ecddc397e176f, type: 3}
   _dmgAoeTransform: {fileID: 0}
   _dmgAoeParticle: {fileID: 0}
   _lightningTransform: {fileID: 3456542660103354425}
@@ -14904,6 +14904,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: cc55b10043be8f04a864b9a0b5fadbd0, type: 2}
+  - {fileID: 2100000, guid: f2673015f18101f40bb581bfa8581f28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29446,6 +29447,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: cc55b10043be8f04a864b9a0b5fadbd0, type: 2}
+  - {fileID: 2100000, guid: f2673015f18101f40bb581bfa8581f28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31156,6 +31158,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: cc55b10043be8f04a864b9a0b5fadbd0, type: 2}
+  - {fileID: 2100000, guid: f2673015f18101f40bb581bfa8581f28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31694,6 +31697,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: cc55b10043be8f04a864b9a0b5fadbd0, type: 2}
+  - {fileID: 2100000, guid: f2673015f18101f40bb581bfa8581f28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36662,6 +36666,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: cc55b10043be8f04a864b9a0b5fadbd0, type: 2}
+  - {fileID: 2100000, guid: f2673015f18101f40bb581bfa8581f28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37509,7 +37514,7 @@ MonoBehaviour:
   capaEnemigos:
     serializedVersion: 2
     m_Bits: 0
-  impactoParticulas: {fileID: 3440142471478950696, guid: bd066d196825c2d49b521c258672d97e, type: 3}
+  impactoParticulas: {fileID: 6005755631984080257, guid: 51317df03c20bf244a6ecddc397e176f, type: 3}
   _animator: {fileID: 8725785751277298243}
 --- !u!114 &8725785751277298247
 MonoBehaviour:
@@ -38118,6 +38123,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: cc55b10043be8f04a864b9a0b5fadbd0, type: 2}
+  - {fileID: 2100000, guid: f2673015f18101f40bb581bfa8581f28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
