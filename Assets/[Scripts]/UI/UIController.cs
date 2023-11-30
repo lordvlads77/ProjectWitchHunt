@@ -73,6 +73,8 @@ public class UIController : MonoBehaviour
         _enemy.SetActive(true);
         _enemy2.SetActive(true);
         _enemy3.SetActive(true);
+        AudioController.Instance.PauseMenuMusic();
+        AudioController.Instance.PlayGamePlayMusic();
         
     }
 
@@ -82,14 +84,17 @@ public class UIController : MonoBehaviour
         _uiPausePanel.SetActive(true);
         _uiInGamePanel.SetActive(false);
         isUIActive = true;
-        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
-        GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
-        GameStateManager.Instance.SetState(newGameState);
         _enemyBehaviour[0].enabled = false;
         _enemyBehaviour[1].enabled = false;
         _enemyBehaviour[2].enabled = false;
         _disparoAutomatico.enabled = false;
-        Time.timeScale = 0;
+        AudioController.Instance.PauseGamePlayMusic();
+        AudioController.Instance.PlayPauseMusic();
+        //Time.timeScale = 0;
+        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
+        GameStateManager.Instance.SetState(newGameState);
+        
     }
 
     public void SwitchAtk()
@@ -102,16 +107,20 @@ public class UIController : MonoBehaviour
         _uiPausePanel.SetActive(false);
         _uiInGamePanel.SetActive(true);
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
-        GameState newGameState = currentGameState == GameState.Paused ? GameState.Gameplay : GameState.Paused;
+        GameState newGameState = currentGameState == GameState.Paused ? GameState.Gameplay : GameState.Gameplay;
         GameStateManager.Instance.SetState(newGameState);
         isUIActive = false;
         Time.timeScale = 1;
+        AudioController.Instance.PausePauseMusic();
+        AudioController.Instance.PlayGamePlayMusic();
     }
     
     public void MainMenu()
     {
         StartCoroutine(MainMenuStuff());
         // isUIActive = true;
+        AudioController.Instance.PausePauseMusic();
+        AudioController.Instance.PlayMenuMusic();
     }
     
     public void Respawn()
@@ -140,12 +149,14 @@ public class UIController : MonoBehaviour
         _uiInGamePanel.SetActive(false);
         _uiGameOverPanel.SetActive(true);
         isUIActive = true;
+        AudioController.Instance.PauseGamePlayMusic();
+        AudioController.Instance.PlayGameOverMusic();
     }
 
     private IEnumerator MainMenuStuff()
     {
         _uiPausePanel.SetActive(false);
-        yield return new WaitForSeconds(0.3f);
-        SceneManager.LoadScene(0);
+        yield return new WaitForSeconds(0.1f);
+        SceneManager.LoadSceneAsync(0);
     }
 }

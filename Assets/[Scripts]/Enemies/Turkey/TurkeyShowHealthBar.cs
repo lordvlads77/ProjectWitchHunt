@@ -10,7 +10,10 @@ public class TurkeyShowHealthBar : MonoBehaviour
     private bool _isDead = false;
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyBehaviour _enemyBehaviour;
-
+    [SerializeField] private bool _isDeaad = true;
+    [SerializeField] private BoxCollider _boxCollider;
+    [SerializeField] private MeshCollider _meshCollider;
+    
     private void Start()
     {
         _currentHealth = _maxHealth;
@@ -23,8 +26,9 @@ public class TurkeyShowHealthBar : MonoBehaviour
         {
             _currentHealth -= dmgAmount;
             _healthBar.UpdateHealthBar(_maxHealth, _currentHealth);
+           
         }
-        if (_currentHealth <= 0)
+        if (_currentHealth <= 0 /*&& _isDeaad == true*/)
         {
             Die();
         }
@@ -36,28 +40,30 @@ public class TurkeyShowHealthBar : MonoBehaviour
         if (animator != null)
         {
             StartCoroutine(TurkeyDeathAnim());
+            // _isDeaad = false;
         }
-
-        // Llama al método EnemigoEliminado del GameManager
-        GameManager.Instance.EnemigoEliminado();
-
+        
         ParticleController.Instance.SpawnDeathVFXTurkey();
+        AudioController.Instance.PlayDeathSFX();
+        _boxCollider.isTrigger = false;
+        _meshCollider.enabled = false;
 
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
         _isDead = true;
         /*gameObject.SetActive(false);*/ // Desactivar el objeto, por ejemplo
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         Dmg(10f);
     }
-
+    
     private IEnumerator TurkeyDeathAnim()
     {
         _enemyBehaviour.enabled = false;
         AnimationController.Instance.EnemyTurkeyDeath(animator);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
+        // ParticleController.Instance.SpawnDeathVFXTurkey();
         yield return new WaitForSeconds(1f);
         CoinManager.GetCoinManager().AddCoin();
         Destroy(gameObject);

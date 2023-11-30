@@ -27,6 +27,7 @@ public class ManipuladorVida : MonoBehaviour
                 currentDamageTime = 0.0f;
                 AnimationController.Instance.EnemyPigAttack(_animator);
                 ParticleController.Instance.SpwnLightningParticlePDmgR();
+                AudioController.Instance.PlayPlayerDamageSFX();
             }
         }
     }

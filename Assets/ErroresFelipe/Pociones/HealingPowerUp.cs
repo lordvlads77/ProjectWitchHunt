@@ -13,7 +13,6 @@ public class HealingPowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Colision con el jugador detectada");
-
             VidaGato vidaGato = other.GetComponentInChildren<VidaGato>();
             if (vidaGato != null)
             {
@@ -22,6 +21,7 @@ public class HealingPowerUp : MonoBehaviour
                 vidaGato.UpdateHealth(vidaGato.vida + healingAmount);
                 Debug.Log("Vida actual del jugador: " + vidaGato.vida);
                 ParticleController.Instance.SpwnHealingParticle();
+                AudioController.Instance.PlayHealingSFX();
             }
 
             Destroy(gameObject);
