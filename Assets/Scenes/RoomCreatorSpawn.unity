@@ -30490,6 +30490,7 @@ MonoBehaviour:
   _currentHealth: 0
   animator: {fileID: 3882076676352871431}
   _enemyBehaviour: {fileID: 1601421456}
+  _boxCollider: {fileID: 1601421454}
 --- !u!4 &5020270454624779878
 Transform:
   m_ObjectHideFlags: 0
@@ -34306,6 +34307,7 @@ MonoBehaviour:
   animator: {fileID: 7507076376719103536}
   _enemyBehaviour: {fileID: 72762109}
   _isDeaad: 1
+  _boxCollider: {fileID: 72762113}
 --- !u!1 &7681710808878499585
 GameObject:
   m_ObjectHideFlags: 0
@@ -37858,6 +37860,7 @@ MonoBehaviour:
   _currentHealth: 0
   animator: {fileID: 6814390929460197881}
   _enemyBehaviour: {fileID: 1099782061}
+  _boxCollider: {fileID: 1099782066}
 --- !u!4 &8886597725734930683
 Transform:
   m_ObjectHideFlags: 0

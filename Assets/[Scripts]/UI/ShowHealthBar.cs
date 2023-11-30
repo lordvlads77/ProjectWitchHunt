@@ -13,6 +13,7 @@ public class ShowHealthBar : MonoBehaviour
     private bool _isDead = false;
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyBehaviour _enemyBehaviour;
+    [SerializeField] private BoxCollider _boxCollider;
 
     private void Awake()
     {
@@ -53,6 +54,7 @@ public class ShowHealthBar : MonoBehaviour
         
         ParticleController.Instance.SpawnDeathVFXPig();
         AudioController.Instance.PlayDeathSFX();
+        _boxCollider.isTrigger = false;
 
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
         _isDead = true;
