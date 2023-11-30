@@ -30632,6 +30632,7 @@ MonoBehaviour:
   animator: {fileID: 3882076676352871431}
   _enemyBehaviour: {fileID: 1601421456}
   _boxCollider: {fileID: 1601421454}
+  _meshCollider: {fileID: 1980809826}
 --- !u!4 &5020270454624779878
 Transform:
   m_ObjectHideFlags: 0
@@ -33257,7 +33258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6186332761334096704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.948486, y: 0, z: 50.12}
+  m_LocalPosition: {x: -5.948486, y: 0.5, z: 50.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33661,7 +33662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7526663225486216391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.83, y: 0.080023766, z: 51.18}
+  m_LocalPosition: {x: -13.83, y: 0.46, z: 51.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34452,6 +34453,7 @@ MonoBehaviour:
   _enemyBehaviour: {fileID: 72762109}
   _isDeaad: 1
   _boxCollider: {fileID: 72762113}
+  _meshCollider: {fileID: 122050566}
 --- !u!1 &7681710808878499585
 GameObject:
   m_ObjectHideFlags: 0
@@ -38005,6 +38007,7 @@ MonoBehaviour:
   animator: {fileID: 6814390929460197881}
   _enemyBehaviour: {fileID: 1099782061}
   _boxCollider: {fileID: 1099782066}
+  _meshCollider: {fileID: 785073289}
 --- !u!4 &8886597725734930683
 Transform:
   m_ObjectHideFlags: 0

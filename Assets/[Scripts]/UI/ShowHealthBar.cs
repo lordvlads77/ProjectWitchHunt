@@ -14,6 +14,7 @@ public class ShowHealthBar : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyBehaviour _enemyBehaviour;
     [SerializeField] private BoxCollider _boxCollider;
+    [SerializeField] private MeshCollider _meshCollider;
 
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class ShowHealthBar : MonoBehaviour
         ParticleController.Instance.SpawnDeathVFXPig();
         AudioController.Instance.PlayDeathSFX();
         _boxCollider.isTrigger = false;
-
+        _meshCollider.enabled = false;
         // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
         _isDead = true;
         /*gameObject.SetActive(false);*/ // Desactivar el objeto, por ejemplo
