@@ -1048,6 +1048,8 @@ MonoBehaviour:
   _enemy: {fileID: 6186332761334096704}
   _enemy2: {fileID: 7162322768961326219}
   _enemy3: {fileID: 7526663225486216391}
+  puerta: {fileID: 0}
+  puertaActiva: 0
 --- !u!1 &536957402
 GameObject:
   m_ObjectHideFlags: 0
@@ -30631,8 +30633,12 @@ MonoBehaviour:
   _currentHealth: 0
   animator: {fileID: 3882076676352871431}
   _enemyBehaviour: {fileID: 1601421456}
-  _boxCollider: {fileID: 1601421454}
-  _meshCollider: {fileID: 1980809826}
+  item1ToDrop: {fileID: 8579670150422159203, guid: 1bd63daf36e3b8c45b9f03e4b5538b61, type: 3}
+  dropProbability1: 0.33
+  item2ToDrop: {fileID: 8887782387194662422, guid: 5aeef7c277500a9499525e94db75ba8c, type: 3}
+  dropProbability2: 0.33
+  item3ToDrop: {fileID: 0}
+  dropProbability3: 0.34
 --- !u!4 &5020270454624779878
 Transform:
   m_ObjectHideFlags: 0
@@ -34454,6 +34460,12 @@ MonoBehaviour:
   _isDeaad: 1
   _boxCollider: {fileID: 72762113}
   _meshCollider: {fileID: 122050566}
+  item1ToDrop: {fileID: 8887782387194662422, guid: 5aeef7c277500a9499525e94db75ba8c, type: 3}
+  dropProbability1: 0.33
+  item2ToDrop: {fileID: 8579670150422159203, guid: 1bd63daf36e3b8c45b9f03e4b5538b61, type: 3}
+  dropProbability2: 0.33
+  item3ToDrop: {fileID: 0}
+  dropProbability3: 0.34
 --- !u!1 &7681710808878499585
 GameObject:
   m_ObjectHideFlags: 0
@@ -38008,6 +38020,12 @@ MonoBehaviour:
   _enemyBehaviour: {fileID: 1099782061}
   _boxCollider: {fileID: 1099782066}
   _meshCollider: {fileID: 785073289}
+  item1ToDrop: {fileID: 8579670150422159203, guid: 1bd63daf36e3b8c45b9f03e4b5538b61, type: 3}
+  dropProbability1: 0.33
+  item2ToDrop: {fileID: 8887782387194662422, guid: 5aeef7c277500a9499525e94db75ba8c, type: 3}
+  dropProbability2: 0.33
+  item3ToDrop: {fileID: 0}
+  dropProbability3: 0.34
 --- !u!4 &8886597725734930683
 Transform:
   m_ObjectHideFlags: 0
