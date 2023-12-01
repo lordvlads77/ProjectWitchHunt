@@ -29,6 +29,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _enemy3;
     [SerializeField] private EnemyBehaviour[] _enemyBehaviour;
     [SerializeField] private DisparoAutomatico _disparoAutomatico;
+    [SerializeField] private GameObject _highscScreen = default;
     
 
 
@@ -151,6 +152,13 @@ public class UIController : MonoBehaviour
         isUIActive = true;
         AudioController.Instance.PauseGamePlayMusic();
         AudioController.Instance.PlayGameOverMusic();
+    }
+
+    public void highscoresScreen()
+    {
+        _uiInGamePanel.SetActive(false);
+        _highscScreen.SetActive(true);
+        isUIActive = true;
     }
 
     private IEnumerator MainMenuStuff()
