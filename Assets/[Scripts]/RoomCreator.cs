@@ -6,32 +6,22 @@ using UnityEngine.Serialization;
 
 public class RoomCreator : MonoBehaviour
 {
-    [Header("Level Spawner Stuff")]
-    [SerializeField] private GameObject[] rooms; //Todos los cuartos disponibles
-    [SerializeField] private List<RoomInfo> roomsCreated = new List<RoomInfo>(); // [gameobject del cuarto 1, y su ID 1]
+    [SerializeField] private GameObject[] rooms;
+    [SerializeField] private List<RoomInfo> roomsCreated = new List<RoomInfo>();
     [SerializeField] private bool firstBatchCompleted = false;
     [SerializeField] private bool requestingRoom = false;
     [SerializeField] private GameObject currentLevel;
     [SerializeField] private Transform _spawnPoint;
-    
-    [Header("Player Position Reset")]
-    [FormerlySerializedAs("_ogPlayerPosition")] [SerializeField] private Vector3 _origiPlayerPosition;
+    [SerializeField] private Vector3 _origiPlayerPosition;
     [SerializeField] private Transform _playerPosition;
-    
-    [Header("Transition")]
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _transitionObj = default;
 
-    private void Awake()
-    {
-        _origiPlayerPosition = _playerPosition.position;
-    }
-    
-    
-    
+    private GameManager gameManager;
+
     IEnumerator RequestRoom()
     {
-        while (GetRoom()==false)
+        while (GetRoom() == false)
         {
             yield return new WaitForEndOfFrame();
         }
@@ -40,9 +30,9 @@ public class RoomCreator : MonoBehaviour
         Debug.Log("Room created!");
     }
 
-    bool GetRoom() //create or reactivate room
+    bool GetRoom()
     {
-        int randomNumber = UnityEngine.Random.Range(0, rooms.Length);//1
+        int randomNumber = UnityEngine.Random.Range(0, rooms.Length);
 
         for (int i = 0; i < roomsCreated.Count; i++)
         {
@@ -56,9 +46,8 @@ public class RoomCreator : MonoBehaviour
             }
         }
 
-        if (!firstBatchCompleted) //primera vez creando los cuartos
+        if (!firstBatchCompleted)
         {
-            Debug.Log("Vamos a crear el cuarto nuevo");
             if (currentLevel != null)
             {
                 currentLevel.SetActive(false);
@@ -67,8 +56,8 @@ public class RoomCreator : MonoBehaviour
             GameObject newRoom = Instantiate(rooms[randomNumber], _spawnPoint.position, rooms[randomNumber].transform.rotation);
 
             RoomInfo ri = new RoomInfo();
-            ri.roomObject = newRoom; //guardando el cuarto
-            ri.roomID = randomNumber; //guardando el random number que salió, que es su ID
+            ri.roomObject = newRoom;
+            ri.roomID = randomNumber;
             ri.activated = true;
 
             roomsCreated.Add(ri);
@@ -81,7 +70,7 @@ public class RoomCreator : MonoBehaviour
                 DeactivateRooms();
             }
         }
-        else //----------------------------------- Si los cuartos ya estaban creados, solo hay que activarlos
+        else
         {
             if (currentLevel != null)
             {
@@ -92,14 +81,16 @@ public class RoomCreator : MonoBehaviour
             {
                 if (randomNumber == roomsCreated[i].roomID)
                 {
-                    Debug.Log("Vamos a reactivar un cuarto previamente creado, pero que no se encuentra en esta nueva batch");
-                    roomsCreated[i].roomObject.SetActive(true); //3,7,6,10
+                    roomsCreated[i].roomObject.SetActive(true);
                     roomsCreated[i].activated = true;
                     currentLevel = roomsCreated[i].roomObject;
+
+                    if (gameManager != null && gameManager.EnemigosEliminados >= GameManager.CantidadEnemigosParaAbrir)
+                    {
+                        gameManager.AbrirPuerta();
+                    }
                 }
             }
-
-            Debug.Log("Revisando si todos los cuartos están creados...");
 
             int activatedCount = 0;
             for (int i = 0; i < roomsCreated.Count; i++)
@@ -112,15 +103,9 @@ public class RoomCreator : MonoBehaviour
 
             if (activatedCount == roomsCreated.Count)
             {
-                Debug.Log("Batch completado, reseteando IDs");
                 DeactivateRooms();
             }
-            else
-            {
-                Debug.Log("Batch no completado, continuar...");
-            }
         }
-
 
         return true;
     }
@@ -132,19 +117,29 @@ public class RoomCreator : MonoBehaviour
             roomsCreated[i].activated = false;
         }
     }
-    
+
     private void Start()
     {
+        gameManager = GameManager.Instance;
+
+        if (gameManager == null)
+        {
+            Debug.LogError("GameManager no asignado en el inspector.");
+            return;
+        }
+
         if (requestingRoom)
         {
             return;
         }
-        
+
         requestingRoom = true;
         StartCoroutine(RequestRoom());
         Debug.Log("Starting");
+
     }
-    
+
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag != "LevelChanger")
@@ -152,7 +147,6 @@ public class RoomCreator : MonoBehaviour
             return;
         }
         
-
         requestingRoom = true;
         StartCoroutine(RequestRoom());
         StartCoroutine(toBlack());
@@ -169,6 +163,7 @@ public class RoomCreator : MonoBehaviour
         yield return new WaitForSeconds(1f);
         _transitionObj.SetActive(false);
     }
+
 }
 
 
