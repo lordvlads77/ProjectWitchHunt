@@ -37308,7 +37308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &6205447450003488795
 GameObject:
   m_ObjectHideFlags: 0
@@ -38711,7 +38711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &7166050295786548232
 GameObject:
   m_ObjectHideFlags: 0
@@ -42816,6 +42816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadenemies:
+  - {fileID: 11400000, guid: e79b68301b299cc4ba3daba1d98541f3, type: 2}
+  - {fileID: 11400000, guid: 3eae54fb46c6b0c42b7b1772fed8039c, type: 2}
+  - {fileID: 11400000, guid: 60fd91c8888087341bff9046fa03a81c, type: 2}
   - {fileID: 11400000, guid: e79b68301b299cc4ba3daba1d98541f3, type: 2}
   - {fileID: 11400000, guid: 3eae54fb46c6b0c42b7b1772fed8039c, type: 2}
   - {fileID: 11400000, guid: 60fd91c8888087341bff9046fa03a81c, type: 2}
