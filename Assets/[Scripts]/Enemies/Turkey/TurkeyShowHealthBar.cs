@@ -24,10 +24,13 @@ public class TurkeyShowHealthBar : MonoBehaviour
     [SerializeField] private GameObject item3ToDrop;
     [SerializeField, Range(0f, 1f)] private float dropProbability3 = 0.34f;
 
+    [SerializeField] EnemyChecker enemyChecker;
+
     private void Start()
     {
         _currentHealth = _maxHealth;
         _healthBar = GetComponentInChildren<UIHealthBar>();
+        enemyChecker.isDead = false;
     }
 
     public void Dmg(float dmgAmount)
@@ -77,6 +80,8 @@ public class TurkeyShowHealthBar : MonoBehaviour
             {
                 DropItem(item3ToDrop);
             }
+
+            enemyChecker.isDead = true;
 
             /*gameObject.SetActive(false);*/ // Desactivar el objeto, por ejemplo
         }

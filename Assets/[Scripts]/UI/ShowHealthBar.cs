@@ -9,7 +9,7 @@ public class ShowHealthBar : MonoBehaviour
     [SerializeField] private float _maxHealth = default;
     [SerializeField] public UIHealthBar _healthBar;
     [SerializeField] private float _currentHealth;
-    private bool _isDead = false;
+    private bool _isDeadd = false;
     private bool _itemDropped = false; // Nueva bandera para verificar si el objeto ya se soltó
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyBehaviour _enemyBehaviour;
@@ -39,16 +39,19 @@ public class ShowHealthBar : MonoBehaviour
     {
         _currentHealth = _maxHealth;
 
+        
+
         if (enemyChecker != null)
         {
             string enemyName = enemyChecker.enemyName;
+            enemyChecker.isDead = false;
         }
-        enemyChecker.isDead = false;
+        
     }
 
     public void Dmg(float dmgAmount)
     {
-        if (!_isDead)
+        if (!_isDeadd)
         {
             _currentHealth -= dmgAmount;
             _healthBar.UpdateHealthBar(_maxHealth, _currentHealth);
@@ -61,7 +64,7 @@ public class ShowHealthBar : MonoBehaviour
 
     private void Die()
     {
-        if (!_isDead)
+        if (!_isDeadd)
         {
             // Ejecutar la animación de muerte si es necesario
             if (animator != null)
@@ -70,7 +73,7 @@ public class ShowHealthBar : MonoBehaviour
             }
 
             // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
-            _isDead = true;
+            _isDeadd = true;
 
             // Llama al método EnemigoEliminado del GameManager
             GameManager.Instance.EnemigoEliminado();

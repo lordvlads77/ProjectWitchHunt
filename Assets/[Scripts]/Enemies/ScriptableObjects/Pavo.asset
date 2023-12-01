@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bee89fdffa4c594fadb40be6300804c, type: 3}
   m_Name: Pavo
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Pavo
   isDead: 0
