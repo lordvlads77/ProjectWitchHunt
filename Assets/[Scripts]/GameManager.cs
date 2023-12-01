@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private GameObject _enemy;
-    [SerializeField] private GameObject _enemy2;
-    [SerializeField] private GameObject _enemy3;
-    [SerializeField] private GameObject puerta;
-    [SerializeField] private bool puertaActiva = false;
+    [SerializeField] public GameObject _enemy;
+    [SerializeField] public GameObject _enemy2;
+    [SerializeField] public GameObject _enemy3;
+    [SerializeField] public GameObject puerta;
 
     // Listas para rastrear diferentes tipos de enemigos
     private List<ShowHealthBar> activeEnemies = new List<ShowHealthBar>();
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Métodos para agregar y remover enemigos de las listas correspondientes
+    // Mï¿½todos para agregar y remover enemigos de las listas correspondientes
     public void AddActiveEnemy(ShowHealthBar enemy)
     {
         activeEnemies.Add(enemy);
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         activeFoxEnemies.Remove(foxEnemy);
     }
 
-    // Métodos generales para obtener la cantidad de enemigos
+    // Mï¿½todos generales para obtener la cantidad de enemigos
     public int GetNumberOfEnemies()
     {
         return activeEnemies.Count;
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
 
     public void EnemigoEliminado()
     {
-        if (!puertaActiva && EnemigosEliminados < CantidadEnemigosParaAbrir)
+        /*if (/* && EnemigosEliminados < CantidadEnemigosParaAbrir#1#)
         {
             EnemigosEliminados++;
 
@@ -97,12 +97,22 @@ public class GameManager : MonoBehaviour
                 Debug.Log("AbrirPuerta llamado");
                 AbrirPuerta();
             }
-        }
+        }*/
     }
 
     public void AbrirPuerta()
     {
         Debug.Log("AbrirPuerta llamado");
-        puertaActiva = true;
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _enemy.SetActive(true);
+            _enemy2.SetActive(true);
+            _enemy3.SetActive(true);
+        }
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class VidaGato : MonoBehaviour
 {
+    
     public float vida = 100;
     public Image barraDevida;
     [SerializeField] private Animator _animator;
@@ -18,11 +19,16 @@ public class VidaGato : MonoBehaviour
     [SerializeField] public float maxHealth = 100f;
     [SerializeField] private bool isPetado = true;
 
-    private void Start()
+    private void Awake()
     {
         
     }
 
+    private void Start()
+    {
+        
+    }
+    
     void Update()
     {
         
