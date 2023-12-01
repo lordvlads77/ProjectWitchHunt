@@ -91,7 +91,7 @@ public class UIController : MonoBehaviour
         _disparoAutomatico.enabled = false;
         AudioController.Instance.PauseGamePlayMusic();
         AudioController.Instance.PlayPauseMusic();
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
         GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
         GameStateManager.Instance.SetState(newGameState);
