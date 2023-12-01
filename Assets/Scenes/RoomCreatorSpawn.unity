@@ -30639,6 +30639,7 @@ MonoBehaviour:
   dropProbability2: 0.33
   item3ToDrop: {fileID: 0}
   dropProbability3: 0.34
+  enemyChecker: {fileID: 11400000, guid: e79b68301b299cc4ba3daba1d98541f3, type: 2}
 --- !u!4 &5020270454624779878
 Transform:
   m_ObjectHideFlags: 0

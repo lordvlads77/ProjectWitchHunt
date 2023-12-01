@@ -24,6 +24,8 @@ public class ShowHealthBar : MonoBehaviour
     [SerializeField] private GameObject item3ToDrop;
     [SerializeField, Range(0f, 1f)] private float dropProbability3 = 0.34f;
 
+    [SerializeField] EnemyChecker enemyChecker;
+
     private void Awake()
     {
         Instance = this;
@@ -36,6 +38,12 @@ public class ShowHealthBar : MonoBehaviour
     private void Start()
     {
         _currentHealth = _maxHealth;
+
+        if (enemyChecker != null)
+        {
+            string enemyName = enemyChecker.enemyName;
+        }
+        enemyChecker.isDead = false;
     }
 
     public void Dmg(float dmgAmount)
@@ -88,6 +96,7 @@ public class ShowHealthBar : MonoBehaviour
                 _itemDropped = true; // Marcar que el objeto ya se soltó
             }
 
+            enemyChecker.isDead = true;
             /*gameObject.SetActive(false);*/ // Desactivar el objeto, por ejemplo
         }
     }

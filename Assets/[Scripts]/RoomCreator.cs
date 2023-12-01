@@ -16,6 +16,7 @@ public class RoomCreator : MonoBehaviour
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _transitionObj = default;
+    public List<EnemyChecker> deadenemies = new List<EnemyChecker>();
 
     private GameManager gameManager;
 
@@ -144,8 +145,9 @@ public class RoomCreator : MonoBehaviour
         {
             return;
         }
-        
 
+
+        
         requestingRoom = true;
         StartCoroutine(RequestRoom());
         StartCoroutine(toBlack());
@@ -161,6 +163,18 @@ public class RoomCreator : MonoBehaviour
         Fading.Instance.TransFade();
         yield return new WaitForSeconds(1f);
         _transitionObj.SetActive(false);
+    }
+
+    private bool CheckRequiredEnemies()
+    {
+        foreach (EnemyChecker deadenemy in deadenemies)
+        {
+            if (!deadenemy.isDead)
+            {
+                return false; // if the enemies are not dead
+            }
+        }
+        return true; //if all the enemies are petados.
     }
 }
 
