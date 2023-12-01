@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +9,22 @@ public class ShowHealthBar : MonoBehaviour
     [SerializeField] private float _maxHealth = default;
     [SerializeField] public UIHealthBar _healthBar;
     [SerializeField] private float _currentHealth;
-    private bool _isDead = false;
+    private bool _isDeadd = false;
+    private bool _itemDropped = false; // Nueva bandera para verificar si el objeto ya se soltó
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyBehaviour _enemyBehaviour;
-    [SerializeField] private BoxCollider _boxCollider;
-    [SerializeField] private MeshCollider _meshCollider;
+
+    [Header("Dropeo de Objetos")]
+    [SerializeField] private GameObject item1ToDrop;
+    [SerializeField, Range(0f, 1f)] private float dropProbability1 = 0.33f;
+
+    [SerializeField] private GameObject item2ToDrop;
+    [SerializeField, Range(0f, 1f)] private float dropProbability2 = 0.33f;
+
+    [SerializeField] private GameObject item3ToDrop;
+    [SerializeField, Range(0f, 1f)] private float dropProbability3 = 0.34f;
+
+    [SerializeField] EnemyChecker enemyChecker;
 
     private void Awake()
     {
@@ -28,16 +38,23 @@ public class ShowHealthBar : MonoBehaviour
     private void Start()
     {
         _currentHealth = _maxHealth;
-       // _healthBar = GetComponentInChildren<UIHealthBar>();
+
+        
+
+        if (enemyChecker != null)
+        {
+            string enemyName = enemyChecker.enemyName;
+            enemyChecker.isDead = false;
+        }
+        
     }
 
     public void Dmg(float dmgAmount)
     {
-        if (!_isDead)
+        if (!_isDeadd)
         {
             _currentHealth -= dmgAmount;
             _healthBar.UpdateHealthBar(_maxHealth, _currentHealth);
-           
         }
         if (_currentHealth <= 0)
         {
@@ -47,21 +64,56 @@ public class ShowHealthBar : MonoBehaviour
 
     private void Die()
     {
-        // Ejecutar la animación de muerte si es necesario
-        if (animator != null)
+        if (!_isDeadd)
         {
-            StartCoroutine(PigDeathAnim());
+            // Ejecutar la animación de muerte si es necesario
+            if (animator != null)
+            {
+                StartCoroutine(PigDeathAnim());
+            }
+
+            // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
+            _isDeadd = true;
+
+            // Llama al método EnemigoEliminado del GameManager
+            GameManager.Instance.EnemigoEliminado();
+
+            // Suelta uno de los tres objetos al morir si no se ha soltado antes y las probabilidades se cumplen
+            if (!_itemDropped)
+            {
+                float randomValue = Random.value;
+
+                if (randomValue <= dropProbability1)
+                {
+                    DropItem(item1ToDrop);
+                }
+                else if (randomValue <= dropProbability1 + dropProbability2)
+                {
+                    DropItem(item2ToDrop);
+                }
+                else
+                {
+                    DropItem(item3ToDrop);
+                }
+
+                _itemDropped = true; // Marcar que el objeto ya se soltó
+            }
+
+            enemyChecker.isDead = true;
+            /*gameObject.SetActive(false);*/ // Desactivar el objeto, por ejemplo
         }
-        
-        ParticleController.Instance.SpawnDeathVFXPig();
-        AudioController.Instance.PlayDeathSFX();
-        _boxCollider.isTrigger = false;
-        _meshCollider.enabled = false;
-        // Desactivar el objeto o realizar otras acciones para indicar que el objeto ha muerto
-        _isDead = true;
-        /*gameObject.SetActive(false);*/ // Desactivar el objeto, por ejemplo
     }
-    
+
+    private void DropItem(GameObject itemToDrop)
+    {
+        if (itemToDrop != null)
+        {
+            GameObject droppedItem = Instantiate(itemToDrop, transform.position, Quaternion.identity);
+            // Ajusta la escala según tus necesidades
+            droppedItem.transform.localScale = new Vector3(25f, 25f, 25f);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Dmg(10f);
@@ -71,7 +123,7 @@ public class ShowHealthBar : MonoBehaviour
     {
         _enemyBehaviour.enabled = false;
         AnimationController.Instance.EnemyPigDeath(animator);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
         CoinManager.GetCoinManager().AddCoin();
         Destroy(gameObject);
     }
