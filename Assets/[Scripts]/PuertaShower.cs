@@ -15,7 +15,7 @@ public class PuertaShower : MonoBehaviour
             Debug.Log("Dead Enemis");
             _puerta.SetActive(true);
         }
-        else
+        if(!CheckRequiredEnemies())
         {
             _puerta.SetActive(false);
         }
