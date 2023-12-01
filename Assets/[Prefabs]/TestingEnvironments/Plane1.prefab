@@ -68558,7 +68558,6 @@ Transform:
   - {fileID: 5001898439071529234}
   - {fileID: 3339664841644021046}
   - {fileID: 177179996868120646}
-  - {fileID: 887441884151776912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -91019,57 +91018,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &7764347536632769066
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 887441884151776912}
-  - component: {fileID: 8683876346299419399}
-  m_Layer: 0
-  m_Name: Spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &887441884151776912
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7764347536632769066}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 6.597537, y: 0.18999998, z: -2.3899994}
-  m_LocalScale: {x: 0.34109733, y: 0.27519852, z: 0.18754153}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5920984475713938520}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8683876346299419399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7764347536632769066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a4661ceee02aa4a94d5541a0bac49e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigosPrefabs:
-  - {fileID: 8258548772085794047, guid: 30631c3c6f939c24ba37b5431eb4e916, type: 3}
-  - {fileID: 8185223047818472743, guid: aed5c4a77dbed1e4ab67a4f1c0dbb27c, type: 3}
-  - {fileID: 4198664132757927307, guid: 2dc1c7072bd4e284282848f4f254dfc6, type: 3}
-  puntoSpawn: {fileID: 887441884151776912}
-  cantidadMaximaEnemigos: 3
-  velocidadEnemigo: 5
 --- !u!1 &7771748335760315138
 GameObject:
   m_ObjectHideFlags: 0

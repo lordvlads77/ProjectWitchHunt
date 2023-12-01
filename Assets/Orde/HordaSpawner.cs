@@ -11,7 +11,7 @@ public class HordaSpawner : MonoBehaviour
     private Transform puntoSpawn; // El punto desde el cual aparecerán los enemigos.
 
     [SerializeField]
-    private int cantidadObjetivoEnemigos = 3; // Número objetivo de enemigos a spawnear.
+    private int cantidadMaximaEnemigos = 5; // Número máximo de enemigos a spawnear.
 
     [SerializeField]
     private float velocidadEnemigo = 5.0f; // Velocidad de los enemigos.
@@ -22,12 +22,8 @@ public class HordaSpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnEnemigos();
-    }
-
-    void SpawnEnemigos()
-    {
-        while (enemigosSpawned < cantidadObjetivoEnemigos)
+        // Genera varios enemigos en un bucle for
+        for (int i = 0; i < cantidadMaximaEnemigos; i++)
         {
             SpawnEnemigoAleatorio();
         }
@@ -35,9 +31,9 @@ public class HordaSpawner : MonoBehaviour
 
     void SpawnEnemigoAleatorio()
     {
-        if (enemigosPrefabs.Length == 0 || !spawnerActivo)
+        if (enemigosPrefabs.Length == 0 || enemigosSpawned >= cantidadMaximaEnemigos || !spawnerActivo)
         {
-            // Si no hay enemigos configurados o el spawner no está activo, detenemos el proceso.
+            // Si ya hemos spawnado la cantidad máxima de enemigos o el spawner no está activo, detenemos el proceso.
             return;
         }
 

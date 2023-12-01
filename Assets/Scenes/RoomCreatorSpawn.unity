@@ -164,9 +164,9 @@ MonoBehaviour:
   _lightningTransform2: {fileID: 3456542660103354425}
   _deathParticle: {fileID: 5150739595684053782, guid: 1c99f43be4a733d4ca92e2ca3c18b8ed, type: 3}
   _deathTransform: {fileID: 3456542660103354425}
-  _deathEnemyTransform: {fileID: 6814390929460197882}
-  _deathEnemyTransform1: {fileID: 7507076376719103537}
-  _deathEnemyTransform2: {fileID: 7151651336032507517}
+  _deathEnemyTransform: {fileID: 7151651336032507517}
+  _deathEnemyTransform1: {fileID: 6814390929460197882}
+  _deathEnemyTransform2: {fileID: 7507076376719103537}
   _healingParticle: {fileID: 2055269108340080630, guid: 8e8cbfddc44c0304c94765521a4f6d24, type: 3}
   _healingTransform: {fileID: 3456542660103354425}
   _healingParticle2: {fileID: 773458514103020251, guid: 79d36df0057eeb04ca072e4ffb90f157, type: 3}
@@ -188,17 +188,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &72762109 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6422423704147475453, guid: 2dc1c7072bd4e284282848f4f254dfc6, type: 3}
-  m_PrefabInstance: {fileID: 6422423704211585280}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7162322768961326219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e349f17d1d4f07408b549c69453d614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &333017508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,17 +1272,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988244008}
   m_CullTransparentMesh: 1
---- !u!114 &1099782061 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2615892232630966730, guid: aed5c4a77dbed1e4ab67a4f1c0dbb27c, type: 3}
-  m_PrefabInstance: {fileID: 2615892231564906087}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6186332761334096704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e349f17d1d4f07408b549c69453d614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1202022254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,17 +1638,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!114 &1601421456 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1938894237378562216, guid: 30631c3c6f939c24ba37b5431eb4e916, type: 3}
-  m_PrefabInstance: {fileID: 1938894236698249272}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7526663225486216391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e349f17d1d4f07408b549c69453d614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2084929808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,13 +2778,13 @@ MonoBehaviour:
   HealthBar: {fileID: 0}
   _joystick: {fileID: 2528319865960543431}
   isUIActive: 0
-  _enemy: {fileID: 6186332761334096704}
-  _enemy2: {fileID: 7162322768961326219}
-  _enemy3: {fileID: 7526663225486216391}
+  _enemy: {fileID: 7526663225486216391}
+  _enemy2: {fileID: 6186332761334096704}
+  _enemy3: {fileID: 7162322768961326219}
   _enemyBehaviour:
-  - {fileID: 72762109}
-  - {fileID: 1099782061}
-  - {fileID: 1601421456}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _disparoAutomatico: {fileID: 8725785751277298246}
 --- !u!4 &2373636719745167075
 Transform:
@@ -12822,9 +12789,9 @@ MonoBehaviour:
   barraDevida: {fileID: 9033334314623345187}
   _animator: {fileID: 8725785751277298243}
   _destroyPlayer: {fileID: 2644681228833383043}
-  _enemy: {fileID: 7162322768961326219}
+  _enemy: {fileID: 7526663225486216391}
   _enemy2: {fileID: 6186332761334096704}
-  _enemy3: {fileID: 7526663225486216391}
+  _enemy3: {fileID: 7162322768961326219}
   _floatingJoystick: {fileID: 2528319865960543431}
   maxHealth: 100
   isPetado: 1

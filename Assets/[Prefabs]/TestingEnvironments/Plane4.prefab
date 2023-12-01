@@ -77227,7 +77227,7 @@ MonoBehaviour:
   - {fileID: 8185223047818472743, guid: aed5c4a77dbed1e4ab67a4f1c0dbb27c, type: 3}
   - {fileID: 4198664132757927307, guid: 2dc1c7072bd4e284282848f4f254dfc6, type: 3}
   puntoSpawn: {fileID: 6496027257060750708}
-  cantidadMaximaEnemigos: 3
+  cantidadMaximaEnemigos: 5
   velocidadEnemigo: 5
 --- !u!1 &6955144721301156583
 GameObject:
