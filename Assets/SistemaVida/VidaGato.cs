@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class VidaGato : MonoBehaviour
 {
-    
+    public static VidaGato Instance { get; private set; }
     public float vida = 100;
     public Image barraDevida;
     [SerializeField] private Animator _animator;
@@ -21,7 +21,11 @@ public class VidaGato : MonoBehaviour
 
     private void Awake()
     {
-        
+        Instance = this;
+        if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -42,11 +46,10 @@ public class VidaGato : MonoBehaviour
         {
             StartCoroutine(DeathAnim());
             isPetado = false;
-            UIController.Instance.highscoresScreen();
         }
     }
 
-    private IEnumerator DeathAnim()
+    public IEnumerator DeathAnim()
     {
         Destroy(_enemy);
         Destroy(_enemy2);

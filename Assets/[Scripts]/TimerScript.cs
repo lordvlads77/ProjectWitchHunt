@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -42,9 +43,17 @@ public class TimerScript : MonoBehaviour
     {
         // Perform actions when the game is lost due to running out of time
         Debug.Log("Game Over - Time Ran Out!");
-        UIController.Instance.Moricion();
-        UIController.
+        StartCoroutine(timeloss());
         // Add additional game loss logic here, like showing a game over screen or restarting the level.
+    }
+    
+    IEnumerator timeloss()
+    {
+        VidaGato.Instance.StartCoroutine(VidaGato.Instance.DeathAnim());
+        yield return new WaitForSeconds(3f);
+        Time.timeScale = 0;
+        UIController.Instance.Moricion();
+        
     }
 }
 

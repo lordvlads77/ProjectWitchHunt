@@ -67,7 +67,7 @@ public class UIController : MonoBehaviour
     
     public void PlayButton()
     {
-        // Time.timeScale = 1;
+        Time.timeScale = 1;
         _startMenuPanel.SetActive(false);
         _uiInGamePanel.SetActive(true); 
         isUIActive = false;
