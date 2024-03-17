@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject _enemy;
     [SerializeField] public GameObject _enemy2;
     [SerializeField] public GameObject _enemy3;
-    [SerializeField] public GameObject puerta;
 
     // Listas para rastrear diferentes tipos de enemigos
     private List<ShowHealthBar> activeEnemies = new List<ShowHealthBar>();
@@ -81,7 +80,7 @@ public class GameManager : MonoBehaviour
         _enemy.SetActive(false);
         _enemy2.SetActive(false);
         _enemy3.SetActive(false);
-        puerta.SetActive(true);
+        //puerta.SetActive(true);
     }
 
     public void EnemigoEliminado()

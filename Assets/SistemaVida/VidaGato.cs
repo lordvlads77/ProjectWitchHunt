@@ -61,6 +61,7 @@ public class VidaGato : MonoBehaviour
         AudioController.Instance.PlayDeathSFX();
         yield return new WaitForSeconds(2f);
         Destroy(_destroyPlayer);
+        UIController.Instance.Moricion();
     }
     
     public void UpdateHealth(float newHealth)

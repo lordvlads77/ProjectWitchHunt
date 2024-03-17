@@ -153,6 +153,9 @@ public class RoomCreator : MonoBehaviour
         _playerPosition.transform.position = _origiPlayerPosition;
         Debug.Log("Spawning");
         //StartCoroutine(turnOffLights());
+        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        GameState newGameState = currentGameState == GameState.Paused ? GameState.Gameplay : GameState.Gameplay;
+        GameStateManager.Instance.SetState(newGameState);
     }
     
     IEnumerator toBlack()

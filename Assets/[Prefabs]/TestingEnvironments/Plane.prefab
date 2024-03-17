@@ -69909,7 +69909,6 @@ MonoBehaviour:
   _enemy: {fileID: 196827809539176491}
   _enemy2: {fileID: 5518544169297612549}
   _enemy3: {fileID: 8167196824380180541}
-  puerta: {fileID: 0}
 --- !u!1 &4679477954035961976
 GameObject:
   m_ObjectHideFlags: 0

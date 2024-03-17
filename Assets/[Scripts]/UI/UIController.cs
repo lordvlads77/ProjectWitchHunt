@@ -31,6 +31,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private DisparoAutomatico _disparoAutomatico;
     [SerializeField] private GameObject _highscScreen = default;
     
+    EnemyBehaviour _behaviour;
+    
 
 
     private void Awake()
@@ -45,6 +47,9 @@ public class UIController : MonoBehaviour
     void Start()
     {
         isUIActive = true;
+        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
+        GameStateManager.Instance.SetState(newGameState);
     }
     
     void Update()
@@ -67,7 +72,10 @@ public class UIController : MonoBehaviour
     
     public void PlayButton()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        GameState newGameState = currentGameState == GameState.Paused ? GameState.Gameplay : GameState.Gameplay;
+        GameStateManager.Instance.SetState(newGameState);
         _startMenuPanel.SetActive(false);
         _uiInGamePanel.SetActive(true); 
         isUIActive = false;
@@ -76,6 +84,7 @@ public class UIController : MonoBehaviour
         _enemy3.SetActive(true);
         AudioController.Instance.PauseMenuMusic();
         AudioController.Instance.PlayGamePlayMusic();
+        _behaviour.moveSpeed = 3f;
         
     }
 

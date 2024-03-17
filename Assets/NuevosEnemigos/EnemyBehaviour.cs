@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public string playerTag = "Player";
-    public float moveSpeed = 3f;
+    public float moveSpeed = 0f; 
     public float minimumDistance = default;
 
     private Transform player;
@@ -26,6 +26,9 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
+        // GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        // GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
+        // GameStateManager.Instance.SetState(newGameState);
     }
 
     void Update()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,15 @@ public class PuertaShower : MonoBehaviour
     [SerializeField] GameObject _puerta;
     // Start is called before the first frame update
 
+    // private void Start()
+    // {
+    //     _puerta.SetActive(false);
+    // }
+
     private void Update()
     {
         if (CheckRequiredEnemies())
         {
-            Debug.Log("Dead Enemis");
             _puerta.SetActive(true);
         }
         else
@@ -29,7 +34,12 @@ public class PuertaShower : MonoBehaviour
             {
                 return false; // if the enemies are not dead
             }
+            else /*if (deadenemy.isDead)*/
+            {
+                return true; //if all the enemies are petados.
+            }
         }
         return true; //if all the enemies are petados.
     }
+    
 }
