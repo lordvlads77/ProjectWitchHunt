@@ -27,7 +27,7 @@ public class RoomCreator : MonoBehaviour
         }
         
         requestingRoom = false;
-        Debug.Log("Room created!");
+        // Debug.Log("Room created!");
     }
 
     bool GetRoom()
@@ -40,7 +40,7 @@ public class RoomCreator : MonoBehaviour
             {
                 if (roomsCreated[i].activated)
                 {
-                    Debug.Log("El cuarto ya estaba previamente creado o activado");
+                    // Debug.Log("El cuarto ya estaba previamente creado o activado");
                     return false;
                 }
             }
@@ -135,7 +135,7 @@ public class RoomCreator : MonoBehaviour
 
         requestingRoom = true;
         StartCoroutine(RequestRoom());
-        Debug.Log("Starting");
+        // Debug.Log("Starting");
 
     }
 
@@ -151,7 +151,7 @@ public class RoomCreator : MonoBehaviour
         StartCoroutine(RequestRoom());
         StartCoroutine(toBlack());
         _playerPosition.transform.position = _origiPlayerPosition;
-        Debug.Log("Spawning");
+        // Debug.Log("Spawning");
         //StartCoroutine(turnOffLights());
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
         GameState newGameState = currentGameState == GameState.Paused ? GameState.Gameplay : GameState.Gameplay;

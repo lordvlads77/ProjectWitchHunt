@@ -30,19 +30,19 @@ public class Disparo : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            Debug.Log("Disparando...");
+            // Debug.Log("Disparando...");
             Disparar();
         }
     }
 
     void Disparar()
     {
-        // Instancia un proyectil y configura su dirección y velocidad
+        // Instancia un proyectil y configura su direcciï¿½n y velocidad
         GameObject proyectil = Instantiate(proyectilPrefab, puntoDisparo.position, puntoDisparo.rotation);
         Rigidbody proyectilRigidbody = proyectil.GetComponent<Rigidbody>();
         proyectilRigidbody.velocity = transform.forward * velocidadProyectil;
 
-        // Configura el script del proyectil para saber a qué enemigo pertenece
+        // Configura el script del proyectil para saber a quï¿½ enemigo pertenece
         /*Proyectil scriptProyectil = proyectil.GetComponent<Proyectil>();
         if (scriptProyectil != null)
         {
@@ -50,7 +50,7 @@ public class Disparo : MonoBehaviour
             scriptProyectil.SetDamagePorDisparo(damagePorDisparo);
         }*/
 
-        // Desactiva la capacidad de disparar para evitar múltiples disparos en el mismo ciclo
+        // Desactiva la capacidad de disparar para evitar mï¿½ltiples disparos en el mismo ciclo
         puedeDisparar = false;
 
         // Espera un tiempo antes de poder disparar nuevamente

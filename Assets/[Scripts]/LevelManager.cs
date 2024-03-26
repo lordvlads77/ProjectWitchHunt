@@ -106,7 +106,7 @@ public class LevelManager : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Player entered the trigger");
+        // Debug.Log("Player entered the trigger");
         InstantiateRandomLevel1();
         playerPosition.transform.position = ogPlayerPosition;
         if (instantiatedLevels[5].activeInHierarchy)

@@ -11,7 +11,7 @@ public class SpeedPowerUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player triggered the potion.");
+            // Debug.Log("Player triggered the potion.");
             AudioController.Instance.PlayPotionUseSFX();
             SpeedUpPlayer(other.gameObject);
             Destroy(gameObject);
@@ -30,7 +30,7 @@ public class SpeedPowerUp : MonoBehaviour
 
     System.Collections.IEnumerator ResetSpeed(PlayerMovv playerMovement)
     {
-        Debug.Log("Speed increased.");
+        // Debug.Log("Speed increased.");
 
         // Aplica el multiplicador de velocidad temporalmente
         playerMovement.ApplySpeedMultiplier(speedMultiplier);
@@ -41,6 +41,6 @@ public class SpeedPowerUp : MonoBehaviour
         // Restaura el multiplicador de velocidad original
         playerMovement.ResetSpeedMultiplier();
 
-        Debug.Log("Speed reset.");
+        // Debug.Log("Speed reset.");
     }
 }

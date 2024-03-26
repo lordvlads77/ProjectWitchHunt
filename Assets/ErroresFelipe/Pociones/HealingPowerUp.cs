@@ -9,23 +9,22 @@ public class HealingPowerUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Objeto colisionado: " + other.gameObject.name);
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Colision con el jugador detectada");
+            // Debug.Log("Colision con el jugador detectada");
             VidaGato vidaGato = other.GetComponentInChildren<VidaGato>();
             if (vidaGato != null)
             {
                 //healthBar.UpdateHealth(healthBar.vidaGato.vida + healingAmount);
                 //healthBar.UpdateHealth(healthBar.currentHealth + healingAmount);
                 vidaGato.UpdateHealth(vidaGato.vida + healingAmount);
-                Debug.Log("Vida actual del jugador: " + vidaGato.vida);
+                // Debug.Log("Vida actual del jugador: " + vidaGato.vida);
                 ParticleController.Instance.SpwnHealingParticle();
                 AudioController.Instance.PlayHealingSFX();
             }
 
             Destroy(gameObject);
-            Debug.Log("Pocion destruida");
+            // Debug.Log("Pocion destruida");
         }
     }
 

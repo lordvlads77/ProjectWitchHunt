@@ -27,7 +27,7 @@ public class levelSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //getUniqueRandomNum();
-            Debug.Log(getUniqueRandomNum());
+            // Debug.Log(getUniqueRandomNum());
             if (getUniqueRandomNum() <=1)
             {
                 Instantiate(_LeveltoSpawn, _levelSpawnTransform.position, _levelSpawnTransform.rotation);

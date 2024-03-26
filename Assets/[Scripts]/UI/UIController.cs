@@ -90,7 +90,7 @@ public class UIController : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log(_pauseDebugMsg);
+        // Debug.Log(_pauseDebugMsg);
         _uiPausePanel.SetActive(true);
         _uiInGamePanel.SetActive(false);
         isUIActive = true;
@@ -146,7 +146,7 @@ public class UIController : MonoBehaviour
 
     public void ItemBought()
     {
-        Debug.Log(_itemBoughtDebugMsg);
+        // Debug.Log(_itemBoughtDebugMsg);
     }
 
     public void Ataque()

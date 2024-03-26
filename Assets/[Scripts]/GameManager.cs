@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
 
     public void AbrirPuerta()
     {
-        Debug.Log("AbrirPuerta llamado");
+        // Debug.Log("AbrirPuerta llamado");
         
     }
 

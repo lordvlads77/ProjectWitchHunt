@@ -26,9 +26,6 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
-        // GameState currentGameState = GameStateManager.Instance.CurrentGameState;
-        // GameState newGameState = currentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
-        // GameStateManager.Instance.SetState(newGameState);
     }
 
     void Update()

@@ -9,7 +9,7 @@ public class LlaveManager : MonoBehaviour
     public static void ObtenerLlave()
     {
         tieneLlave = true;
-        Debug.Log("¡Has obtenido una llave!");
+        // Debug.Log("Has obtenido una llave!");
     }
 
     public static bool TieneLlave()
@@ -21,11 +21,11 @@ public class LlaveManager : MonoBehaviour
     {
         if (tieneLlave)
         {
-            Debug.Log("Has usado la llave para abrir la puerta y cambiar de nivel.");
+            // Debug.Log("Has usado la llave para abrir la puerta y cambiar de nivel.");
         }
         else
         {
-            Debug.Log("No tienes una llave para abrir la puerta.");
+            // Debug.Log("No tienes una llave para abrir la puerta.");
         }
     }
 }
